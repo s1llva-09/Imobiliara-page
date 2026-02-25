@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lima Imobiliaria - Gestão de Imoveis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="images/logo.png" alt="Lima Imobiliaria">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#imoveis">Imóveis</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Encontre seu <span>imóvel ideal</span></h1>
+            <p>Encontre o imóvel perfeito para você e sua família com nossa ampla seleção de propriedades.</p>
+            <a href="#contato" class="btn-primary"> Ver Imóveis Disponíveis</a>
+        </div>
+    </section>
+
+<section id="servicos" class="services">
+    <div class="container">
+        <h2>Nossos <span>Serviços</span></h2>
+        <p class="subtitle">Oferecemos uma ampla gama de serviços para atender às necessidades dos nossos clientes..</p>
+        
+        <div class="services-grid">
+            <div class="service-card"><div class="icon-box blue">🏢</div><h3>Gestão de Imóveis</h3><p>Administração completa de propriedades.</p></div>
+            <div class="service-card"><div class="icon-box green">🔑</div><h3>Locação</h3><p>Encontramos os melhores inquilinos.</p></div>
+            <div class="service-card"><div class="icon-box purple">📈</div><h3>Venda</h3><p>Assessoria completa na compra e venda.</p></div>
+            
+            <div class="service-card"><div class="icon-box orange">🛡️</div><h3>Assessoria Jurídica</h3><p>Suporte legal especializado.</p></div>
+            <div class="service-card"><div class="icon-box pink">👥</div><h3>Consultoria</h3><p>Orientação profissional para investimentos.</p></div>
+            <div class="service-card"><div class="icon-box blue-alt">📄</div><h3>Documentação</h3><p>Cuidamos de toda a burocracia.</p></div>
+
+            <div class="service-card"><div class="icon-box green">🏠</div><h3>Avaliação</h3><p>Laudos técnicos de valor de mercado.</p></div>
+            <div class="service-card"><div class="icon-box purple">💰</div><h3>Financiamento</h3><p>Auxílio na obtenção de crédito.</p></div>
+            <div class="service-card"><div class="icon-box orange">🏗️</div><h3>Reformas</h3><p>Gestão de melhorias para valorização.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="imoveis" class="properties">
+    <div class="container">
+        <h2>Imóveis <span>Destaque</span></h2>
+        <p class="subtitle">Confira nossos imóveis em destaque, selecionados para atender às suas necessidades e preferências.</p>
+
+        <div class="properties-grid">
+            
+            <div class="property-card">
+                <div class="property-header">
+                    <span class="badge">Locação</span>
+                    <img src="images/Locação1.png" alt="Apartamento Moderno">
+                </div>
+                <div class="property-body">
+                    <h3>Apartamento</h3>
+                    <p class="location">📍 Agüero 1100 (A) · Barrio Norte</p>
+                    <div class="property-features">
+                        <span>🛏️ 2</span> <span>🚿 2</span> <span>📐 0m²</span>
+                    </div>
+                    <a href="#" class="btn-outline"
+                       data-title="Apartamento Moderno"
+                       data-location="📍 Agüero 1100 (A) · Barrio Norte"
+                       data-beds="2" data-baths="2" data-area="0"
+                       data-img="images/Locação1.png"
+                       data-desc="Oportunidade ideal para estudantes da UBA!
+                       Localizado a poucos passos da Faculdade de Medicina, este apartamento mobiliado
+                       é perfeito para quem busca conforto, localização estratégica e espaço.
+                       Acomoda até 3 pessoas.">
+                       Ver Detalhes
+                    </a>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-header">
+                    <span class="badge blue">Locação</span>
+                    <img src="images/cobertura.jpg" alt="Cobertura">
+                </div>
+                <div class="property-body">
+                    <h3>Apartamento Moderno</h3>
+                    <p class="location">📍 Thames 2300 (A) – Palermo</p>
+                    <div class="property-features">
+                        <span>🛏️ 4</span> <span>🚿 4</span> <span>📐 0m²</span>
+                    </div>
+                    <a href="#" class="btn-outline"
+                       data-title="Apartamento Moderno"
+                       data-location="📍 Thames 2300 (A) – Palermo"
+                       data-beds="4" data-baths="4" data-area="0"
+                       data-img="images/cobertura.jpg"
+                       data-desc=" Localizado em uma das melhores áreas de Palermo:
+                       perto de cafés, parques, centros comerciais, metrô
+                       e toda a atividade cultural do bairro.">
+                       Ver Detalhes
+                    </a>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-header">
+                    <span class="badge">Venda</span>
+                    <img src="images/apartemento.jpg" alt="Apartamento">
+                </div>
+                <div class="property-body">
+                    <h3>Apartamento Moderno</h3>
+                    <p class="location">📍 Vila Olímpia, SP</p>
+                    <div class="property-features">
+                        <span>🛏️ 2</span> <span>🚿 2</span> <span>📐 95m²</span>
+                    </div>
+                    <a href="#" class="btn-outline"
+                       data-title="Apartamento Moderno"
+                       data-location="📍 Vila Olímpia, SP"
+                       data-beds="2" data-baths="2" data-area="95"
+                       data-img="images/apartemento.jpg"
+                       data-desc="Apartamento com design contemporâneo, totalmente planejado, móveis sob medida e varanda integrada.">
+                       Ver Detalhes
+                    </a>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-header">
+                    <span class="badge blue">Locação</span>
+                    <img src="images/comercial.jpg" alt="Sala Comercial">
+                </div>
+                <div class="property-body">
+                    <h3>Sala Comercial</h3>
+                    <p class="location">📍 Faria Lima, SP</p>
+                    <div class="property-features">
+                        <span>🛏️ 0</span> <span>🚿 2</span> <span>📐 150m²</span>
+                    </div>
+                    <a href="#" class="btn-outline"
+                       data-title="Sala Comercial"
+                       data-location="📍 Faria Lima, SP"
+                       data-beds="0" data-baths="2" data-area="150"
+                       data-img="images/comercial.jpg"
+                       data-desc="Ampla sala comercial no coração financeiro de SP. Prédio com infraestrutura completa, auditório e portaria 24h.">
+                       Ver Detalhes
+                    </a>
+                </div>
+            </div>
+
+        </div> <div class="view-all">
+            <a href="#contato" class="btn-primary">Ver Todos os Imóveis</a>
+        </div>
+    </div>
+</section>
+
+<div id="propertyModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        
+        <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <p id="modalLocation" class="location"></p>
+        </div>
+        
+        <div class="modal-img-container">
+            <img src="" id="modalImg" alt="Imóvel">
+        </div>
+
+        <div class="modal-features">
+            <div class="feature">🛏️ <span id="modalBeds"></span> Quartos</div>
+            <div class="feature">🚿 <span id="modalBaths"></span> Banheiros</div>
+            <div class="feature">📐 <span id="modalArea"></span> m²</div>
+        </div>
+
+        <hr class="separator">
+
+        <div class="modal-body">
+            <h3>Sobre o Imóvel</h3>
+            <p id="modalDesc"></p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="close-modal btn-primary">FECHAR</button>
+        </div>
+    </div>
+</div>
+
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <h2>Como <span>Funciona</span></h2>
+            <p class="subtitle">Processo simples e transparente para você encontrar seu imóvel</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Busque</h3>
+                    <p>Encontre o imóvel perfeito usando nossos filtros avançados.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">📄</div>
+                    <h3>Analise</h3>
+                    <p>Compare opções, veja fotos e agende visitas presenciais.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🔑</div>
+                    <h3>Negocie</h3>
+                    <p>Nossa equipe ajuda em toda a negociação e documentação.</p>
+                </div>
+
+                <div  class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">❤️</div>
+                    <h3>Aproveite</h3>
+                    <p>Receba as chaves e realize seu sonho imobiliário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us" id="sobre">
+        <div class="container why-grid">
+            <div class="why-image-container">
+                <img src="images/equipe.jpg" alt="Nossa Equipe" class="main-img">
+                <div class="stat-card">
+                    <h3>98%</h3>
+                    <p>Taxa de Satisfação</p>
+                </div>
+            </div>
+
+            <div class="why-content">
+                <h2>Por que escolher a nossa imobiliaria</h2>
+                <p class="description">
+                    Somos uma empresa especializada em gestão de imóveis, dedicada a oferecer soluções completas para proprietários e inquilinos. Com uma equipe experiente e um portfólio diversificado, garantimos um serviço de alta qualidade, transparência e satisfação para nossos clientes. Nossa missão é facilitar o processo de compra, venda e locação de imóveis, proporcionando uma experiência tranquila e eficiente.
+                </p>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🏅</div>
+                        <div>
+                            <h4>Excelência</h4>
+                            <p>Compromisso com a qualidade em cada etapa do processo imobiliário.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🕒</div>
+                        <div>
+                            <h4>Agilidade</h4>
+                            <p>Processos rápidos e eficientes para agilizar sua transação imobiliária.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <div>
+                            <h4>Equipe Qualificada</h4>
+                            <p>Profissionais experientes e capacitados para atender todas as necessidades do seu imóvel.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <h4>Foco no Cliente</h4>
+                            <p>Atendimento personalizado e orientação especializada para garantir a melhor experiência imobiliária.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#contato" class="btn-white">Entre em Contato</a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+    <div class="container">
+        <div class="contact-header">
+            <h2>Vamos conversar sobre seu <span>próximo imóvel</span></h2>
+            <p>Nossa equipe está pronta para atendê-lo e encontrar a melhor solução para suas necessidades.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <span>Ligue para nós</span>
+                        <p>(54) 9 11 5264-4915</p>
+                        <small>Seg - Sáb: 9h às 18h</small>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <div>
+                        <span>WhatsApp</span>
+                        <p>(54) 9 11 2785-8950</p>
+                        <small>Atendimento rápido</small>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <span>Envie um e-mail</span>
+                        <p>limainmobiliariaofc@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <span>Visite nosso escritório</span>
+                        <p>Jean Jaures, 863, Balvanera - CABA, AR</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form class="contact-form" id="whatsappForm">
+                    <h3>Envie sua mensagem</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome completo</label>
+                            <input type="text" id="nome" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="text" id="telefone" placeholder="(11) 99999-9999" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea id="mensagem" rows="5" placeholder="Olá, gostaria de saber mais sobre..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar para o WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Lima Imobiliaria">
+                </div>
+                <p>Sua parceira de confiança no mercado imobiliário há mais de 15 anos.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/limaimobiliariaar/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#">Compra</a></li>
+                    <li><a href="#">Venda</a></li>
+                    <li><a href="#">Locação</a></li>
+                    <li><a href="#">Gestão de Imóveis</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Equipe</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>Av. Paulista, 1000<br>São Paulo - SP</p>
+                <p>(11) 1234-5678</p>
+                <p>contato@limaimobiliaria.com.br</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lima Imobiliária. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
