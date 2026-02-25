@@ -523,6 +523,7 @@ body {
     background-color: #FF6B00; /* Fundo laranja vibrante */
     padding: 100px 8%;
     color: #ffffff; /* Texto branco para contraste */
+    overflow: hidden; /* Evita estouro lateral causado por elementos posicionados */
 }
 
 .why-grid {
@@ -542,7 +543,7 @@ body {
 .stat-card {
     position: absolute;
     bottom: 20px;
-    right: -20px;
+    right: 20px;
     background: #ffffff;
     padding: 25px;
     border-radius: 20px;
@@ -896,4 +897,87 @@ body {
     text-align: center;
     color: #777;
     font-size: 0.85rem;
+}
+
+/* ADICIONAIS DE RESPONSIVIDADE (seguro, não altera regras existentes) */
+/* Garantir imagens fluidas (exceto imagens de cabeçalho de propriedade, que usam height:100%) */
+img, .main-img, #modalImg, .logo img, .footer-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Garantir que a logo na navbar mantenha tamanho controlado */
+.logo img {
+    max-height: 55px; /* limita altura máxima da logo na navbar */
+    height: auto;
+}
+
+/* Footer logo específica (não muito grande) */
+.footer-logo img {
+    max-height: 60px;
+    height: auto;
+}
+
+/* Navbar mais compacta em telas pequenas */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 12px 5%;
+    }
+    .navbar ul li { margin-left: 16px; }
+    .hero h1 { font-size: 3rem; }
+}
+
+/* Ajustes para tablet: reduzir colunas pesadas */
+@media (max-width: 1024px) {
+    .properties-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Ajustes para telas médias (tablet pequeno) */
+@media (max-width: 768px) {
+    .properties-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 0 6%; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+}
+
+/* Ajustes para celular (sempre empilhar e reduzir espaços) */
+@media (max-width: 600px) {
+    .navbar { padding: 10px 4%; }
+    .navbar ul { gap: 10px; }
+    .hero { height: auto; padding: 40px 5%; }
+    .hero h1 { font-size: 1.8rem; max-width: 100%; }
+    .hero p { max-width: 100%; }
+
+    .properties-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+
+    .service-card, .property-card, .step-card { padding: 20px; }
+    .property-header { height: 180px; }
+    .modal-content { width: 95%; max-width: 480px; }
+    .contact-section { padding: 50px 5%; }
+    .contact-form-container { padding: 20px; }
+}
+
+/* Pequenos dispositivos (very small) */
+@media (max-width: 420px) {
+    .navbar ul li a { font-size: 0.9rem; }
+    .btn-primary { padding: 12px 22px; }
+    .view-all .btn-primary { padding: 12px 28px; }
+    .step-icon { font-size: 2rem; }
+}
+
+/* Correção: remover faixa branca lateral causada por overflow */
+html, body {
+    overflow-x: hidden; /* evita qualquer overflow horizontal inesperado */
+}
+
+/* Garante que a navbar fixa cubra toda a largura da viewport */
+.navbar {
+    left: 0;
+    right: 0;
 }
