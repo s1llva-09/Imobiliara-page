@@ -306,65 +306,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Helper: position nav dropdown under the toggle on small screens
-    function positionNavToToggle() {
-        const nav = navbar.querySelector('nav');
-        if (!nav || !navToggle) return;
-        const rect = navToggle.getBoundingClientRect();
-        // ensure nav is visible to compute sizes
-        nav.style.display = 'block';
-        nav.style.position = 'absolute';
-        nav.style.top = (rect.bottom + 8) + 'px';
-        // align right edge of menu with right edge of toggle
-        const rightOffset = Math.max(12, window.innerWidth - rect.right + 8);
-        nav.style.right = rightOffset + 'px';
-        nav.style.left = 'auto';
-        nav.style.minWidth = '180px';
-        nav.style.maxWidth = '320px';
-        nav.classList.add('anchored');
-    }
-
-    function clearNavPosition() {
-        const nav = navbar.querySelector('nav');
-        if (!nav) return;
-        nav.style.position = '';
-        nav.style.top = '';
-        nav.style.left = '';
-        nav.style.right = '';
-        nav.style.minWidth = '';
-        nav.style.maxWidth = '';
-        nav.style.display = '';
-        nav.classList.remove('anchored');
-    }
-
     if (navToggle && navbar) {
         navToggle.addEventListener('click', function() {
-            const willOpen = !navbar.classList.contains('open');
             navbar.classList.toggle('open');
-            if (willOpen && window.innerWidth <= 900) {
-                positionNavToToggle();
-            } else {
-                clearNavPosition();
-            }
         });
 
         // Fechar menu ao clicar em um item
         document.querySelectorAll('.navbar nav ul li a').forEach(a => {
             a.addEventListener('click', () => {
                 navbar.classList.remove('open');
-                clearNavPosition();
             });
         });
 
         // On resize, close or reposition as needed
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) {
-                // desktop: ensure nav visible and clear inline positions
-                clearNavPosition();
+            if (window.innerWidth > 1024) {
                 navbar.classList.remove('open');
-            } else {
-                // if open on small screen, reposition
-                if (navbar.classList.contains('open')) positionNavToToggle();
             }
         });
     }

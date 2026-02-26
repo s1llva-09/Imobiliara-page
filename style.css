@@ -1285,3 +1285,62 @@ html, body {
         padding-top: 18px;
     }
 }
+/* Ajuste do menu mobile: evita sobreposição com seletor de idioma */
+@media (max-width: 1024px) {
+    .navbar {
+        grid-template-columns: auto 1fr auto auto;
+        align-items: center;
+    }
+
+    .navbar > nav {
+        display: none;
+    }
+
+    .navbar.open > nav {
+        display: block;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 4%;
+        left: auto;
+        width: min(280px, 92vw);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+        z-index: 1400;
+        overflow: hidden;
+    }
+
+    .navbar.open > nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    .navbar.open > nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar.open > nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 16px 20px;
+        border-bottom: 1px solid #efefef;
+        text-align: left;
+    }
+
+    .navbar.open > nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .lang-switch {
+        margin-left: 8px;
+        z-index: 1300;
+    }
+
+    .nav-toggle {
+        display: block;
+        margin-right: 0;
+    }
+}
