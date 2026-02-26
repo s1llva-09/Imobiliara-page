@@ -80,22 +80,40 @@ document.addEventListener('DOMContentLoaded', function() {
             'services.subtitle': 'Oferecemos uma ampla gama de serviços para atender às necessidades dos nossos clientes.',
             'properties.title': 'Imóveis <span>Destaque</span>',
             'properties.subtitle': 'Confira nossos imóveis em destaque, selecionados para atender às suas necessidades e preferências.',
+            'properties.viewAll': 'Ver todos os imóveis',
+            'properties.badge.rent': 'Aluguel',
+            'properties.badge.sale': 'Venda',
             'modal.about': 'Sobre o Imóvel',
             'modal.close': 'FECHAR',
             'how.title': 'Como <span>Funciona</span>',
             'how.subtitle': 'Processo simples e transparente para você encontrar seu imóvel',
+            'step.search.title': 'Procure',
+            'step.search.desc': 'Encontre o imóvel perfeito usando nossos filtros avançados.',
+            'step.analyze.title': 'Analise',
+            'step.analyze.desc': 'Compare opções, veja fotos e agende visitas presenciais.',
+            'step.negotiate.title': 'Negocie',
+            'step.enjoy.title': 'Aproveite',
+            'step.enjoy.desc': 'Receba as chaves e realize seu sonho imobiliário.',
             'why.title': 'Por que escolher a nossa imobiliaria',
-            'why.desc': 'Somos uma empresa especializada em gestão de imóveis, dedicada a oferecer soluções completas para proprietários e inquilinos. Com uma equipe experiente e um portfólio diversificado, garantimos um serviço de alta qualidade, transparência e satisfação para nossos clientes. Nossa missão é facilitar o processo de compra, venda e locação de imóveis, proporcionando uma experiência tranquila e eficiente.',
+            'why.desc': 'Somos uma empresa especializada em gestão de imóveis, dedicada a oferecer soluções completas para proprietários e inquilinos. Com uma equipe experiente e um portfólio diversificado, garantimos um serviço de alta qualidade, transparência e satisfação para nossos clientes. Nossa missão é facilitar o processo de compra, venda e aluguel de imóveis, proporcionando uma experiência tranquila e eficiente.',
+            'why.feature.excellence.title': 'Excelência',
+            'why.feature.excellence.desc': 'Compromisso com a qualidade em cada etapa do processo imobiliário.',
+            'why.feature.agility.title': 'Agilidade',
+            'why.feature.agility.desc': 'Processos rápidos e eficientes para agilizar sua transação imobiliária.',
+            'why.feature.team.title': 'Equipe Qualificada',
+            'why.feature.team.desc': 'Profissionais experientes e capacitados para atender todas as necessidades do seu imóvel.',
+            'why.feature.customer.title': 'Foco no Cliente',
+            'why.feature.customer.desc': 'Atendimento personalizado e orientação especializada para garantir a melhor experiência imobiliária.',
             'why.cta': 'Entre em Contato',
             'contact.title': 'Vamos conversar sobre seu <span>próximo imóvel</span>',
             'contact.desc': 'Nossa equipe está pronta para atendê-lo e encontrar a melhor solução para suas necessidades.',
             'contact.call': 'Ligue para nós',
-            'contact.hours': 'Seg - Sáb: 9h às 18h',
+            'contact.hours': 'Segunda a sexta 9h até 00:00<br>Sábado de 09h até às 15h',
             'contact.whatsapp': 'WhatsApp',
             'contact.whatsappNote': 'Atendimento rápido',
             'contact.email': 'Envie um e-mail',
-            'contact.visit': 'Visite nosso escritório',
-            'contact.address': 'Jean Jaures, 863, Balvanera - CABA, AR',
+            'contact.visit': 'Atendimento online',
+            'contact.address': 'Sem atendimento presencial',
             'form.nameLabel': 'Nome completo',
             'form.namePlaceholder': 'Seu nome',
             'form.phoneLabel': 'Telefone',
@@ -108,10 +126,15 @@ document.addEventListener('DOMContentLoaded', function() {
             'footer.about': 'Sua parceira de confiança no mercado imobiliário há mais de 15 anos.',
             'footer.servicesTitle': 'Serviços',
             'footer.companyTitle': 'Empresa',
+            'footer.company.about': 'Sobre nós',
+            'footer.company.team': 'Equipe',
+            'footer.company.careers': 'Carreiras',
+            'footer.company.blog': 'Blog',
             'footer.contactTitle': 'Contato',
-            'footer.address': 'Av. Paulista, 1000<br>São Paulo - SP',
-            'footer.phone': '(11) 1234-5678',
-            'footer.email': 'contato@limaimobiliaria.com.br',
+            'footer.address': 'Atendimento online<br>Sem atendimento presencial',
+            'footer.phone': '(54) 9 11 5264-4915',
+            'footer.whatsapp': '(54) 9 11 2785-8950 (WhatsApp)',
+            'footer.email': 'limainmobiliariaofc@gmail.com',
             'footer.copyright': '&copy; 2026 Lima Imobiliária. Todos os direitos reservados.'
         },
         es: {
@@ -127,22 +150,40 @@ document.addEventListener('DOMContentLoaded', function() {
             'services.subtitle': 'Ofrecemos una amplia gama de servicios para satisfacer las necesidades de nuestros clientes.',
             'properties.title': 'Inmuebles <span>Destacados</span>',
             'properties.subtitle': 'Vea nuestros inmuebles destacados, seleccionados para satisfacer sus necesidades y preferencias.',
+            'properties.viewAll': 'Ver todos los inmuebles',
+            'properties.badge.rent': 'Alquiler',
+            'properties.badge.sale': 'Venta',
             'modal.about': 'Sobre la propiedad',
             'modal.close': 'CERRAR',
             'how.title': 'Cómo <span>Funciona</span>',
             'how.subtitle': 'Proceso simple y transparente para que encuentre su propiedad',
+            'step.search.title': 'Busque',
+            'step.search.desc': 'Encuentre la propiedad perfecta usando nuestros filtros avanzados.',
+            'step.analyze.title': 'Analice',
+            'step.analyze.desc': 'Compare opciones, vea fotos y agende visitas presenciales.',
+            'step.negotiate.title': 'Negocie',
+            'step.enjoy.title': 'Disfrute',
+            'step.enjoy.desc': 'Reciba las llaves y haga realidad su sueño inmobiliario.',
             'why.title': 'Por qué elegir nuestra inmobiliaria',
             'why.desc': 'Somos una empresa especializada en la gestión de inmuebles, dedicada a ofrecer soluciones completas para propietarios e inquilinos. Con un equipo experimentado y un portafolio diverso, garantizamos un servicio de alta calidad, transparencia y satisfacción para nuestros clientes. Nuestra misión es facilitar el proceso de compra, venta y alquiler de propiedades, proporcionando una experiencia tranquila y eficiente.',
+            'why.feature.excellence.title': 'Excelencia',
+            'why.feature.excellence.desc': 'Compromiso con la calidad en cada etapa del proceso inmobiliario.',
+            'why.feature.agility.title': 'Agilidad',
+            'why.feature.agility.desc': 'Procesos rápidos y eficientes para agilizar su transacción inmobiliaria.',
+            'why.feature.team.title': 'Equipo Calificado',
+            'why.feature.team.desc': 'Profesionales experimentados y capacitados para atender todas las necesidades de su propiedad.',
+            'why.feature.customer.title': 'Foco en el Cliente',
+            'why.feature.customer.desc': 'Atención personalizada y orientación especializada para garantizar la mejor experiencia inmobiliaria.',
             'why.cta': 'Contacte',
             'contact.title': 'Hablemos sobre su <span>próxima propiedad</span>',
             'contact.desc': 'Nuestro equipo está listo para atenderle y encontrar la mejor solución para sus necesidades.',
             'contact.call': 'Llámenos',
-            'contact.hours': 'Lun - Sáb: 9h a 18h',
+            'contact.hours': 'Lunes a viernes 9h hasta 00:00<br>Sábado de 09h hasta las 15h',
             'contact.whatsapp': 'WhatsApp',
             'contact.whatsappNote': 'Atención rápida',
             'contact.email': 'Envíe un correo',
-            'contact.visit': 'Visite nuestra oficina',
-            'contact.address': 'Jean Jaures, 863, Balvanera - CABA, AR',
+            'contact.visit': 'Atención online',
+            'contact.address': 'Sin atención presencial',
             'form.nameLabel': 'Nombre completo',
             'form.namePlaceholder': 'Su nombre',
             'form.phoneLabel': 'Teléfono',
@@ -154,10 +195,15 @@ document.addEventListener('DOMContentLoaded', function() {
             'footer.about': 'Su socio de confianza en el mercado inmobiliario por más de 15 años.',
             'footer.servicesTitle': 'Servicios',
             'footer.companyTitle': 'Empresa',
+            'footer.company.about': 'Sobre nosotros',
+            'footer.company.team': 'Equipo',
+            'footer.company.careers': 'Carreras',
+            'footer.company.blog': 'Blog',
             'footer.contactTitle': 'Contacto',
-            'footer.address': 'Av. Paulista, 1000<br>São Paulo - SP',
-            'footer.phone': '(11) 1234-5678',
-            'footer.email': 'contato@limaimobiliaria.com.br',
+            'footer.address': 'Atención online<br>Sin atención presencial',
+            'footer.phone': '(54) 9 11 5264-4915',
+            'footer.whatsapp': '(54) 9 11 2785-8950 (WhatsApp)',
+            'footer.email': 'limainmobiliariaofc@gmail.com',
             'footer.copyright': '&copy; 2026 Lima Inmobiliaria. Todos los derechos reservados.'
         }
     };
@@ -165,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Portuguese (pt)
     translations.pt['service.management.title'] = 'Gestão de Imóveis';
     translations.pt['service.management.desc'] = 'Administração completa de propriedades.';
-    translations.pt['service.rent.title'] = 'Locação';
+    translations.pt['service.rent.title'] = 'Aluguel';
     translations.pt['service.rent.desc'] = 'Encontramos os melhores inquilinos.';
     translations.pt['service.sale.title'] = 'Venda';
     translations.pt['service.sale.desc'] = 'Assessoria completa na compra e venda.';
@@ -186,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     translations.pt['footer.service.buy'] = 'Compra';
     translations.pt['footer.service.sell'] = 'Venda';
-    translations.pt['footer.service.rent'] = 'Locação';
+    translations.pt['footer.service.rent'] = 'Aluguel';
     translations.pt['footer.service.manage'] = 'Gestão de Imóveis';
 
     // Spanish (es)
@@ -209,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.es['service.renov.title'] = 'Reformas';
     translations.es['service.renov.desc'] = 'Gestión de mejoras para valorización.';
     translations.es['form.title'] = 'Envíe su mensaje';
-    translations.es['form.submit'] = 'Enviar por WhatsApp';
+    translations.es['form.submit'] = 'Enviar mensaje por WhatsApp';
 
     translations.es['footer.service.buy'] = 'Compra';
     translations.es['footer.service.sell'] = 'Venta';
@@ -233,8 +279,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const key = el.getAttribute('data-i18n');
             if (!key) return;
             if (dict[key]) {
-                // If contains HTML (span), set innerHTML, else textContent
-                if (dict[key].includes('<span') || el.tagName === 'A' && dict[key].includes('<span')) {
+                // Render HTML safely for trusted translation strings that include tags
+                if (/<[^>]+>/.test(dict[key])) {
                     el.innerHTML = dict[key];
                 } else {
                     el.textContent = dict[key];
@@ -318,11 +364,19 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+        // Fechar menu quando clicar fora da navbar
+        document.addEventListener('click', (event) => {
+            if (window.innerWidth <= 900 && !navbar.contains(event.target)) {
+                navbar.classList.remove('open');
+            }
+        });
+
         // On resize, close or reposition as needed
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 1024) {
+            if (window.innerWidth > 900) {
                 navbar.classList.remove('open');
             }
         });
     }
 });
+

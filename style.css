@@ -32,12 +32,13 @@ body {
     align-items: center;
     height: 100%; /* Garante que ocupe a altura da navbar */
     grid-column: 1;
+    grid-row: 1;
 }
 
 /* A Imagem da Logo em si */
 .logo img {
     height: 45px; /* Altura ideal para navbars modernas */
-    width: auto;  /* Mantém a proporção sem achatar */
+    width: auto;  /* MantÃ©m a proporÃ§Ã£o sem achatar */
     border-radius: 25px; /* Bordas arredondadas para um visual mais suave */
     object-fit: contain;
     transition: transform 0.3s ease;
@@ -53,7 +54,7 @@ body {
     list-style: none;
 }
 
-/* Botão de toggle (três pontinhos) - escondido por padrão */
+/* BotÃ£o de toggle (trÃªs pontinhos) - escondido por padrÃ£o */
 .nav-toggle {
     display: none;
     background: transparent;
@@ -62,8 +63,9 @@ body {
     font-size: 1.3rem;
     cursor: pointer;
     padding: 6px;
-    margin-right: 10px; /* space between toggle and language switch */
+    margin-right: 0;
     grid-column: 4; /* rightmost action column */
+    grid-row: 1;
 }
 
 /* Language switch (flag + code) */
@@ -74,6 +76,7 @@ body {
     gap: 10px;
     z-index: 1250;
     grid-column: 3; /* second-to-right column */
+    grid-row: 1;
 }
 .lang-switch .lang-toggle {
     background: transparent;
@@ -122,7 +125,7 @@ body {
 .lang-switch .lang-toggle { padding-right: 10px; }
 
 /* Flex ordering so logo stays left, nav centers, actions (lang/menu) align right */
-.navbar > nav { justify-self: center; display: flex; grid-column: 2; }
+.navbar > nav { justify-self: center; display: flex; grid-column: 2; grid-row: 1; }
 .navbar .nav-toggle { justify-self: end; }
 .navbar .lang-switch { justify-self: end; }
 .navbar nav ul { gap: 22px; display:flex; align-items:center; }
@@ -137,7 +140,7 @@ body {
     /* Let JS handle precise positioning; keep simple visible fallback */
     .navbar.open > nav { display: block; z-index: 1100; background: transparent; box-shadow: none; padding: 0; }
     .navbar.open nav ul { flex-direction: column; gap: 12px; }
-    .lang-switch { margin-left: 10px; gap: 8px; }
+    .lang-switch { margin-left: 8px; gap: 6px; }
 }
 
 .navbar ul li {
@@ -189,11 +192,11 @@ body {
     margin-bottom: 30px;
 }
 
-/* 4. BOTÃO (CTA) */
+/* 4. BOTÃƒO (CTA) */
 .btn-primary {
     display: inline-block;
     background-color: #FF6B00;
-    color: #ffffff; /* Texto branco no botão laranja */
+    color: #ffffff; /* Texto branco no botÃ£o laranja */
     padding: 18px 35px;
     border-radius: 8px;
     text-decoration: none;
@@ -208,7 +211,7 @@ body {
     box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
 }
 
-/* 5. SERVIÇOS */
+/* 5. SERVIÃ‡OS */
 .services {
     padding: 80px 8%;
     text-align: center;
@@ -259,7 +262,7 @@ body {
     width: 50px;
     height: 50px;
     background: #fff5ed; /* Laranja bem clarinho de fundo */
-    color: #FF6B00; /* Ícone Laranja */
+    color: #FF6B00; /* Ãcone Laranja */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,118 +292,155 @@ body {
 }
 
 .properties {
-    padding: 80px 8%;
-    background-color: #ffffff;
+    padding: 88px 8% 96px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
-/* Grid de 4 colunas */
+.properties .container {
+    max-width: 1240px;
+}
+
+.properties h2 {
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
+    color: #151515;
+    margin-bottom: 10px;
+}
+
+.properties h2 span {
+    color: #FF6B00;
+}
+
+.properties .subtitle {
+    max-width: 760px;
+    margin-bottom: 36px;
+    color: #666f7a;
+    line-height: 1.55;
+}
+
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
-    margin-top: 40px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
 }
 
 .property-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: #ffffff;
     border-radius: 16px;
-    overflow: hidden; /* Esconde bordas arredondadas em imagens */
-    border: 1px solid #f0f0f0; /* Borda bem clarinha */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra mais suave */
-    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #ececec;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .property-card:hover {
-    transform: translateY(-8px);
-    border-color: #FF6B00; /* Borda laranja no hover */
-    box-shadow: 0 12px 24px rgba(255, 107, 0, 0.1); /* Sombra laranja suave */
+    transform: translateY(-6px);
+    border-color: rgba(255, 107, 0, 0.4);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.14);
 }
 
 .property-header {
     position: relative;
-    height: 190px;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.property-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.12) 100%);
+    pointer-events: none;
 }
 
 .property-header img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .badge {
     position: absolute;
     top: 12px;
     right: 12px;
+    z-index: 2;
     background: #FF6B00;
     color: #ffffff;
-    padding: 4px 12px;
-    border-radius: 6%;
-    font-size: 0.75rem;
-    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
-/* Botão de favoritar */
-
-.wishlist {
-    position: absolute;
-    bottom: -15px; /* Ajuste para posicionar o coração meio que para fora da imagem */
-    right: 15px;
-    background: #ffffff;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    cursor: pointer; /* Cursor de mão para indicar que é clicável */
-    z-index: 5; /* Garante que o botão fique acima de outros elementos */
-}
-
-/* Corpo do Texto */
 .property-body {
-    padding: 20px; /* Aumenta o espaço interno geral do texto */
+    padding: 18px;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Cria um espaço automático entre o título, local e features */
+    gap: 12px;
+    flex: 1;
 }
 
 .property-body h3 {
-    font-size: 1.1rem;
-    color: #1a1a1a;
-    margin-bottom: 5px;
+    font-size: 1.4rem;
+    color: #121212;
+    margin: 0;
 }
 
-.location {
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 15px;
-}
-
-/* Icones de características */
-.proprety-features {
+.property-body .location {
+    font-size: 0.95rem;
+    color: #667085;
+    margin: 0;
+    line-height: 1.45;
     display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-top: 1px solid #f5f5f5;
-    margin-bottom: 15px;
-    font-size: 0.85rem;
-    color: #555;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-/* Botão de Ver Detalhes (estilo outline laranja) */
+.property-body .location i {
+    color: #FF6B00;
+    margin-top: 2px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.property-features {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    margin-top: auto;
+    border-top: 1px solid #efefef;
+}
+
+.property-features span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #344054;
+}
+
+.property-features i {
+    color: #3b82f6;
+}
+
 .btn-outline {
     display: block;
     text-align: center;
-    padding: 10px;
+    padding: 12px 14px;
     border: 1.5px solid #FF6B00;
     color: #FF6B00;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.3s;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.2s ease;
 }
 
 .btn-outline:hover {
@@ -408,32 +448,30 @@ body {
     color: #ffffff;
 }
 
-/* O container que empurra o botão para o centro */
 .view-all {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 36px;
+    margin-bottom: 0;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    width: 100%;            /* Garante que ocupe a largura toda da tela */
+    justify-content: center;
+    width: 100%;
 }
 
-/* O botão propriamente dito */
 .view-all .btn-primary {
-    background-color: #FF6B00; /* Laranja da Lima */
+    background-color: #FF6B00;
     color: #ffffff;
-    padding: 15px 40px;
-    border-radius: 50px;
+    padding: 15px 38px;
+    border-radius: 999px;
     text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase; /* Deixa em MAIÚSCULO como na foto */
-    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
-    transition: 0.3s;
-    display: inline-block; 
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(255, 107, 0, 0.28);
+    transition: 0.25s ease;
+    display: inline-block;
 }
 
 .view-all .btn-primary:hover {
     background-color: #e66000;
-    transform: translateY(-3px); /* Efeito leve de subida ao passar o mouse */
+    transform: translateY(-2px);
 }
 
 /* Fundo do Modal */
@@ -476,10 +514,10 @@ body {
 #modalImg {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Não deixa a imagem esticar */
+    object-fit: cover; /* NÃ£o deixa a imagem esticar */
 }
 
-/* Alinhamento dos Ícones em Linha */
+/* Alinhamento dos Ãcones em Linha */
 .modal-features {
     display: flex;
     justify-content: flex-start;
@@ -506,7 +544,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Botão Laranja Largo */
+/* BotÃ£o Laranja Largo */
 .modal-footer .btn-primary {
     width: 100%;
     background-color: #FF6B00;
@@ -542,7 +580,7 @@ body {
     position: relative;
 }
 
-/* Linha de conexão entre os cards */
+/* Linha de conexÃ£o entre os cards */
 .steps-grid::before {
     content: '';
     position: absolute;
@@ -606,7 +644,7 @@ body {
 /*Ajustes para de responsividade para telas menores */
 @media (max-width: 992px) {
     .steps-grid { grid-template-columns: repeat(2, 1fr);}
-    .steps-grid::before { display: none; } /* Esconde a linha de conexão em telas menores */
+    .steps-grid::before { display: none; } /* Esconde a linha de conexÃ£o em telas menores */
 }
 
 .why-choose-us {
@@ -643,7 +681,7 @@ body {
 
 .stat-card h3 {
     font-size: 2.2rem;
-    color: #FF6B00; /* Número em laranja para destaque */
+    color: #FF6B00; /* NÃºmero em laranja para destaque */
     margin-bottom: 5px;
 }
 
@@ -652,7 +690,7 @@ body {
     color: #555;
 }
 
-/* Conteúdo de Texto em Branco */
+/* ConteÃºdo de Texto em Branco */
 .why-content h2 {
     font-size: 2.8rem;
     color: #ffffff;
@@ -670,7 +708,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Ícones e Benefícios */
+/* Ãcones e BenefÃ­cios */
 .feature-icon {
     background-color: rgba(255, 255, 255, 0.2); /* Fundo branco transparente */
     color: #ffffff;
@@ -687,7 +725,7 @@ body {
 .features-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px; /* Aumentei para 50px para os itens não ficarem grudados */
+    gap: 50px; /* Aumentei para 50px para os itens nÃ£o ficarem grudados */
     margin-bottom: 45px;
 }
 
@@ -705,7 +743,7 @@ body {
     opacity: 0.8;
 }
 
-/* Botão Branco para destacar no fundo Laranja */
+/* BotÃ£o Branco para destacar no fundo Laranja */
 .btn-white {
     display: inline-block;
     background: #ffffff;
@@ -722,10 +760,10 @@ body {
     transform: translateY(-3px);
 }
 
-/* --- SEÇÃO DE CONTATO (ESTRUTURA PRINCIPAL) --- */
+/* --- SEÃ‡ÃƒO DE CONTATO (ESTRUTURA PRINCIPAL) --- */
 .contact-section {
     padding: 100px 8%;
-    background-color: #fcfcfc; /* Fundo leve para destacar o formulário */
+    background-color: #fcfcfc; /* Fundo leve para destacar o formulÃ¡rio */
 }
 
 .contact-header {
@@ -744,15 +782,15 @@ body {
     color: #FF6B00; /* Laranja da marca */
 }
 
-/* O GRID DE ORGANIZAÇÃO */
+/* O GRID DE ORGANIZAÃ‡ÃƒO */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Separa as colunas: 1 parte info / 1.5 partes formulário */
-    gap: 80px; /* Espaço entre as duas colunas */
+    grid-template-columns: 1fr 1.5fr; /* Separa as colunas: 1 parte info / 1.5 partes formulÃ¡rio */
+    gap: 80px; /* EspaÃ§o entre as duas colunas */
     align-items: start;
 }
 
-/* --- COLUNA DA ESQUERDA (INFORMAÇÕES) --- */
+/* --- COLUNA DA ESQUERDA (INFORMAÃ‡Ã•ES) --- */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -775,7 +813,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    flex-shrink: 0; /* Impede o ícone de amassar */
+    flex-shrink: 0; /* Impede o Ã­cone de amassar */
     box-shadow: 0 4px 12px rgba(255, 107, 0, 0.1);
 }
 
@@ -792,7 +830,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* --- COLUNA DA DIREITA (FORMULÁRIO) --- */
+/* --- COLUNA DA DIREITA (FORMULÃRIO) --- */
 .contact-form-container {
     background: #ffffff;
     padding: 45px;
@@ -846,7 +884,7 @@ body {
     outline: none;
 }
 
-/* BOTÃO ENVIAR (ESTILO LIMA) */
+/* BOTÃƒO ENVIAR (ESTILO LIMA) */
 .contact-form .btn-primary {
     width: 100%;
     background-color: #FF6B00;
@@ -872,7 +910,7 @@ body {
 /* --- RESPONSIVIDADE (TABLET E CELULAR) --- */
 @media (max-width: 992px) {
     .contact-grid {
-        grid-template-columns: 1fr; /* Vira uma coluna só */
+        grid-template-columns: 1fr; /* Vira uma coluna sÃ³ */
         gap: 60px;
     }
 
@@ -893,21 +931,21 @@ body {
     }
 }
 
-/* Fundo e Espaçamento Geral */
+/* Fundo e EspaÃ§amento Geral */
 .main-footer {
-    background-color: #0a1118; /* Azul escuro idêntico ao exemplo */
+    background-color: #0a1118; /* Azul escuro idÃªntico ao exemplo */
     color: #ffffff;
     padding: 70px 0 30px;
 }
 
 .container {
-    max-width: 1200px; /* Limita a largura do conteúdo em telas grandes */
+    max-width: 1200px; /* Limita a largura do conteÃºdo em telas grandes */
     margin: 0 auto;    /* Centraliza o bloco na tela */
-    padding: 0 2%;     /* Cria uma margem de segurança para não encostar em telas pequenas */
-    width: 100%;       /* Garante que ocupe o espaço disponível até o limite */
+    padding: 0 2%;     /* Cria uma margem de seguranÃ§a para nÃ£o encostar em telas pequenas */
+    width: 100%;       /* Garante que ocupe o espaÃ§o disponÃ­vel atÃ© o limite */
 }
 
-/* Configuração da Grid (4 colunas) */
+/* ConfiguraÃ§Ã£o da Grid (4 colunas) */
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
@@ -917,14 +955,14 @@ body {
 
 /* Conserto da Imagem Gigante */
 .footer-logo img {
-    height: 50px; /* Trava a altura para não desorganizar */
+    height: 50px; /* Trava a altura para nÃ£o desorganizar */
     width: auto;
     margin-bottom: 20px;
     display: block;
     border-radius: 50px;
 }
 
-/* Organização Interna das Colunas */
+/* OrganizaÃ§Ã£o Interna das Colunas */
 .footer-col {
     display: flex;
     flex-direction: column;
@@ -962,7 +1000,7 @@ body {
     color: #FF6B00; /* Laranja da sua marca */
 }
 
-/* Ícone do Instagram Estilizado */
+/* Ãcone do Instagram Estilizado */
 .social-links a {
     width: 40px;
     height: 40px;
@@ -980,7 +1018,7 @@ body {
     background: #FF6B00;
 }
 
-/* Linha Final de Créditos */
+/* Linha Final de CrÃ©ditos */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
@@ -989,8 +1027,8 @@ body {
     font-size: 0.85rem;
 }
 
-/* ADICIONAIS DE RESPONSIVIDADE (seguro, não altera regras existentes) */
-/* Garantir imagens fluidas (exceto imagens de cabeçalho de propriedade, que usam height:100%) */
+/* ADICIONAIS DE RESPONSIVIDADE (seguro, nÃ£o altera regras existentes) */
+/* Garantir imagens fluidas (exceto imagens de cabeÃ§alho de propriedade, que usam height:100%) */
 img, .main-img, #modalImg, .logo img, .footer-logo img {
     max-width: 100%;
     height: auto;
@@ -998,11 +1036,11 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 
 /* Garantir que a logo na navbar mantenha tamanho controlado */
 .logo img {
-    max-height: 55px; /* limita altura máxima da logo na navbar */
+    max-height: 55px; /* limita altura mÃ¡xima da logo na navbar */
     height: auto;
 }
 
-/* Footer logo específica (não muito grande) */
+/* Footer logo especÃ­fica (nÃ£o muito grande) */
 .footer-logo img {
     max-height: 60px;
     height: auto;
@@ -1011,31 +1049,65 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 /* Navbar mais compacta em telas pequenas */
 @media (max-width: 900px) {
     .navbar {
+        --mobile-actions-width: clamp(150px, 48vw, 210px);
         padding: 12px 5%;
     }
-    /* Mostrar o botão e esconder o menu padrão */
-    .nav-toggle { display: block; }
-    .navbar nav { position: relative; }
-    .navbar nav ul { display: none; }
-    /* Quando .navbar tiver a classe open mostramos o menu em coluna */
+    /* Mostrar o botÃ£o e esconder o menu padrÃ£o */
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        margin-right: 0;
+        padding: 0;
+    }
+    .lang-switch {
+        right: auto;
+        margin-left: 8px;
+        gap: 6px;
+    }
+    .lang-switch .lang-toggle {
+        height: 36px;
+        width: var(--mobile-actions-width);
+        padding: 6px 10px;
+        justify-content: flex-start;
+    }
+    .navbar > nav { display: none; }
+    .navbar.open > nav {
+        display: block;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 5%;
+        left: auto;
+        background: #ffffff;
+        width: var(--mobile-actions-width);
+        min-width: var(--mobile-actions-width);
+        max-width: var(--mobile-actions-width);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+        border-radius: 10px;
+        z-index: 1100;
+        overflow: hidden;
+    }
     .navbar.open nav ul {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 5%;
-        background: #ffffff;
-        min-width: 180px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        padding: 12px;
-        border-radius: 8px;
-        z-index: 1100;
+        gap: 0;
+        width: 100%;
     }
-    .navbar.open nav ul li { margin: 8px 0; }
-    .navbar ul li { margin-left: 16px; }
+    .navbar.open nav ul li { width: 100%; margin: 0; }
+    .navbar.open nav ul li a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 14px 18px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #444;
+        background: transparent;
+    }
+    .navbar.open nav ul li:last-child a { border-bottom: none; }
+    .navbar.open nav ul li a:hover { background: #fafafa; }
     .hero h1 { font-size: 3rem; }
-    /* Reposition language switch on small screens to avoid overlap */
-    .lang-switch { right: 18%; }
 }
 
 /* Ajustes para tablet: reduzir colunas pesadas */
@@ -1043,38 +1115,6 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
     .properties-grid { grid-template-columns: repeat(3, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr; gap: 40px; }
-    .navbar > nav { display: none; }
-    /* Mobile menu: narrow dropdown aligned to right (near the three-dot toggle) */
-    .navbar.open > nav {
-        display: block;
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 8%; /* align to navbar right padding */
-        left: auto;
-        background: #fff;
-        padding: 6px 0;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-        z-index: 1100;
-        border-radius: 10px;
-        min-width: 180px;
-        max-width: 320px; /* keeps it compact near the actions */
-    }
-
-    .navbar.open nav ul { flex-direction: column; gap: 0; width: 100%; }
-    .navbar.open nav ul li { width: 100%; }
-    .navbar.open nav ul li a {
-        display: block;
-        padding: 12px 18px;
-        text-align: left;
-        border-bottom: 1px solid #f3f3f3;
-        width: 100%;
-        color: #444;
-        background: transparent;
-    }
-    .navbar.open nav ul li a:hover { background: #fafafa; }
-    .navbar.open nav ul li:last-child a { border-bottom: none; }
-
-    .lang-switch { margin-left: 8px; gap: 8px; }
     .properties-grid { grid-template-columns: repeat(2, 1fr); }
     .steps-grid { grid-template-columns: repeat(2, 1fr); }
     .hero { padding: 0 6%; }
@@ -1082,7 +1122,7 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
     .hero p { font-size: 1rem; }
 }
 
-/* Ajustes para celular (sempre empilhar e reduzir espaços) */
+/* Ajustes para celular (sempre empilhar e reduzir espaÃ§os) */
 @media (max-width: 600px) {
     .navbar { padding: 10px 4%; }
     .navbar ul { gap: 10px; }
@@ -1095,8 +1135,11 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
     .steps-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
 
-    .service-card, .property-card, .step-card { padding: 20px; }
-    .property-header { height: 180px; }
+    .service-card, .step-card { padding: 20px; }
+    .property-body { padding: 16px; }
+    .property-body h3 { font-size: 1.2rem; }
+    .property-features { gap: 14px; }
+    .view-all .btn-primary { width: 100%; max-width: 320px; text-align: center; }
     .modal-content { width: 95%; max-width: 480px; }
     .contact-section { padding: 50px 5%; }
     .contact-form-container { padding: 20px; }
@@ -1110,7 +1153,7 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
     .step-icon { font-size: 2rem; }
 }
 
-/* Correção: remover faixa branca lateral causada por overflow */
+/* CorreÃ§Ã£o: remover faixa branca lateral causada por overflow */
 html, body {
     overflow-x: hidden; /* evita qualquer overflow horizontal inesperado */
 }
@@ -1285,62 +1328,4 @@ html, body {
         padding-top: 18px;
     }
 }
-/* Ajuste do menu mobile: evita sobreposição com seletor de idioma */
-@media (max-width: 1024px) {
-    .navbar {
-        grid-template-columns: auto 1fr auto auto;
-        align-items: center;
-    }
 
-    .navbar > nav {
-        display: none;
-    }
-
-    .navbar.open > nav {
-        display: block;
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 4%;
-        left: auto;
-        width: min(280px, 92vw);
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.14);
-        z-index: 1400;
-        overflow: hidden;
-    }
-
-    .navbar.open > nav ul {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-    }
-
-    .navbar.open > nav ul li {
-        width: 100%;
-        margin: 0;
-    }
-
-    .navbar.open > nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 16px 20px;
-        border-bottom: 1px solid #efefef;
-        text-align: left;
-    }
-
-    .navbar.open > nav ul li:last-child a {
-        border-bottom: none;
-    }
-
-    .lang-switch {
-        margin-left: 8px;
-        z-index: 1300;
-    }
-
-    .nav-toggle {
-        display: block;
-        margin-right: 0;
-    }
-}
