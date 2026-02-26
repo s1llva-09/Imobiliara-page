@@ -39,7 +39,6 @@ document.querySelectorAll('.btn-outline').forEach(button => {
         document.getElementById("modalImg").src = button.getAttribute('data-img');
         document.getElementById("modalBeds").innerText = button.getAttribute('data-beds');
         document.getElementById("modalBaths").innerText = button.getAttribute('data-baths');
-        document.getElementById("modalArea").innerText = button.getAttribute('data-area');
         document.getElementById("modalDesc").innerText = button.getAttribute('data-desc');
 
         modal.style.display = "block";
@@ -51,7 +50,7 @@ document.querySelector(".close").onclick = () => modal.style.display = "none";
 document.querySelector(".close-modal").onclick = () => modal.style.display = "none";
 window.onclick = (event) => {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.style.display = "block";
     }
 };
 

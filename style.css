@@ -1120,3 +1120,168 @@ html, body {
     left: 0;
     right: 0;
 }
+
+/* Responsividade extra para Como Funciona e Por que escolher */
+@media (max-width: 900px) {
+    .steps-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 40px;
+    }
+    .step-card {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 24px 12px;
+    }
+    .why-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+    .why-image-container,
+    .why-content {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    .feature-item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .stat-card {
+        position: static;
+        margin: 1rem auto;
+        width: 120px;
+    }
+    .main-img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .steps-grid,
+    .why-grid {
+        gap: 1rem;
+    }
+    .step-card h3,
+    .why-content h2 {
+        font-size: 1.2rem;
+    }
+    .feature-item h4 {
+        font-size: 1rem;
+    }
+    .stat-card h3 {
+        font-size: 1.5rem;
+    }
+    .main-img {
+        border-radius: 8px;
+    }
+    .stat-card {
+        width: 100px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .steps-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        margin-top: 20px !important;
+        width: 100%;
+    }
+    .step-card {
+        width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        padding: 16px 8px !important;
+        border-radius: 12px !important;
+    }
+    .why-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: center !important;
+        width: 100%;
+    }
+    .why-image-container,
+    .why-content {
+        width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+    .main-img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+        margin-bottom: 12px !important;
+    }
+    .stat-card {
+        position: static !important;
+        margin: 0 auto 12px auto !important;
+        width: 90px !important;
+        padding: 12px !important;
+    }
+    .features-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        align-items: center !important;
+        width: 100%;
+    }
+    .feature-item {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        text-align: left !important;
+        padding: 0 8px !important;
+    }
+    .why-content h2 {
+        font-size: 1.1rem !important;
+    }
+    .step-card h3 {
+        font-size: 1rem !important;
+    }
+}
+/* RESPONSIVIDADE DO FOOTER */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+    .footer-col {
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    .footer-logo img {
+        max-width: 120px;
+        margin-bottom: 12px;
+    }
+    .footer-bottom {
+        font-size: 0.9rem;
+        padding-top: 18px;
+    }
+}
