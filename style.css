@@ -14,13 +14,8 @@ body {
 html.modal-open,
 body.modal-open {
     overflow: hidden;
-}
-
-body.modal-open {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    right: 0;
+    overscroll-behavior: none;
+    height: 100%;
 }
 
 :root {
@@ -515,6 +510,9 @@ section[id] {
     visibility: hidden;
     pointer-events: none;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     transition: opacity 0.24s ease, visibility 0s linear 0.24s;
 }
 
@@ -532,13 +530,16 @@ section[id] {
     padding: 30px;
     width: 100%;
     max-width: 500px; /* Largura controlada como na foto */
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
     border-radius: 20px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transform: translateY(20px) scale(0.98);
     opacity: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
     transition: transform 0.24s ease, opacity 0.24s ease;
 }
 
