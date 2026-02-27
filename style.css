@@ -11,6 +11,15 @@ body {
     color: #333333; /* Texto escuro para fundo claro */
 }
 
+:root {
+    /* Updated dynamically by JS to match fixed header height */
+    --navbar-offset: 86px;
+}
+
+section[id] {
+    scroll-margin-top: calc(var(--navbar-offset) + 12px);
+}
+
 /* 2. HEADER (NAVBAR) */
 .navbar {
     display: grid;
@@ -161,7 +170,9 @@ body {
 
 /* 3. HERO SECTION */
 .hero {
-    height: 100vh;
+    margin-top: var(--navbar-offset);
+    min-height: calc(100vh - var(--navbar-offset));
+    height: calc(100vh - var(--navbar-offset));
     /* Overlay claro para o novo tema */
     background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5)), 
     url('images/download.jpg');
@@ -1049,8 +1060,8 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 /* Navbar mais compacta em telas pequenas */
 @media (max-width: 900px) {
     .navbar {
-        --mobile-actions-width: clamp(150px, 48vw, 210px);
-        padding: 12px 5%;
+        --mobile-actions-width: clamp(126px, 40vw, 170px);
+        padding: 10px 5%;
     }
     /* Mostrar o botÃ£o e esconder o menu padrÃ£o */
     .nav-toggle {
@@ -1124,9 +1135,17 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 
 /* Ajustes para celular (sempre empilhar e reduzir espaÃ§os) */
 @media (max-width: 600px) {
-    .navbar { padding: 10px 4%; }
+    .navbar { padding: 8px 4%; }
+    .logo img { height: 40px; max-height: 40px; }
+    .nav-toggle { width: 34px; height: 34px; font-size: 1.15rem; }
+    .lang-switch .lang-toggle { width: clamp(116px, 38vw, 160px); height: 34px; padding: 6px 8px; }
     .navbar ul { gap: 10px; }
-    .hero { height: auto; padding: 40px 5%; }
+    .hero {
+        min-height: auto;
+        height: auto;
+        padding: 28px 5% 46px;
+        align-items: flex-start;
+    }
     .hero h1 { font-size: 1.8rem; max-width: 100%; }
     .hero p { max-width: 100%; }
 

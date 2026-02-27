@@ -62,6 +62,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const langMenuBtn = document.getElementById('langMenuBtn');
     const langMenu = document.getElementById('langMenu');
 
+    const syncNavbarOffset = () => {
+        if (!navbar) return;
+        const navbarHeight = Math.ceil(navbar.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--navbar-offset', `${navbarHeight + 8}px`);
+    };
+
+    syncNavbarOffset();
+    window.addEventListener('resize', syncNavbarOffset);
+    window.addEventListener('load', syncNavbarOffset);
+
     // Ensure menu starts closed
     if (langMenu) langMenu.classList.remove('open');
 
