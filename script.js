@@ -27,32 +27,73 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 });
 
 const modal = document.getElementById('propertyModal');
+const closeIcon = document.querySelector('.close');
+const closeModalButton = document.querySelector('.close-modal');
+let lockedScrollY = 0;
+let closeModalTimer = null;
+const MODAL_ANIMATION_MS = 240;
 
-document.querySelectorAll('.btn-outline').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
+const openPropertyModal = (button) => {
+    if (!modal) return;
 
+    // Puxando dados da section do HTML
+    document.getElementById("modalTitle").innerText = button.getAttribute('data-title');
+    document.getElementById("modalLocation").innerText = button.getAttribute('data-location');
+    document.getElementById("modalImg").src = button.getAttribute('data-img');
+    document.getElementById("modalBeds").innerText = button.getAttribute('data-beds');
+    document.getElementById("modalBaths").innerText = button.getAttribute('data-baths');
+    document.getElementById("modalDesc").innerText = button.getAttribute('data-desc');
 
-        // Puxando dados da section do HTML
-        document.getElementById("modalTitle").innerText = button.getAttribute('data-title');
-        document.getElementById("modalLocation").innerText = button.getAttribute('data-location');
-        document.getElementById("modalImg").src = button.getAttribute('data-img');
-        document.getElementById("modalBeds").innerText = button.getAttribute('data-beds');
-        document.getElementById("modalBaths").innerText = button.getAttribute('data-baths');
-        document.getElementById("modalDesc").innerText = button.getAttribute('data-desc');
-
-        modal.style.display = "block";
-    });
-});
-
-//Fechar modal
-document.querySelector(".close").onclick = () => modal.style.display = "none";
-document.querySelector(".close-modal").onclick = () => modal.style.display = "none";
-window.onclick = (event) => {
-    if (event.target == modal) {
-        modal.style.display = "block";
+    if (closeModalTimer) {
+        clearTimeout(closeModalTimer);
+        closeModalTimer = null;
     }
+
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.documentElement.classList.add('modal-open');
+    document.body.classList.add('modal-open');
+    document.body.style.top = `-${lockedScrollY}px`;
+    modal.classList.add('is-open');
 };
+
+const closePropertyModal = () => {
+    if (!modal || !modal.classList.contains('is-open')) return;
+
+    modal.classList.remove('is-open');
+    closeModalTimer = window.setTimeout(() => {
+        document.documentElement.classList.remove('modal-open');
+        document.body.classList.remove('modal-open');
+        document.body.style.top = '';
+        window.scrollTo(0, lockedScrollY);
+        closeModalTimer = null;
+    }, MODAL_ANIMATION_MS);
+};
+
+if (modal) {
+    document.querySelectorAll('.btn-outline').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            openPropertyModal(button);
+        });
+    });
+
+    if (closeIcon) closeIcon.onclick = closePropertyModal;
+    if (closeModalButton) closeModalButton.onclick = closePropertyModal;
+
+    // Fechar clicando fora do conteúdo
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closePropertyModal();
+        }
+    });
+
+    // Fechar com tecla Esc
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closePropertyModal();
+        }
+    });
+}
 
 /* ---------- NAVBAR TOGGLE ---------- */
 document.addEventListener('DOMContentLoaded', function() {
