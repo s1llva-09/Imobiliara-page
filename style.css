@@ -15,7 +15,14 @@ html.modal-open,
 body.modal-open {
     overflow: hidden;
     overscroll-behavior: none;
-    height: 100%;
+    height: 100dvh;
+}
+
+body.modal-open {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
 }
 
 :root {
@@ -497,19 +504,20 @@ section[id] {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 5vh 16px 24px;
+    padding: 16px 12px 20px;
     position: fixed;
     z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    overflow-y: auto;
+    overflow: hidden;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
@@ -526,12 +534,12 @@ section[id] {
 /* Caixa Branca */
 .modal-content {
     background-color: #fff;
-    margin: 0;
+    margin: 0 auto;
     padding: 30px;
     width: 100%;
     max-width: 500px; /* Largura controlada como na foto */
-    max-height: none;
-    overflow: visible;
+    max-height: calc(100dvh - 36px);
+    overflow-y: auto;
     border-radius: 20px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -620,6 +628,16 @@ section[id] {
     .modal,
     .modal-content {
         transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal {
+        padding: 10px 8px 14px;
+    }
+    .modal-content {
+        max-height: calc(100dvh - 24px);
+        margin-bottom: 0;
     }
 }
 

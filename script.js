@@ -29,30 +29,9 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 const modal = document.getElementById('propertyModal');
 const closeIcon = document.querySelector('.close');
 const closeModalButton = document.querySelector('.close-modal');
-const modalContent = modal ? modal.querySelector('.modal-content') : null;
+let lockedScrollY = 0;
 let closeModalTimer = null;
 const MODAL_ANIMATION_MS = 240;
-let modalScrollBlockBound = false;
-
-const preventBackgroundScroll = (event) => {
-    if (!modal || !modal.classList.contains('is-open')) return;
-    if (modalContent && modalContent.contains(event.target)) return;
-    event.preventDefault();
-};
-
-const bindModalScrollBlock = () => {
-    if (modalScrollBlockBound) return;
-    document.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
-    document.addEventListener('wheel', preventBackgroundScroll, { passive: false });
-    modalScrollBlockBound = true;
-};
-
-const unbindModalScrollBlock = () => {
-    if (!modalScrollBlockBound) return;
-    document.removeEventListener('touchmove', preventBackgroundScroll);
-    document.removeEventListener('wheel', preventBackgroundScroll);
-    modalScrollBlockBound = false;
-};
 
 const openPropertyModal = (button) => {
     if (!modal) return;
@@ -70,9 +49,10 @@ const openPropertyModal = (button) => {
         closeModalTimer = null;
     }
 
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
     document.documentElement.classList.add('modal-open');
     document.body.classList.add('modal-open');
-    bindModalScrollBlock();
+    document.body.style.top = `-${lockedScrollY}px`;
     modal.classList.add('is-open');
 };
 
@@ -83,7 +63,8 @@ const closePropertyModal = () => {
     closeModalTimer = window.setTimeout(() => {
         document.documentElement.classList.remove('modal-open');
         document.body.classList.remove('modal-open');
-        unbindModalScrollBlock();
+        document.body.style.top = '';
+        window.scrollTo(0, lockedScrollY);
         closeModalTimer = null;
     }, MODAL_ANIMATION_MS);
 };
