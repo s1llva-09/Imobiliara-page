@@ -29,9 +29,106 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 const modal = document.getElementById('propertyModal');
 const closeIcon = document.querySelector('.close');
 const closeModalButton = document.querySelector('.close-modal');
+const modalImg = document.getElementById('modalImg');
+const modalImgContainer = document.querySelector('.modal-img-container');
+const modalPrev = document.getElementById('modalPrev');
+const modalNext = document.getElementById('modalNext');
+const modalDots = document.getElementById('modalDots');
 let lockedScrollY = 0;
 let closeModalTimer = null;
 const MODAL_ANIMATION_MS = 240;
+let modalGallery = [];
+let modalGalleryIndex = 0;
+let touchStartX = null;
+let touchStartY = null;
+
+const getModalGallery = (button) => {
+    const galleryRaw = (button.getAttribute('data-gallery') || '').trim();
+    const gallery = galleryRaw
+        .split('|')
+        .map(img => img.trim())
+        .filter(Boolean);
+
+    if (!gallery.length) {
+        const singleImage = (button.getAttribute('data-img') || '').trim();
+        if (singleImage) gallery.push(singleImage);
+    }
+
+    return gallery;
+};
+
+const updateModalNavState = () => {
+    const hasCarousel = modalGallery.length > 1;
+
+    if (modalPrev) modalPrev.classList.toggle('is-hidden', !hasCarousel);
+    if (modalNext) modalNext.classList.toggle('is-hidden', !hasCarousel);
+    if (modalDots) modalDots.style.display = hasCarousel ? 'flex' : 'none';
+};
+
+const renderModalDots = () => {
+    if (!modalDots) return;
+    modalDots.innerHTML = '';
+
+    modalGallery.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `modal-dot${index === modalGalleryIndex ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Ir para imagem ${index + 1}`);
+        dot.addEventListener('click', () => {
+            modalGalleryIndex = index;
+            renderModalImage();
+        });
+        modalDots.appendChild(dot);
+    });
+};
+
+const renderModalImage = () => {
+    if (!modalImg || !modalGallery.length) return;
+    modalImg.src = modalGallery[modalGalleryIndex];
+    modalImg.alt = `Imagem ${modalGalleryIndex + 1} do imóvel`;
+
+    if (modalDots) {
+        modalDots.querySelectorAll('.modal-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === modalGalleryIndex);
+        });
+    }
+};
+
+const changeModalImage = (step) => {
+    if (modalGallery.length <= 1) return;
+    modalGalleryIndex = (modalGalleryIndex + step + modalGallery.length) % modalGallery.length;
+    renderModalImage();
+};
+
+const onModalTouchStart = (event) => {
+    if (!modal.classList.contains('is-open') || modalGallery.length <= 1) return;
+    const touch = event.changedTouches && event.changedTouches[0];
+    if (!touch) return;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+};
+
+const onModalTouchEnd = (event) => {
+    if (!modal.classList.contains('is-open') || modalGallery.length <= 1) return;
+    if (touchStartX === null || touchStartY === null) return;
+
+    const touch = event.changedTouches && event.changedTouches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    const minSwipeDistance = 45;
+
+    // Only treat as swipe when horizontal movement is dominant.
+    if (absX > minSwipeDistance && absX > absY * 1.2) {
+        changeModalImage(deltaX < 0 ? 1 : -1);
+    }
+
+    touchStartX = null;
+    touchStartY = null;
+};
 
 const openPropertyModal = (button) => {
     if (!modal) return;
@@ -39,10 +136,15 @@ const openPropertyModal = (button) => {
     // Puxando dados da section do HTML
     document.getElementById("modalTitle").innerText = button.getAttribute('data-title');
     document.getElementById("modalLocation").innerText = button.getAttribute('data-location');
-    document.getElementById("modalImg").src = button.getAttribute('data-img');
     document.getElementById("modalBeds").innerText = button.getAttribute('data-beds');
     document.getElementById("modalBaths").innerText = button.getAttribute('data-baths');
     document.getElementById("modalDesc").innerText = button.getAttribute('data-desc');
+
+    modalGallery = getModalGallery(button);
+    modalGalleryIndex = 0;
+    updateModalNavState();
+    renderModalDots();
+    renderModalImage();
 
     if (closeModalTimer) {
         clearTimeout(closeModalTimer);
@@ -79,6 +181,12 @@ if (modal) {
 
     if (closeIcon) closeIcon.onclick = closePropertyModal;
     if (closeModalButton) closeModalButton.onclick = closePropertyModal;
+    if (modalPrev) modalPrev.onclick = () => changeModalImage(-1);
+    if (modalNext) modalNext.onclick = () => changeModalImage(1);
+    if (modalImgContainer) {
+        modalImgContainer.addEventListener('touchstart', onModalTouchStart, { passive: true });
+        modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
+    }
 
     // Fechar clicando fora do conteúdo
     window.addEventListener('click', (event) => {
@@ -89,6 +197,18 @@ if (modal) {
 
     // Fechar com tecla Esc
     window.addEventListener('keydown', (event) => {
+        if (!modal.classList.contains('is-open')) return;
+
+        if (event.key === 'ArrowRight') {
+            changeModalImage(1);
+            return;
+        }
+
+        if (event.key === 'ArrowLeft') {
+            changeModalImage(-1);
+            return;
+        }
+
         if (event.key === 'Escape' && modal.classList.contains('is-open')) {
             closePropertyModal();
         }
@@ -174,13 +294,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'form.msgLabel': 'Mensagem',
             'form.msgPlaceholder': 'Olá, gostaria de saber mais sobre...',
             'why.cta': 'Entre em Contato',
-            'footer.about': 'Sua parceira de confiança no mercado imobiliário há mais de 15 anos.',
+            'footer.about': 'Desde 2022 confiando em nós 🧡<br><br>Ela chegou do Brasil 🇧🇷 buscando segurança e acompanhamento... e há mais de 3 anos continua alugando com a Lima Imobiliária 🙌<br><br>Para nós, não se trata apenas de alugar um apartamento.<br>Trata-se de construir relações de longo prazo, com transparência e apoio constante.<br><br>Obrigado por continuar nos escolhendo.',
             'footer.servicesTitle': 'Serviços',
-            'footer.companyTitle': 'Empresa',
-            'footer.company.about': 'Sobre nós',
-            'footer.company.team': 'Equipe',
-            'footer.company.careers': 'Carreiras',
-            'footer.company.blog': 'Blog',
+            'footer.companyTitle': 'Diferenciais',
+            'footer.company.about': 'Atendimento 100% online',
+            'footer.company.team': 'Transparência em cada etapa',
+            'footer.company.careers': 'Acompanhamento personalizado',
+            'footer.company.blog': 'Suporte rápido e contínuo',
             'footer.contactTitle': 'Contato',
             'footer.address': 'Atendimento online<br>Sem atendimento presencial',
             'footer.phone': '(54) 9 11 5264-4915',
@@ -243,13 +363,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'form.emailPlaceholder': 'su@email.com',
             'form.msgLabel': 'Mensaje',
             'form.msgPlaceholder': 'Hola, quisiera saber más sobre...',
-            'footer.about': 'Su socio de confianza en el mercado inmobiliario por más de 15 años.',
+            'footer.about': 'Desde 2022 confiando en nosotros 🧡<br><br>Ella llegó desde Brasil 🇧🇷 buscando seguridad y acompañamiento... y hace más de 3 años que sigue alquilando con Lima Inmobiliaria 🙌<br><br>Para nosotros, no se trata solo de alquilar un departamento.<br>Se trata de construir relaciones a largo plazo, con transparencia y apoyo constante.<br><br>Gracias por seguir eligiéndonos.',
             'footer.servicesTitle': 'Servicios',
-            'footer.companyTitle': 'Empresa',
-            'footer.company.about': 'Sobre nosotros',
-            'footer.company.team': 'Equipo',
-            'footer.company.careers': 'Carreras',
-            'footer.company.blog': 'Blog',
+            'footer.companyTitle': 'Diferenciales',
+            'footer.company.about': 'Atención 100% online',
+            'footer.company.team': 'Transparencia en cada etapa',
+            'footer.company.careers': 'Acompañamiento personalizado',
+            'footer.company.blog': 'Soporte rápido y continuo',
             'footer.contactTitle': 'Contacto',
             'footer.address': 'Atención online<br>Sin atención presencial',
             'footer.phone': '(54) 9 11 5264-4915',
@@ -312,6 +432,195 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.es['footer.service.sell'] = 'Venta';
     translations.es['footer.service.rent'] = 'Alquiler';
     translations.es['footer.service.manage'] = 'Gestión de Inmuebles';
+
+    // Properties cards (PT/ES): visible labels + modal dynamic content
+    translations.pt['properties.details'] = 'Ver detalhes';
+    translations.es['properties.details'] = 'Ver detalles';
+    translations.pt['modal.beds'] = 'Quartos';
+    translations.pt['modal.baths'] = 'Banheiros';
+    translations.es['modal.beds'] = 'Habitaciones';
+    translations.es['modal.baths'] = 'Baños';
+
+    translations.pt['properties.card1.title'] = 'Apartamento Moderno';
+    translations.pt['properties.card1.modalTitle'] = 'Apartamento Moderno';
+    translations.pt['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
+    translations.pt['properties.card1.desc'] = `✨ Oportunidade ideal para estudantes da UBA!
+Localizado a poucos passos da Faculdade de Medicina, este apartamento mobiliado e perfeito para quem busca conforto, localizacao estrategica e ambientes amplos.
+Capacidade para ate 3 pessoas.
+
+Detalhes do apartamento:
+🏙️ Sacada
+🧺 Lavarropas
+🚿 2 banheiros
+🌞 Ambientes luminosos
+🐾 Aceita pets
+
+Condicoes:
+Aluguel 980.000 + 250.000 de expensas
+Luz, gas e Wi-Fi por conta do inquilino
+Contrato de 6 meses, ideal para estudantes
+Zona estrategica perto de todos os servicos, comercios e transporte`;
+
+    translations.pt['properties.card2.title'] = 'Apartamento de 4 Ambientes';
+    translations.pt['properties.card2.modalTitle'] = 'Apartamento de 4 Ambientes';
+    translations.pt['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
+    translations.pt['properties.card2.desc'] = `✨ Apartamento de 4 ambientes em Palermo – Disponivel ✨
+📍 Localizado em uma das melhores zonas de Palermo: perto de cafes, parques, centros comerciais, metro e toda a vida cultural do bairro.
+
+📌 Thames 2300 (A) – Palermo
+💵 1.600.000
+➕ Luz, gas e Wi-Fi se pagam a parte
+📆 Contrato semestral com reajuste semestral
+
+🏡 Caracteristicas:
+Amoblado
+1 suite
+Lavarropas
+4 banheiros
+Capacidade para 5–6 pessoas
+Aceita pets (pequenos)
+Nao aceita criancas`;
+
+    translations.pt['properties.card3.title'] = 'Apartamento de 2 Ambientes';
+    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 2 Ambientes';
+    translations.pt['properties.card3.location'] = 'Palestina 800 - Almagro';
+    translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
+
+📅 Disponivel 10/03
+
+📍 Palestina 800 - Almagro
+🛏️ 2 ambientes super confortaveis
+📆 Contrato semestral (bem flexivel!)
+📐 Piso 7 com sacada grande, ideal para seus momentos de relaxamento
+
+💰 Aluguel: $800.000
+🧾 Expensas: $50.000
+⚡ Servicos: luz, gas e WiFi a parte
+🐶 Pet friendly 🐾
+
+💛 No coracao de Almagro, a poucos passos da Av. Corrientes, subte, universidades e cafes.
+Um bairro com vida cultural e tudo o que voce precisa para viver com conforto.`;
+
+    translations.pt['properties.card4.title'] = 'Estúdio em Recoleta';
+    translations.pt['properties.card4.modalTitle'] = 'Estúdio com mezanino - Recoleta';
+    translations.pt['properties.card4.location'] = 'Francisco de Vittoria 2300 - Recoleta';
+    translations.pt['properties.card4.desc'] = `📍 Francisco de Vittoria 2300 - Recoleta
+📌 Zona Plaza Francia | La Isla - Entre Guido e Agote
+
+Studio com entrepiso · Amoblado e equipado
+Localizado na exclusiva zona Plaza Francia - La Isla, este distinguido departamento tipo studio com entrepiso combina conforto, luminosidade e tranquilidade, em um dos ambientes mais prestigiados de Recoleta.
+A propriedade se encontra em uma area residencial de alto nivel, rodeada de espacos verdes, centros culturais, comercios seletos e excelente conectividade urbana.
+
+Caracteristicas do imovel
+Studio com entrepiso
+Totalmente amoblado e equipado
+Distribuicao funcional e moderna
+Ambientes muito luminosos
+Maximo nivel de silencio e privacidade
+
+Localizacao destacada
+A metros da Plaza Francia
+Perto do Museo Nacional de Bellas Artes
+Proximo a Av. Libertador e Av. Figueroa Alcorta
+Em frente ao Ministerio de Seguridad e a Embaixada Britanica
+Excelente acesso ao transporte publico
+🚗 Estacionamento gratuito disponivel na quadra
+
+Condicoes
+Aluguel mensal: USD 500
+Expensas: $140.000
+Servicos por conta do inquilino: luz, agua, ABL e WiFi`;
+
+    translations.es['properties.card1.title'] = 'Apartamento Moderno';
+    translations.es['properties.card1.modalTitle'] = 'Apartamento Moderno';
+    translations.es['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
+    translations.es['properties.card1.desc'] = `✨ ¡Oportunidad ideal para estudiantes de la UBA!
+Ubicado a pasos de la Facultad de Medicina, este departamento amoblado es perfecto para quienes buscan comodidad, ubicación estratégica y espacios amplios.
+Capacidad para hasta 3 personas.
+
+Detalles del departamento:
+🏙️ Balcón
+🧺 Lavarropas
+🚿 2 baños
+🌞 Ambientes luminosos
+🐾 Acepta mascotas
+
+Condiciones:
+Alquiler 980.000 + 250.000 expensas
+Luz, gas y Wi-Fi a cargo del inquilino
+Contrato de 6 meses, ideal para estudiantes
+Zona estratégica cerca de todos los servicios, comercios y transporte`;
+
+    translations.es['properties.card2.title'] = 'Departamento de 4 Ambientes';
+    translations.es['properties.card2.modalTitle'] = 'Departamento de 4 Ambientes';
+    translations.es['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
+    translations.es['properties.card2.desc'] = `✨ Departamento de 4 ambientes en Palermo – Disponible ✨
+📍 Ubicado en una de las mejores zonas de Palermo: cerca de cafés, parques, centros comerciales, subte y toda la movida cultural del barrio.
+
+📌 Thames 2300 (A) – Palermo
+💵 1.600.000
+➕ Luz, gas y wifi se pagan aparte
+📆 Contrato semestral reajuste semestral
+
+🏡 Características:
+Amoblado
+1 suite
+Lavarropas
+4 baños
+Capacidad 5–6 personas
+Acepta mascotas (chicas)
+No acepta niños`;
+
+    translations.es['properties.card3.title'] = 'Departamento de 2 Ambientes';
+    translations.es['properties.card3.modalTitle'] = 'Departamento de 2 Ambientes';
+    translations.es['properties.card3.location'] = 'Palestina 800 - Almagro';
+    translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
+
+📅 Disponible 10/03
+
+📍 Palestina 800 - Almagro
+🛏️ 2 ambientes súper cómodos
+📆 Contrato semestral (¡re flexible!)
+📐 Piso 7 con balcón grande, ideal para tus momentos de relax
+
+💰 Alquiler: $800.000
+🧾 Expensas: $50.000
+⚡ Servicios: luz, gas y WiFi aparte
+🐶 Pet friendly 🐾
+
+💛 En el corazón de Almagro, a pasos de Av. Corrientes, subte, universidades y cafés.
+Un barrio con onda, vida cultural y todo lo que necesitás para vivir cómodo/a.`;
+
+    translations.es['properties.card4.title'] = 'Studio en Recoleta';
+    translations.es['properties.card4.modalTitle'] = 'Studio con Entrepiso - Recoleta';
+    translations.es['properties.card4.location'] = 'Francisco de Vittoria 2300 - Recoleta';
+    translations.es['properties.card4.desc'] = `📍 Francisco de Vittoria 2300 – Recoleta
+📌 Zona Plaza Francia | La Isla – Entre Guido y Agote
+
+Studio con entrepiso · Amoblado y equipado
+Ubicado en la exclusiva zona Plaza Francia – La Isla, este distinguido departamento tipo studio con entrepiso combina confort, luminosidad y tranquilidad, en uno de los entornos más prestigiosos de Recoleta.
+La propiedad se encuentra en un área residencial de alto nivel, rodeada de espacios verdes, centros culturales, comercios selectos y una excelente conectividad urbana.
+
+Características del inmueble
+Studio con entrepiso
+Totalmente amoblado y equipado
+Distribución funcional y moderna
+Ambientes muy luminosos
+Máximo nivel de silencio y privacidad
+
+Ubicación destacada
+A metros de Plaza Francia
+Cercano al Museo Nacional de Bellas Artes
+Próximo a Av. Libertador y Av. Figueroa Alcorta
+Frente al Ministerio de Seguridad y la Embajada Británica
+Excelente acceso a transporte público
+🚗 Estacionamiento gratuito disponible en la cuadra
+
+Condiciones
+Alquiler mensual: USD 500
+Expensas: $140.000
+Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
+
     // additional small keys
     translations.pt['step.negotiation'] = 'Nossa equipe ajuda em toda a negociação e documentação.';
     translations.es['step.negotiation'] = 'Nuestro equipo ayuda en toda la negociación y documentación.';
@@ -343,6 +652,22 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('[data-i18n-placeholder]').forEach(inp => {
             const key = inp.getAttribute('data-i18n-placeholder');
             if (key && dict[key]) inp.placeholder = dict[key];
+        });
+
+        // Update translated modal attributes for each property card button
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const key = el.getAttribute('data-i18n-title');
+            if (key && dict[key]) el.setAttribute('data-title', dict[key]);
+        });
+
+        document.querySelectorAll('[data-i18n-location]').forEach(el => {
+            const key = el.getAttribute('data-i18n-location');
+            if (key && dict[key]) el.setAttribute('data-location', dict[key]);
+        });
+
+        document.querySelectorAll('[data-i18n-desc]').forEach(el => {
+            const key = el.getAttribute('data-i18n-desc');
+            if (key && dict[key]) el.setAttribute('data-desc', dict[key]);
         });
 
         // Update language cycle UI (flag + code)
