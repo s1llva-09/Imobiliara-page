@@ -34,6 +34,10 @@ const modalImgContainer = document.querySelector('.modal-img-container');
 const modalPrev = document.getElementById('modalPrev');
 const modalNext = document.getElementById('modalNext');
 const modalDots = document.getElementById('modalDots');
+const modalBedsValue = document.getElementById('modalBeds');
+const modalBathsValue = document.getElementById('modalBaths');
+const modalBedsLabel = document.getElementById('modalBedsLabel');
+const modalBathsLabel = document.getElementById('modalBathsLabel');
 let lockedScrollY = 0;
 let closeModalTimer = null;
 const MODAL_ANIMATION_MS = 240;
@@ -41,6 +45,30 @@ let modalGallery = [];
 let modalGalleryIndex = 0;
 let touchStartX = null;
 let touchStartY = null;
+
+const parseCount = (value) => {
+    const parsed = Number.parseInt(value, 10);
+    return Number.isNaN(parsed) ? 0 : parsed;
+};
+
+const getCurrentSiteLang = () => {
+    const htmlLang = (document.documentElement.lang || '').toLowerCase();
+    return htmlLang.startsWith('pt') ? 'pt' : 'es';
+};
+
+const updateModalFeatureLabels = (bedsCount, bathsCount, lang = getCurrentSiteLang()) => {
+    if (modalBedsLabel) {
+        modalBedsLabel.textContent = lang === 'pt'
+            ? (bedsCount === 1 ? 'Quarto' : 'Quartos')
+            : (bedsCount === 1 ? 'Habitación' : 'Habitaciones');
+    }
+
+    if (modalBathsLabel) {
+        modalBathsLabel.textContent = lang === 'pt'
+            ? (bathsCount === 1 ? 'Banheiro' : 'Banheiros')
+            : (bathsCount === 1 ? 'Baño' : 'Baños');
+    }
+};
 
 const getModalGallery = (button) => {
     const galleryRaw = (button.getAttribute('data-gallery') || '').trim();
@@ -136,8 +164,11 @@ const openPropertyModal = (button) => {
     // Puxando dados da section do HTML
     document.getElementById("modalTitle").innerText = button.getAttribute('data-title');
     document.getElementById("modalLocation").innerText = button.getAttribute('data-location');
-    document.getElementById("modalBeds").innerText = button.getAttribute('data-beds');
-    document.getElementById("modalBaths").innerText = button.getAttribute('data-baths');
+    const bedsCount = parseCount(button.getAttribute('data-beds'));
+    const bathsCount = parseCount(button.getAttribute('data-baths'));
+    if (modalBedsValue) modalBedsValue.innerText = String(bedsCount);
+    if (modalBathsValue) modalBathsValue.innerText = String(bathsCount);
+    updateModalFeatureLabels(bedsCount, bathsCount);
     document.getElementById("modalDesc").innerText = button.getAttribute('data-desc');
 
     modalGallery = getModalGallery(button);
@@ -383,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.pt['service.management.title'] = 'Gestão de Imóveis';
     translations.pt['service.management.desc'] = 'Administração completa de propriedades.';
     translations.pt['service.rent.title'] = 'Aluguel';
-    translations.pt['service.rent.desc'] = 'Encontramos os melhores inquilinos.';
+    translations.pt['service.rent.desc'] = 'Encontre os melhores apartamentos.';
     translations.pt['service.sale.title'] = 'Venda';
     translations.pt['service.sale.desc'] = 'Assessoria completa na compra e venda.';
     translations.pt['service.legal.title'] = 'Assessoria Jurídica';
@@ -669,6 +700,11 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
             const key = el.getAttribute('data-i18n-desc');
             if (key && dict[key]) el.setAttribute('data-desc', dict[key]);
         });
+
+        // Keep bed/bath label grammar correct for singular/plural in current language.
+        const currentBeds = modalBedsValue ? parseCount(modalBedsValue.textContent) : 0;
+        const currentBaths = modalBathsValue ? parseCount(modalBathsValue.textContent) : 0;
+        updateModalFeatureLabels(currentBeds, currentBaths, lang);
 
         // Update language cycle UI (flag + code)
         if (langCycle) {
