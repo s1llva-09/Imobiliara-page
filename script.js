@@ -34,6 +34,9 @@ const modalImgContainer = document.querySelector('.modal-img-container');
 const modalPrev = document.getElementById('modalPrev');
 const modalNext = document.getElementById('modalNext');
 const modalDots = document.getElementById('modalDots');
+const imageLightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
 const modalBedsValue = document.getElementById('modalBeds');
 const modalBathsValue = document.getElementById('modalBaths');
 const modalBedsLabel = document.getElementById('modalBedsLabel');
@@ -45,6 +48,7 @@ let modalGallery = [];
 let modalGalleryIndex = 0;
 let touchStartX = null;
 let touchStartY = null;
+let isLightboxOpen = false;
 
 const parseCount = (value) => {
     const parsed = Number.parseInt(value, 10);
@@ -68,6 +72,22 @@ const updateModalFeatureLabels = (bedsCount, bathsCount, lang = getCurrentSiteLa
             ? (bathsCount === 1 ? 'Banheiro' : 'Banheiros')
             : (bathsCount === 1 ? 'Baño' : 'Baños');
     }
+};
+
+const openImageLightbox = () => {
+    if (!imageLightbox || !lightboxImg || !modalGallery.length) return;
+    lightboxImg.src = modalGallery[modalGalleryIndex];
+    lightboxImg.alt = `Imagem ampliada ${modalGalleryIndex + 1} do imóvel`;
+    imageLightbox.classList.add('is-open');
+    imageLightbox.setAttribute('aria-hidden', 'false');
+    isLightboxOpen = true;
+};
+
+const closeImageLightbox = () => {
+    if (!imageLightbox) return;
+    imageLightbox.classList.remove('is-open');
+    imageLightbox.setAttribute('aria-hidden', 'true');
+    isLightboxOpen = false;
 };
 
 const getModalGallery = (button) => {
@@ -114,6 +134,11 @@ const renderModalImage = () => {
     if (!modalImg || !modalGallery.length) return;
     modalImg.src = modalGallery[modalGalleryIndex];
     modalImg.alt = `Imagem ${modalGalleryIndex + 1} do imóvel`;
+
+    if (isLightboxOpen && lightboxImg) {
+        lightboxImg.src = modalGallery[modalGalleryIndex];
+        lightboxImg.alt = `Imagem ampliada ${modalGalleryIndex + 1} do imóvel`;
+    }
 
     if (modalDots) {
         modalDots.querySelectorAll('.modal-dot').forEach((dot, index) => {
@@ -192,6 +217,7 @@ const openPropertyModal = (button) => {
 const closePropertyModal = () => {
     if (!modal || !modal.classList.contains('is-open')) return;
 
+    closeImageLightbox();
     modal.classList.remove('is-open');
     closeModalTimer = window.setTimeout(() => {
         document.documentElement.classList.remove('modal-open');
@@ -214,6 +240,13 @@ if (modal) {
     if (closeModalButton) closeModalButton.onclick = closePropertyModal;
     if (modalPrev) modalPrev.onclick = () => changeModalImage(-1);
     if (modalNext) modalNext.onclick = () => changeModalImage(1);
+    if (modalImg) modalImg.onclick = openImageLightbox;
+    if (lightboxClose) lightboxClose.onclick = closeImageLightbox;
+    if (imageLightbox) {
+        imageLightbox.addEventListener('click', (event) => {
+            if (event.target === imageLightbox) closeImageLightbox();
+        });
+    }
     if (modalImgContainer) {
         modalImgContainer.addEventListener('touchstart', onModalTouchStart, { passive: true });
         modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
@@ -229,6 +262,11 @@ if (modal) {
     // Fechar com tecla Esc
     window.addEventListener('keydown', (event) => {
         if (!modal.classList.contains('is-open')) return;
+
+        if (event.key === 'Escape' && isLightboxOpen) {
+            closeImageLightbox();
+            return;
+        }
 
         if (event.key === 'ArrowRight') {
             changeModalImage(1);
