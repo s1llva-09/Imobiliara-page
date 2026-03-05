@@ -27,7 +27,7 @@ body.modal-open {
 
 :root {
     /* Updated dynamically by JS to match fixed header height */
-    --navbar-offset: 86px;
+    --navbar-offset: 78px;
 }
 
 section[id] {
@@ -96,23 +96,55 @@ section[id] {
     position: relative; /* relativo para posicionar o dropdown internamente */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     z-index: 1250;
     grid-column: 3; /* second-to-right column */
     grid-row: 1;
 }
 .lang-switch .lang-toggle {
-    background: transparent;
-    border: 1px solid rgba(0,0,0,0.06);
-    padding: 6px 10px;
-    border-radius: 6px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+    height: 38px;
+    padding: 6px 12px 6px 8px;
+    border-radius: 999px;
+    border: 1px solid #e6e7eb;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+    color: #1f2937;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
-.lang-switch .lang-toggle .lang-flag { font-size: 1.1rem; }
+.lang-switch .lang-toggle:hover {
+    transform: translateY(-1px);
+    border-color: #ffc9a8;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+}
+.lang-switch .lang-toggle:focus-visible {
+    outline: 2px solid #ff9a5c;
+    outline-offset: 2px;
+}
+.lang-switch .lang-toggle .lang-flag {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff1e8;
+    color: #d95f18;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+.lang-switch .lang-toggle .lang-code {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #1f2937;
+    letter-spacing: 0.08em;
+}
 .lang-menu {
     display: none !important;
     position: absolute;
@@ -156,14 +188,13 @@ section[id] {
 
 /* On narrow screens keep right edge aligned with navbar padding (8%) */
 @media (max-width: 900px) {
-    .lang-switch { right: auto; }
+    .lang-switch { right: auto; margin-left: auto; gap: 0; }
     /* Show the mobile toggle and hide the centered nav */
-    .nav-toggle { display: block; }
+    .nav-toggle { display: flex; align-items: center; justify-content: center; }
     .navbar > nav { display: none; }
     /* Let JS handle precise positioning; keep simple visible fallback */
     .navbar.open > nav { display: block; z-index: 1100; background: transparent; box-shadow: none; padding: 0; }
     .navbar.open nav ul { flex-direction: column; gap: 12px; }
-    .lang-switch { margin-left: 8px; gap: 6px; }
 }
 
 .navbar ul li {
@@ -1224,8 +1255,11 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 /* Navbar mais compacta em telas pequenas */
 @media (max-width: 900px) {
     .navbar {
-        --mobile-actions-width: clamp(126px, 40vw, 170px);
-        padding: 10px 5%;
+        --mobile-menu-width: min(220px, 92vw);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 4%;
     }
     /* Mostrar o botÃ£o e esconder o menu padrÃ£o */
     .nav-toggle {
@@ -1234,31 +1268,32 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
         justify-content: center;
         width: 36px;
         height: 36px;
-        margin-right: 0;
+        margin-left: 8px;
         padding: 0;
     }
     .lang-switch {
         right: auto;
-        margin-left: 8px;
-        gap: 6px;
+        margin-left: auto;
+        gap: 0;
     }
     .lang-switch .lang-toggle {
         height: 36px;
-        width: var(--mobile-actions-width);
-        padding: 6px 10px;
-        justify-content: flex-start;
+        width: auto;
+        min-width: 90px;
+        padding: 6px 10px 6px 8px;
+        justify-content: center;
     }
     .navbar > nav { display: none; }
     .navbar.open > nav {
         display: block;
         position: absolute;
-        top: calc(100% + 8px);
-        right: 5%;
+        top: calc(100% + 6px);
+        right: 4%;
         left: auto;
         background: #ffffff;
-        width: var(--mobile-actions-width);
-        min-width: var(--mobile-actions-width);
-        max-width: var(--mobile-actions-width);
+        width: var(--mobile-menu-width);
+        min-width: var(--mobile-menu-width);
+        max-width: var(--mobile-menu-width);
         box-shadow: 0 10px 28px rgba(0,0,0,0.14);
         border-radius: 10px;
         z-index: 1100;
@@ -1302,7 +1337,9 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
     .navbar { padding: 8px 4%; }
     .logo img { height: 40px; max-height: 40px; }
     .nav-toggle { width: 34px; height: 34px; font-size: 1.15rem; }
-    .lang-switch .lang-toggle { width: clamp(116px, 38vw, 160px); height: 34px; padding: 6px 8px; }
+    .lang-switch .lang-toggle { width: auto; min-width: 86px; height: 34px; padding: 6px 9px 6px 7px; }
+    .lang-switch .lang-toggle .lang-flag { width: 22px; height: 22px; font-size: 0.65rem; }
+    .lang-switch .lang-toggle .lang-code { font-size: 0.76rem; }
     .navbar ul { gap: 10px; }
     .hero {
         min-height: auto;

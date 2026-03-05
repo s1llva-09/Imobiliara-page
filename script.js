@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const syncNavbarOffset = () => {
         if (!navbar) return;
         const navbarHeight = Math.ceil(navbar.getBoundingClientRect().height);
-        document.documentElement.style.setProperty('--navbar-offset', `${navbarHeight + 8}px`);
+        document.documentElement.style.setProperty('--navbar-offset', `${navbarHeight}px`);
     };
 
     syncNavbarOffset();
@@ -746,7 +746,7 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
 
         // Update language cycle UI (flag + code)
         if (langCycle) {
-            const flag = (lang === 'pt') ? '🇧🇷' : '🇦🇷';
+            const flag = (lang === 'pt') ? 'BR' : 'AR';
             const code = (lang === 'pt') ? 'PT' : 'ES';
             const flagEl = langCycle.querySelector('.lang-flag');
             const codeEl = langCycle.querySelector('.lang-code');
