@@ -2,8 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lima Inmobiliaria - Gestión de Inmuebles</title>
+    <meta name="description" content="Lima Inmobiliaria en Buenos Aires: alquiler y gestion de inmuebles con asesoramiento personalizado.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="/">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lima Inmobiliaria - Gestión de Inmuebles">
+    <meta property="og:description" content="Alquiler y gestion de inmuebles en Buenos Aires con atención personalizada.">
+    <meta property="og:url" content="/">
+    <meta property="og:site_name" content="Lima Inmobiliaria">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:image:alt" content="Logo de Lima Inmobiliaria">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lima Inmobiliaria - Gestión de Inmuebles">
+    <meta name="twitter:description" content="Alquiler y gestion de inmuebles en Buenos Aires con atención personalizada.">
+    <meta name="twitter:image" content="images/logo.png">
+    <script>
+        (function () {
+            var canonical = document.querySelector('link[rel="canonical"]');
+            var ogUrl = document.querySelector('meta[property="og:url"]');
+            var current = window.location.origin + window.location.pathname;
+            if (canonical) canonical.setAttribute('href', current);
+            if (ogUrl) ogUrl.setAttribute('content', current);
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -82,7 +107,7 @@
             <div class="property-card">
                 <div class="property-header">
                     <span class="badge" data-i18n="properties.badge.rent">Alquiler</span>
-                    <img src="images/Locação1.png" alt="Apartamento">
+                    <img src="images/card1-01-bedroom.jpg" alt="Apartamento">
                 </div>
                 <div class="property-body">
                     <h3 data-i18n="properties.card1.title">Apartamento Moderno</h3>
@@ -99,8 +124,8 @@
                        data-i18n-location="properties.card1.location"
                        data-i18n-desc="properties.card1.desc"
                        data-beds="2" data-baths="2"
-                       data-img="images/Locação1.png"
-                       data-gallery="images/Locação1.png|images/apartemento.jpg|images/casa-moderna.jpg"
+                       data-img="images/card1-01-bedroom.jpg"
+                       data-gallery="images/card1-01-bedroom.jpg|images/card1-02-living.jpg|images/card1-03-room.jpg|images/card1-04-kitchen.jpg"
                        data-i18n="properties.details">Ver detalles</a>
                 </div>
             </div>
@@ -108,7 +133,7 @@
             <div class="property-card">
                 <div class="property-header">
                     <span class="badge" data-i18n="properties.badge.rent">Alquiler</span>
-                    <img src="images/cobertura.jpg" alt="Apartamento Moderno">
+                    <img src="images/IMG_2207.JPG" alt="Apartamento Moderno">
                 </div>
                 <div class="property-body">
                     <h3 data-i18n="properties.card2.title">Departamento 4 Ambientes</h3>
@@ -125,8 +150,8 @@
                        data-i18n-location="properties.card2.location"
                        data-i18n-desc="properties.card2.desc"
                        data-beds="4" data-baths="4"
-                       data-img="images/cobertura.jpg"
-                       data-gallery="images/cobertura.jpg|images/apartemento.jpg|images/casa-moderna.jpg"
+                       data-img="images/IMG_2207.JPG"
+                       data-gallery="images/IMG_2207.JPG|images/IMG_2191.JPG|images/IMG_2217.JPG|images/IMG_2173.JPG"
                        data-i18n="properties.details">Ver detalles</a>
                 </div>
             </div>
