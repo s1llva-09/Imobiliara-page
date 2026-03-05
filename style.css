@@ -1549,3 +1549,11 @@ html, body {
     }
 }
 
+
+/* Ordenacao mobile: logo esquerda, idioma centro-direita, menu no canto direito */
+@media (max-width: 900px) {
+    .navbar .logo { order: 1; }
+    .navbar .lang-switch { order: 2; margin-left: auto; }
+    .navbar .nav-toggle { order: 3; margin-left: 8px; }
+    .navbar > nav { order: 4; }
+}

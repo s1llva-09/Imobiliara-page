@@ -49,6 +49,7 @@ let modalGalleryIndex = 0;
 let touchStartX = null;
 let touchStartY = null;
 let isLightboxOpen = false;
+const mobileCardCarousels = new Map();
 
 const parseCount = (value) => {
     const parsed = Number.parseInt(value, 10);
@@ -89,6 +90,8 @@ const closeImageLightbox = () => {
     imageLightbox.setAttribute('aria-hidden', 'true');
     isLightboxOpen = false;
 };
+
+const isMobileViewport = () => window.matchMedia('(max-width: 900px)').matches;
 
 const getModalGallery = (button) => {
     const galleryRaw = (button.getAttribute('data-gallery') || '').trim();
@@ -151,6 +154,53 @@ const changeModalImage = (step) => {
     if (modalGallery.length <= 1) return;
     modalGalleryIndex = (modalGalleryIndex + step + modalGallery.length) % modalGallery.length;
     renderModalImage();
+};
+
+const handleModalImageClick = () => {
+    if (isMobileViewport() && modalGallery.length > 1) {
+        changeModalImage(1);
+        return;
+    }
+    openImageLightbox();
+};
+
+const stopMobileCardCarousels = () => {
+    mobileCardCarousels.forEach(intervalId => window.clearInterval(intervalId));
+    mobileCardCarousels.clear();
+};
+
+const initMobileCardCarousels = () => {
+    stopMobileCardCarousels();
+
+    if (!isMobileViewport()) {
+        document.querySelectorAll('.property-card').forEach(card => {
+            const coverImg = card.querySelector('.property-header img');
+            const detailsButton = card.querySelector('.btn-outline');
+            if (!coverImg || !detailsButton) return;
+            const fallbackImg = (detailsButton.getAttribute('data-img') || '').trim();
+            if (fallbackImg) coverImg.src = fallbackImg;
+        });
+        return;
+    }
+
+    document.querySelectorAll('.property-card').forEach((card, index) => {
+        const coverImg = card.querySelector('.property-header img');
+        const detailsButton = card.querySelector('.btn-outline');
+        if (!coverImg || !detailsButton) return;
+
+        const gallery = getModalGallery(detailsButton);
+        if (gallery.length <= 1) return;
+
+        let currentIndex = 0;
+        coverImg.src = gallery[currentIndex];
+
+        const intervalId = window.setInterval(() => {
+            currentIndex = (currentIndex + 1) % gallery.length;
+            coverImg.src = gallery[currentIndex];
+        }, 2800 + index * 220);
+
+        mobileCardCarousels.set(card, intervalId);
+    });
 };
 
 const onModalTouchStart = (event) => {
@@ -240,7 +290,7 @@ if (modal) {
     if (closeModalButton) closeModalButton.onclick = closePropertyModal;
     if (modalPrev) modalPrev.onclick = () => changeModalImage(-1);
     if (modalNext) modalNext.onclick = () => changeModalImage(1);
-    if (modalImg) modalImg.onclick = openImageLightbox;
+    if (modalImg) modalImg.onclick = handleModalImageClick;
     if (lightboxClose) lightboxClose.onclick = closeImageLightbox;
     if (imageLightbox) {
         imageLightbox.addEventListener('click', (event) => {
@@ -251,6 +301,17 @@ if (modal) {
         modalImgContainer.addEventListener('touchstart', onModalTouchStart, { passive: true });
         modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
     }
+
+    initMobileCardCarousels();
+    let mobileCarouselResizeTimer = null;
+    const refreshMobileCardCarousels = () => {
+        if (mobileCarouselResizeTimer) window.clearTimeout(mobileCarouselResizeTimer);
+        mobileCarouselResizeTimer = window.setTimeout(() => {
+            initMobileCardCarousels();
+        }, 140);
+    };
+    window.addEventListener('resize', refreshMobileCardCarousels);
+    window.addEventListener('orientationchange', refreshMobileCardCarousels);
 
     // Fechar clicando fora do conteúdo
     window.addEventListener('click', (event) => {
