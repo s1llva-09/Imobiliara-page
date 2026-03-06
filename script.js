@@ -468,6 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const langCycle = document.getElementById('langCycle');
     const langMenuBtn = document.getElementById('langMenuBtn');
     const langMenu = document.getElementById('langMenu');
+    const reviewVideo = document.querySelector('.review-video');
 
     const syncNavbarOffset = () => {
         if (!navbar) return;
@@ -478,6 +479,32 @@ document.addEventListener('DOMContentLoaded', function() {
     syncNavbarOffset();
     window.addEventListener('resize', syncNavbarOffset);
     window.addEventListener('load', syncNavbarOffset);
+
+    const warmupReviewVideo = () => {
+        if (!reviewVideo || reviewVideo.dataset.preloaded === '1') return;
+        reviewVideo.preload = 'auto';
+        reviewVideo.load();
+        reviewVideo.dataset.preloaded = '1';
+    };
+
+    if (reviewVideo) {
+        if ('IntersectionObserver' in window) {
+            const reviewVideoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                        warmupReviewVideo();
+                        observer.disconnect();
+                    }
+                });
+            }, { rootMargin: '260px 0px' });
+            reviewVideoObserver.observe(reviewVideo);
+        } else {
+            warmupReviewVideo();
+        }
+
+        reviewVideo.addEventListener('pointerdown', warmupReviewVideo, { once: true });
+        reviewVideo.addEventListener('touchstart', warmupReviewVideo, { passive: true, once: true });
+    }
 
     // Ensure menu starts closed
     if (langMenu) langMenu.classList.remove('open');
@@ -678,6 +705,21 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.es['footer.service.sell'] = 'Venta';
     translations.es['footer.service.rent'] = 'Alquiler';
     translations.es['footer.service.manage'] = 'Gestión de Inmuebles';
+
+    // Featured review section
+    translations.pt['review.eyebrow'] = 'Avaliação em Destaque';
+    translations.pt['review.title'] = 'A experiência de encontrar o <span>imóvel ideal</span>';
+    translations.pt['review.quote'] = '"O atendimento superou todas as minhas expectativas. A equipe entendeu perfeitamente o que eu buscava e o processo foi incrivelmente ágil e transparente."';
+    translations.pt['review.name'] = 'Heloíse';
+    translations.pt['review.badge'] = 'Avaliação Verificada';
+    translations.pt['review.watch'] = 'Assistir Avaliação';
+
+    translations.es['review.eyebrow'] = 'Evaluación Destacada';
+    translations.es['review.title'] = 'La experiencia de encontrar la <span>propiedad ideal</span>';
+    translations.es['review.quote'] = '"La atención superó todas mis expectativas. El equipo entendió perfectamente lo que buscaba y todo el proceso fue increíblemente ágil y transparente."';
+    translations.es['review.name'] = 'Heloíse';
+    translations.es['review.badge'] = 'Evaluación Verificada';
+    translations.es['review.watch'] = 'Ver Evaluación';
 
     // Properties cards (PT/ES): visible labels + modal dynamic content
     translations.pt['properties.details'] = 'Ver detalhes';

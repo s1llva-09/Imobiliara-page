@@ -969,6 +969,159 @@ section[id] {
     background-color: #fcfcfc; /* Fundo leve para destacar o formulÃ¡rio */
 }
 
+/* --- SECAO DE AVALIACAO EM DESTAQUE --- */
+.featured-review {
+    padding: 92px 8%;
+    background: radial-gradient(circle at 75% 18%, rgba(255, 107, 0, 0.14), rgba(255, 107, 0, 0) 42%), #fff7f1;
+}
+
+.featured-review-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 58px;
+    align-items: center;
+}
+
+.review-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    color: #FF6B00;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.review-eyebrow::before {
+    content: '';
+    width: 38px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.featured-review-copy h2 {
+    margin: 0 0 22px;
+    color: #1f2430;
+    font-size: clamp(2rem, 3.8vw, 3.45rem);
+    line-height: 1.05;
+    font-weight: 300;
+    max-width: 16ch;
+}
+
+.featured-review-copy h2 span {
+    color: #FF6B00;
+    font-weight: 700;
+}
+
+.review-quote {
+    margin: 0 0 30px;
+    max-width: 27ch;
+    color: #687284;
+    font-size: clamp(1.12rem, 2vw, 1.82rem);
+    line-height: 1.45;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.review-client-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 24px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid #e7eaf0;
+    box-shadow: 0 14px 30px rgba(16, 24, 40, 0.08);
+    max-width: 640px;
+}
+
+.review-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fff4eb, #ffd8ba);
+    color: #FF6B00;
+    font-size: 1.38rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-client-meta strong {
+    display: block;
+    color: #1d2433;
+    font-size: 1.24rem;
+    line-height: 1.15;
+}
+
+.review-client-meta span {
+    display: block;
+    margin-top: 4px;
+    color: #6f7a8d;
+    font-size: 0.95rem;
+}
+
+.review-rating {
+    text-align: right;
+}
+
+.review-stars {
+    color: #f3b400;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+}
+
+.review-rating span {
+    display: block;
+    margin-top: 6px;
+    color: #8f98a8;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.featured-review-media {
+    width: 100%;
+}
+
+.review-video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 9 / 16;
+    margin-left: auto;
+    border-radius: 30px;
+    padding: 10px;
+    background: #fff4ec;
+    border: 1px solid #ffd7bf;
+    box-shadow: 0 26px 48px rgba(17, 24, 39, 0.17);
+    overflow: hidden;
+}
+
+.review-video-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 22px;
+    background: #0f1219;
+}
+
+.review-video-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    border-radius: 22px;
+    background: #0f1219;
+}
+
 .contact-header {
     margin-bottom: 60px;
     max-width: 700px;
@@ -1546,6 +1699,42 @@ html, body {
     .footer-bottom {
         font-size: 0.9rem;
         padding-top: 18px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .featured-review-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+    .featured-review-copy h2,
+    .review-quote {
+        max-width: none;
+    }
+    .review-video-frame {
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .featured-review {
+        padding: 62px 5%;
+    }
+    .review-client-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        text-align: left;
+    }
+    .review-rating {
+        text-align: left;
+    }
+    .review-video-frame {
+        max-width: min(100%, 360px);
+        border-radius: 22px;
+    }
+    .review-video-frame img,
+    .review-video-frame video {
+        border-radius: 15px;
     }
 }
 
