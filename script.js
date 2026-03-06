@@ -49,6 +49,26 @@ let modalGalleryIndex = 0;
 let touchStartX = null;
 let touchStartY = null;
 let isLightboxOpen = false;
+const preloadedModalImages = new Set();
+const preloadedCardImages = new Set();
+const mobileCardRotation = new Map();
+let mobileCardObserver = null;
+let mobileCardResizeTimer = null;
+const mobileViewportQuery = window.matchMedia('(max-width: 900px)');
+
+const looksMojibake = (value) => /Ã.|Â.|ðŸ|â.|�/.test(value);
+
+const fixMojibakeText = (value) => {
+    if (typeof value !== 'string' || !looksMojibake(value)) return value;
+
+    try {
+        const bytes = Uint8Array.from(Array.from(value, (char) => char.charCodeAt(0) & 0xff));
+        const decoded = new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+        return looksMojibake(decoded) ? value : decoded;
+    } catch (error) {
+        return value;
+    }
+};
 
 const parseCount = (value) => {
     const parsed = Number.parseInt(value, 10);
@@ -90,7 +110,7 @@ const closeImageLightbox = () => {
     isLightboxOpen = false;
 };
 
-const isMobileViewport = () => window.matchMedia('(max-width: 900px)').matches;
+const isMobileViewport = () => mobileViewportQuery.matches;
 
 const getModalGallery = (button) => {
     const galleryRaw = (button.getAttribute('data-gallery') || '').trim();
@@ -105,6 +125,133 @@ const getModalGallery = (button) => {
     }
 
     return gallery;
+};
+
+const stopMobileCardInterval = (state) => {
+    if (!state || !state.timer) return;
+    window.clearInterval(state.timer);
+    state.timer = null;
+};
+
+const preloadCardImage = (src) => {
+    if (!src || preloadedCardImages.has(src)) return;
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = src;
+    preloadedCardImages.add(src);
+};
+
+const advanceMobileCardImage = (state, step = 1) => {
+    if (!state || state.images.length <= 1) return;
+    const total = state.images.length;
+    state.index = (state.index + step + total) % total;
+    const currentSrc = state.images[state.index];
+    if (currentSrc) state.cover.src = currentSrc;
+
+    const nextSrc = state.images[(state.index + 1) % total];
+    preloadCardImage(nextSrc);
+};
+
+const startMobileCardInterval = (state) => {
+    if (!state || state.timer || state.images.length <= 1) return;
+    preloadCardImage(state.images[(state.index + 1) % state.images.length]);
+    state.timer = window.setInterval(() => {
+        advanceMobileCardImage(state, 1);
+    }, 3400);
+};
+
+const stopAllMobileCardRotation = (resetToCover = false) => {
+    if (mobileCardObserver) {
+        mobileCardObserver.disconnect();
+        mobileCardObserver = null;
+    }
+
+    mobileCardRotation.forEach((state) => {
+        stopMobileCardInterval(state);
+        if (state.onCoverTap) {
+            state.cover.removeEventListener('click', state.onCoverTap);
+            state.onCoverTap = null;
+        }
+        if (resetToCover && state.coverImage) {
+            state.cover.src = state.coverImage;
+        }
+    });
+    mobileCardRotation.clear();
+};
+
+const initMobileCardRotation = () => {
+    stopAllMobileCardRotation(true);
+
+    const cards = document.querySelectorAll('.property-card');
+    if (!cards.length || !isMobileViewport()) return;
+
+    cards.forEach((card) => {
+        const cover = card.querySelector('.property-header img');
+        const button = card.querySelector('.btn-outline');
+        if (!cover || !button) return;
+
+        const images = [...new Set(getModalGallery(button))];
+        const coverImage = (button.getAttribute('data-img') || '').trim() || cover.getAttribute('src') || '';
+        if (!images.length) return;
+
+        cover.src = coverImage || images[0];
+        const startIndex = Math.max(0, images.indexOf(coverImage || images[0]));
+        if (images.length <= 1) return;
+
+        const state = {
+            card,
+            cover,
+            images,
+            index: startIndex,
+            timer: null,
+            coverImage,
+            onCoverTap: null
+        };
+
+        state.onCoverTap = () => {
+            advanceMobileCardImage(state, 1);
+            stopMobileCardInterval(state);
+            startMobileCardInterval(state);
+        };
+        cover.addEventListener('click', state.onCoverTap);
+
+        mobileCardRotation.set(card, state);
+    });
+
+    if (!mobileCardRotation.size) return;
+
+    mobileCardRotation.forEach((state) => {
+        startMobileCardInterval(state);
+    });
+
+    if ('IntersectionObserver' in window) {
+        mobileCardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const state = mobileCardRotation.get(entry.target);
+                if (!state) return;
+
+                if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                    startMobileCardInterval(state);
+                } else {
+                    stopMobileCardInterval(state);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '140px 0px 140px 0px'
+        });
+
+        mobileCardRotation.forEach((state) => {
+            mobileCardObserver.observe(state.card);
+        });
+    }
+};
+
+const scheduleMobileCardRotationInit = () => {
+    if (mobileCardResizeTimer) window.clearTimeout(mobileCardResizeTimer);
+    mobileCardResizeTimer = window.setTimeout(() => {
+        initMobileCardRotation();
+    }, 180);
 };
 
 const updateModalNavState = () => {
@@ -147,20 +294,25 @@ const renderModalImage = () => {
             dot.classList.toggle('active', index === modalGalleryIndex);
         });
     }
+
+    if (modalGallery.length > 1) {
+        const nextIndex = (modalGalleryIndex + 1) % modalGallery.length;
+        const prevIndex = (modalGalleryIndex - 1 + modalGallery.length) % modalGallery.length;
+        [nextIndex, prevIndex].forEach((idx) => {
+            const src = modalGallery[idx];
+            if (!src || preloadedModalImages.has(src)) return;
+            const img = new Image();
+            img.decoding = 'async';
+            img.src = src;
+            preloadedModalImages.add(src);
+        });
+    }
 };
 
 const changeModalImage = (step) => {
     if (modalGallery.length <= 1) return;
     modalGalleryIndex = (modalGalleryIndex + step + modalGallery.length) % modalGallery.length;
     renderModalImage();
-};
-
-const handleModalImageClick = () => {
-    if (isMobileViewport() && modalGallery.length > 1) {
-        changeModalImage(1);
-        return;
-    }
-    openImageLightbox();
 };
 
 const onModalTouchStart = (event) => {
@@ -250,7 +402,7 @@ if (modal) {
     if (closeModalButton) closeModalButton.onclick = closePropertyModal;
     if (modalPrev) modalPrev.onclick = () => changeModalImage(-1);
     if (modalNext) modalNext.onclick = () => changeModalImage(1);
-    if (modalImg) modalImg.onclick = handleModalImageClick;
+    if (modalImg) modalImg.onclick = openImageLightbox;
     if (lightboxClose) lightboxClose.onclick = closeImageLightbox;
     if (imageLightbox) {
         imageLightbox.addEventListener('click', (event) => {
@@ -261,6 +413,21 @@ if (modal) {
         modalImgContainer.addEventListener('touchstart', onModalTouchStart, { passive: true });
         modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
     }
+
+    initMobileCardRotation();
+    window.addEventListener('orientationchange', scheduleMobileCardRotationInit);
+    if (typeof mobileViewportQuery.addEventListener === 'function') {
+        mobileViewportQuery.addEventListener('change', scheduleMobileCardRotationInit);
+    } else if (typeof mobileViewportQuery.addListener === 'function') {
+        mobileViewportQuery.addListener(scheduleMobileCardRotationInit);
+    }
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            mobileCardRotation.forEach((state) => stopMobileCardInterval(state));
+            return;
+        }
+        scheduleMobileCardRotationInit();
+    });
 
     // Fechar clicando fora do conteúdo
     window.addEventListener('click', (event) => {
@@ -709,6 +876,17 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
     // Satisfaction stat
     translations.pt['stat.satisfaction'] = 'Taxa de Satisfação';
     translations.es['stat.satisfaction'] = 'Tasa de Satisfacción';
+
+    const normalizeTranslationDict = (dict) => {
+        Object.keys(dict).forEach((key) => {
+            if (typeof dict[key] === 'string') {
+                dict[key] = fixMojibakeText(dict[key]);
+            }
+        });
+    };
+
+    normalizeTranslationDict(translations.pt);
+    normalizeTranslationDict(translations.es);
 
     function applyTranslations(lang) {
         const dict = translations[lang] || translations.es;
