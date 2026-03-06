@@ -49,7 +49,6 @@ let modalGalleryIndex = 0;
 let touchStartX = null;
 let touchStartY = null;
 let isLightboxOpen = false;
-const mobileCardCarousels = new Map();
 
 const parseCount = (value) => {
     const parsed = Number.parseInt(value, 10);
@@ -164,45 +163,6 @@ const handleModalImageClick = () => {
     openImageLightbox();
 };
 
-const stopMobileCardCarousels = () => {
-    mobileCardCarousels.forEach(intervalId => window.clearInterval(intervalId));
-    mobileCardCarousels.clear();
-};
-
-const initMobileCardCarousels = () => {
-    stopMobileCardCarousels();
-
-    if (!isMobileViewport()) {
-        document.querySelectorAll('.property-card').forEach(card => {
-            const coverImg = card.querySelector('.property-header img');
-            const detailsButton = card.querySelector('.btn-outline');
-            if (!coverImg || !detailsButton) return;
-            const fallbackImg = (detailsButton.getAttribute('data-img') || '').trim();
-            if (fallbackImg) coverImg.src = fallbackImg;
-        });
-        return;
-    }
-
-    document.querySelectorAll('.property-card').forEach((card, index) => {
-        const coverImg = card.querySelector('.property-header img');
-        const detailsButton = card.querySelector('.btn-outline');
-        if (!coverImg || !detailsButton) return;
-
-        const gallery = getModalGallery(detailsButton);
-        if (gallery.length <= 1) return;
-
-        let currentIndex = 0;
-        coverImg.src = gallery[currentIndex];
-
-        const intervalId = window.setInterval(() => {
-            currentIndex = (currentIndex + 1) % gallery.length;
-            coverImg.src = gallery[currentIndex];
-        }, 2800 + index * 220);
-
-        mobileCardCarousels.set(card, intervalId);
-    });
-};
-
 const onModalTouchStart = (event) => {
     if (!modal.classList.contains('is-open') || modalGallery.length <= 1) return;
     const touch = event.changedTouches && event.changedTouches[0];
@@ -301,17 +261,6 @@ if (modal) {
         modalImgContainer.addEventListener('touchstart', onModalTouchStart, { passive: true });
         modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
     }
-
-    initMobileCardCarousels();
-    let mobileCarouselResizeTimer = null;
-    const refreshMobileCardCarousels = () => {
-        if (mobileCarouselResizeTimer) window.clearTimeout(mobileCarouselResizeTimer);
-        mobileCarouselResizeTimer = window.setTimeout(() => {
-            initMobileCardCarousels();
-        }, 140);
-    };
-    window.addEventListener('resize', refreshMobileCardCarousels);
-    window.addEventListener('orientationchange', refreshMobileCardCarousels);
 
     // Fechar clicando fora do conteúdo
     window.addEventListener('click', (event) => {
