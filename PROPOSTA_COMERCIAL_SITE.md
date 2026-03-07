@@ -22,7 +22,7 @@ Disponibilizar um site institucional imobiliário moderno, responsivo, bilingue 
 - Ajustes visuais finais básicos.
 - Publicação em 1 domínio.
 - 7 dias de suporte pós-entrega.
-- Prazo: 3 a 5 dias úteis.
+- Prazo de entrega: 3 a 5 dias úteis.
 
 ### 2. Profissional - R$ 6.900
 - Tudo do Essencial.
@@ -31,7 +31,7 @@ Disponibilizar um site institucional imobiliário moderno, responsivo, bilingue 
 - Revisão de copy comercial e CTA.
 - Integração com WhatsApp e analytics básico.
 - 30 dias de suporte pós-entrega.
-- Prazo: 5 a 8 dias úteis.
+- Prazo de entrega: 5 a 8 dias úteis.
 
 ### 3. Premium - R$ 8.900
 - Tudo do Profissional.
@@ -40,7 +40,7 @@ Disponibilizar um site institucional imobiliário moderno, responsivo, bilingue 
 - Duas rodadas extras de melhoria após publicação.
 - Prioridade de atendimento.
 - 60 dias de suporte pós-entrega.
-- Prazo: 7 a 12 dias úteis.
+- Prazo de entrega: 7 a 12 dias úteis.
 
 ## Opcionais
 - Gestão mensal de conteúdo e anúncios.
@@ -50,6 +50,7 @@ Disponibilizar um site institucional imobiliário moderno, responsivo, bilingue 
 
 ## Condições Comerciais
 - Pagamento sugerido: 40% início + 40% homologação + 20% publicação.
+- Prazo de pagamento: vinculado às 3 etapas acima.
 - Validade desta proposta: 15 dias.
 - Alterações fora do escopo serão orçadas à parte.
 
@@ -60,7 +61,22 @@ Disponibilizar um site institucional imobiliário moderno, responsivo, bilingue 
 - Bilingue e preparado para tráfego social.
 - Reduz tempo de entrada em operação e risco de retrabalho.
 
+## Justificativa de Preço (Motivos)
+- O escopo não é apenas visual: envolve estrutura de conteúdo, lógica de tradução PT/ES, seção de imóveis com modal, integração com WhatsApp, SEO técnico e responsividade em múltiplos dispositivos.
+- O projeto já passou por ajustes reais de performance e usabilidade mobile, o que reduz risco técnico e retrabalho após publicação.
+- Há ganho comercial direto: site com CTA e captação de lead pronta, reduzindo tempo para operação e início de campanhas.
+- A faixa de preço considera esforço especializado em front-end, UX, SEO e publicação, não apenas "montagem de página".
+
+## Comprovação de Faixa de Mercado
+- Estimativa técnica para este escopo: 52 a 64 horas.
+- Referência de valor/hora para projeto web sob medida: R$ 95 a R$ 130.
+- Faixa técnica de execução: R$ 4.940 a R$ 8.320.
+- O valor de R$ 6.900 fica no centro da faixa, coerente com nível de entrega e suporte pós-publicação.
+Referências públicas de mercado:
+- Wix Brasil: https://www.wix.com/blog/br/quanto-custa-um-site
+- TwoPixel: https://twopixel.com.br/quanto-cobrar-por-um-website/
+- Hostinger: https://www.hostinger.com.br/tutoriais/quanto-custa-manter-um-site
+
 ## Fechamento Recomendado
 - Preço de anúncio: R$ 6.900.
 - Faixa ideal de fechamento: R$ 5.500 a R$ 7.500.
-

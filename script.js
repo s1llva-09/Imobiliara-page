@@ -630,14 +630,14 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.pt['review.eyebrow'] = 'Avaliação em Destaque';
     translations.pt['review.title'] = 'A experiência de encontrar o <span>imóvel ideal</span>';
     translations.pt['review.quote'] = '"O atendimento superou todas as minhas expectativas. A equipe entendeu perfeitamente o que eu buscava e o processo foi incrivelmente ágil e transparente."';
-    translations.pt['review.name'] = 'Heloíse';
+    translations.pt['review.name'] = 'Heloisa';
     translations.pt['review.badge'] = 'Avaliação Verificada';
     translations.pt['review.watch'] = 'Assistir Avaliação';
 
     translations.es['review.eyebrow'] = 'Evaluación Destacada';
     translations.es['review.title'] = 'La experiencia de encontrar la <span>propiedad ideal</span>';
     translations.es['review.quote'] = '"La atención superó todas mis expectativas. El equipo entendió perfectamente lo que buscaba y todo el proceso fue increíblemente ágil y transparente."';
-    translations.es['review.name'] = 'Heloíse';
+    translations.es['review.name'] = 'Heloisa';
     translations.es['review.badge'] = 'Evaluación Verificada';
     translations.es['review.watch'] = 'Ver Evaluación';
 
