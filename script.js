@@ -181,77 +181,10 @@ const stopAllMobileCardRotation = (resetToCover = false) => {
 
 const initMobileCardRotation = () => {
     stopAllMobileCardRotation(true);
-
-    const cards = document.querySelectorAll('.property-card');
-    if (!cards.length || !isMobileViewport()) return;
-
-    cards.forEach((card) => {
-        const cover = card.querySelector('.property-header img');
-        const button = card.querySelector('.btn-outline');
-        if (!cover || !button) return;
-
-        const images = [...new Set(getModalGallery(button))];
-        const coverImage = (button.getAttribute('data-img') || '').trim() || cover.getAttribute('src') || '';
-        if (!images.length) return;
-
-        cover.src = coverImage || images[0];
-        const startIndex = Math.max(0, images.indexOf(coverImage || images[0]));
-        if (images.length <= 1) return;
-
-        const state = {
-            card,
-            cover,
-            images,
-            index: startIndex,
-            timer: null,
-            coverImage,
-            onCoverTap: null
-        };
-
-        state.onCoverTap = () => {
-            advanceMobileCardImage(state, 1);
-            stopMobileCardInterval(state);
-            startMobileCardInterval(state);
-        };
-        cover.addEventListener('click', state.onCoverTap);
-
-        mobileCardRotation.set(card, state);
-    });
-
-    if (!mobileCardRotation.size) return;
-
-    mobileCardRotation.forEach((state) => {
-        startMobileCardInterval(state);
-    });
-
-    if ('IntersectionObserver' in window) {
-        mobileCardObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                const state = mobileCardRotation.get(entry.target);
-                if (!state) return;
-
-                if (entry.isIntersecting || entry.intersectionRatio > 0) {
-                    startMobileCardInterval(state);
-                } else {
-                    stopMobileCardInterval(state);
-                }
-            });
-        }, {
-            threshold: 0.08,
-            rootMargin: '140px 0px 140px 0px'
-        });
-
-        mobileCardRotation.forEach((state) => {
-            mobileCardObserver.observe(state.card);
-        });
-    }
 };
 
 const scheduleMobileCardRotationInit = () => {
-    if (mobileCardResizeTimer) window.clearTimeout(mobileCardResizeTimer);
-    mobileCardResizeTimer = window.setTimeout(() => {
-        initMobileCardRotation();
-    }, 180);
+    stopAllMobileCardRotation(true);
 };
 
 const updateModalNavState = () => {
@@ -414,20 +347,7 @@ if (modal) {
         modalImgContainer.addEventListener('touchend', onModalTouchEnd, { passive: true });
     }
 
-    initMobileCardRotation();
-    window.addEventListener('orientationchange', scheduleMobileCardRotationInit);
-    if (typeof mobileViewportQuery.addEventListener === 'function') {
-        mobileViewportQuery.addEventListener('change', scheduleMobileCardRotationInit);
-    } else if (typeof mobileViewportQuery.addListener === 'function') {
-        mobileViewportQuery.addListener(scheduleMobileCardRotationInit);
-    }
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            mobileCardRotation.forEach((state) => stopMobileCardInterval(state));
-            return;
-        }
-        scheduleMobileCardRotationInit();
-    });
+    stopAllMobileCardRotation(true);
 
     // Fechar clicando fora do conteúdo
     window.addEventListener('click', (event) => {
@@ -729,8 +649,8 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.es['modal.beds'] = 'Habitaciones';
     translations.es['modal.baths'] = 'Baños';
 
-    translations.pt['properties.card1.title'] = 'Apartamento Moderno';
-    translations.pt['properties.card1.modalTitle'] = 'Apartamento Moderno';
+    translations.pt['properties.card1.title'] = 'Apartamento 3 Ambientes';
+    translations.pt['properties.card1.modalTitle'] = 'Apartamento 3 Ambientes';
     translations.pt['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
     translations.pt['properties.card1.desc'] = `✨ Oportunidade ideal para estudantes da UBA!
 Localizado a poucos passos da Faculdade de Medicina, este apartamento mobiliado e perfeito para quem busca conforto, localizacao estrategica e ambientes amplos.
@@ -819,8 +739,8 @@ Aluguel mensal: USD 500
 Expensas: $140.000
 Servicos por conta do inquilino: luz, agua, ABL e WiFi`;
 
-    translations.es['properties.card1.title'] = 'Apartamento Moderno';
-    translations.es['properties.card1.modalTitle'] = 'Apartamento Moderno';
+    translations.es['properties.card1.title'] = 'Apartamento 3 Ambientes';
+    translations.es['properties.card1.modalTitle'] = 'Apartamento 3 Ambientes';
     translations.es['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
     translations.es['properties.card1.desc'] = `✨ ¡Oportunidad ideal para estudiantes de la UBA!
 Ubicado a pasos de la Facultad de Medicina, este departamento amoblado es perfecto para quienes buscan comodidad, ubicación estratégica y espacios amplios.
