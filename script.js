@@ -127,6 +127,47 @@ const getModalGallery = (button) => {
     return gallery;
 };
 
+const getCardGallery = (button) => {
+    if (!button) return [];
+    const galleryRaw = (button.getAttribute('data-gallery') || '').trim();
+    const parsed = galleryRaw
+        .split('|')
+        .map((img) => img.trim())
+        .filter(Boolean);
+
+    if (parsed.length) return parsed;
+
+    const fallback = (button.getAttribute('data-img') || '').trim();
+    return fallback ? [fallback] : [];
+};
+
+const initPropertyGalleryIndicators = () => {
+    document.querySelectorAll('.property-card').forEach((card) => {
+        const header = card.querySelector('.property-header');
+        const detailsButton = card.querySelector('.btn-outline');
+        if (!header || !detailsButton) return;
+
+        const gallery = getCardGallery(detailsButton);
+        if (gallery.length <= 1) return;
+
+        const oldIndicator = header.querySelector('.property-gallery-indicator');
+        if (oldIndicator) oldIndicator.remove();
+
+        const indicator = document.createElement('div');
+        indicator.className = 'property-gallery-indicator';
+        indicator.setAttribute('aria-hidden', 'true');
+
+        const dotsCount = Math.min(gallery.length, 4);
+        for (let i = 0; i < dotsCount; i += 1) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            indicator.appendChild(dot);
+        }
+
+        header.appendChild(indicator);
+    });
+};
+
 const stopMobileCardInterval = (state) => {
     if (!state || !state.timer) return;
     window.clearInterval(state.timer);
@@ -399,6 +440,7 @@ document.addEventListener('DOMContentLoaded', function() {
     syncNavbarOffset();
     window.addEventListener('resize', syncNavbarOffset);
     window.addEventListener('load', syncNavbarOffset);
+    initPropertyGalleryIndicators();
 
     const warmupReviewVideo = () => {
         if (!reviewVideo || reviewVideo.dataset.preloaded === '1') return;
@@ -953,14 +995,18 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
     }
 
     if (navToggle && navbar) {
+        navToggle.setAttribute('aria-expanded', 'false');
+
         navToggle.addEventListener('click', function() {
-            navbar.classList.toggle('open');
+            const isOpen = navbar.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
         // Fechar menu ao clicar em um item
         document.querySelectorAll('.navbar nav ul li a').forEach(a => {
             a.addEventListener('click', () => {
                 navbar.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -968,6 +1014,7 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
         document.addEventListener('click', (event) => {
             if (window.innerWidth <= 900 && !navbar.contains(event.target)) {
                 navbar.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -975,6 +1022,7 @@ Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
                 navbar.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
