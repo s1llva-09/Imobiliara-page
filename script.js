@@ -781,8 +781,8 @@ Aluguel mensal: USD 500
 Expensas: $140.000
 Servicos por conta do inquilino: luz, agua, ABL e WiFi`;
 
-    translations.es['properties.card1.title'] = 'Apartamento 3 Ambientes';
-    translations.es['properties.card1.modalTitle'] = 'Apartamento 3 Ambientes';
+    translations.es['properties.card1.title'] = 'Departamento 3 Ambientes';
+    translations.es['properties.card1.modalTitle'] = 'Departamento 3 Ambientes';
     translations.es['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
     translations.es['properties.card1.desc'] = `✨ ¡Oportunidad ideal para estudiantes de la UBA!
 Ubicado a pasos de la Facultad de Medicina, este departamento amoblado es perfecto para quienes buscan comodidad, ubicación estratégica y espacios amplios.
