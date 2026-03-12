@@ -188,6 +188,7 @@ const advanceMobileCardImage = (state, step = 1) => {
     state.index = (state.index + step + total) % total;
     const currentSrc = state.images[state.index];
     if (currentSrc) state.cover.src = currentSrc;
+    updateCardIndicator(state);
 
     const nextSrc = state.images[(state.index + 1) % total];
     preloadCardImage(nextSrc);
@@ -220,12 +221,78 @@ const stopAllMobileCardRotation = (resetToCover = false) => {
     mobileCardRotation.clear();
 };
 
+const updateCardIndicator = (state) => {
+    if (!state || !state.indicator) return;
+    const dots = Array.from(state.indicator.children || []);
+    if (!dots.length) return;
+    const activeIndex = state.index % dots.length;
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === activeIndex));
+};
+
 const initMobileCardRotation = () => {
     stopAllMobileCardRotation(true);
+    if (!isMobileViewport()) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const cards = document.querySelectorAll('.property-card');
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+        const cover = card.querySelector('.property-header img');
+        const button = card.querySelector('.btn-outline');
+        if (!cover || !button) return;
+
+        const images = getCardGallery(button);
+        if (images.length <= 1) return;
+
+        const header = cover.closest('.property-header');
+        const indicator = header ? header.querySelector('.property-gallery-indicator') : null;
+
+        const state = {
+            cover,
+            images,
+            index: 0,
+            coverImage: images[0] || cover.src,
+            timer: null,
+            indicator,
+            onCoverTap: null
+        };
+
+        cover.src = state.coverImage;
+        preloadCardImage(images[1]);
+        updateCardIndicator(state);
+        state.onCoverTap = () => advanceMobileCardImage(state, 1);
+        cover.addEventListener('click', state.onCoverTap);
+        mobileCardRotation.set(card, state);
+    });
+
+    if (!mobileCardRotation.size) return;
+
+    mobileCardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const state = mobileCardRotation.get(entry.target);
+            if (!state) return;
+            if (entry.isIntersecting) {
+                startMobileCardInterval(state);
+            } else {
+                stopMobileCardInterval(state);
+            }
+        });
+    }, { rootMargin: '120px 0px', threshold: 0.25 });
+
+    mobileCardRotation.forEach((_state, card) => {
+        mobileCardObserver.observe(card);
+    });
 };
 
 const scheduleMobileCardRotationInit = () => {
     stopAllMobileCardRotation(true);
+    if (mobileCardResizeTimer) {
+        window.clearTimeout(mobileCardResizeTimer);
+    }
+    mobileCardResizeTimer = window.setTimeout(() => {
+        initMobileCardRotation();
+    }, 180);
 };
 
 const updateModalNavState = () => {
@@ -441,6 +508,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', syncNavbarOffset);
     window.addEventListener('load', syncNavbarOffset);
     initPropertyGalleryIndicators();
+    initMobileCardRotation();
+    window.addEventListener('resize', scheduleMobileCardRotationInit);
+    if (mobileViewportQuery && typeof mobileViewportQuery.addEventListener === 'function') {
+        mobileViewportQuery.addEventListener('change', scheduleMobileCardRotationInit);
+    }
 
     const warmupReviewVideo = () => {
         if (!reviewVideo || reviewVideo.dataset.preloaded === '1') return;
@@ -691,25 +763,32 @@ document.addEventListener('DOMContentLoaded', function() {
     translations.es['modal.beds'] = 'Habitaciones';
     translations.es['modal.baths'] = 'Baños';
 
-    translations.pt['properties.card1.title'] = 'Apartamento 3 Ambientes';
-    translations.pt['properties.card1.modalTitle'] = 'Apartamento 3 Ambientes';
-    translations.pt['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
-    translations.pt['properties.card1.desc'] = `✨ Oportunidade ideal para estudantes da UBA!
-Localizado a poucos passos da Faculdade de Medicina, este apartamento mobiliado e perfeito para quem busca conforto, localizacao estrategica e ambientes amplos.
-Capacidade para ate 3 pessoas.
+    translations.pt['properties.card1.title'] = 'Apartamento Mobiliado';
+    translations.pt['properties.card1.modalTitle'] = 'Apartamento Mobiliado';
+    translations.pt['properties.card1.location'] = 'Av. Corrientes 700 (11D) - Microcentro';
+    translations.pt['properties.card1.desc'] = `🔥 VIVA NO CORACAO DE BUENOS AIRES 🔥
 
-Detalhes do apartamento:
-🏙️ Sacada
-🧺 Lavarropas
-🚿 2 banheiros
-🌞 Ambientes luminosos
-🐾 Aceita pets
+📍 Av. Corrientes 700 (11D) – Microcentro
 
-Condicoes:
-Aluguel 980.000 + 250.000 de expensas
-Luz, gas e Wi-Fi por conta do inquilino
-Contrato de 6 meses, ideal para estudantes
-Zona estrategica perto de todos os servicos, comercios e transporte`;
+Na iconica Avenida Corrientes, a avenida mais vibrante da cidade.
+Teatros, cafes historicos, supermercados, universidades e todo o transporte a poucos passos.
+
+Localizacao estrategica total.
+Metro linhas B, C e D a minutos.
+
+💰 OPORTUNIDADE – APENAS USD 500 POR 1 ANO FIXO
+* Aluguel mensal: USD 500
+* Expensas: $130.000
+* Servicos: luz e WiFi por conta do inquilino
+
+🏠 Departamento amoblado
+🛏 Confortavel, funcional e pronto para morar
+🧺 Inclui lavarropas
+✨ Ideal para estudantes e profissionais estrangeiros
+
+Viva em uma das zonas mais procuradas da cidade, com movimento, seguranca e conexao imediata a tudo.
+
+⚠️ Alta demanda por localizacao e preco.`;
 
     translations.pt['properties.card2.title'] = 'Apartamento de 4 Ambientes';
     translations.pt['properties.card2.modalTitle'] = 'Apartamento de 4 Ambientes';
@@ -776,30 +855,89 @@ Em frente ao Ministerio de Seguridad e a Embaixada Britanica
 Excelente acesso ao transporte publico
 🚗 Estacionamento gratuito disponivel na quadra
 
-Condicoes
-Aluguel mensal: USD 500
-Expensas: $140.000
-Servicos por conta do inquilino: luz, agua, ABL e WiFi`;
+    Condicoes
+    Aluguel mensal: USD 500
+    Expensas: $140.000
+    Servicos por conta do inquilino: luz, agua, ABL e WiFi`;
 
-    translations.es['properties.card1.title'] = 'Departamento 3 Ambientes';
-    translations.es['properties.card1.modalTitle'] = 'Departamento 3 Ambientes';
-    translations.es['properties.card1.location'] = 'Aguero 1100 (A) - Barrio Norte';
-    translations.es['properties.card1.desc'] = `✨ ¡Oportunidad ideal para estudiantes de la UBA!
-Ubicado a pasos de la Facultad de Medicina, este departamento amoblado es perfecto para quienes buscan comodidad, ubicación estratégica y espacios amplios.
-Capacidad para hasta 3 personas.
+    translations.pt['properties.card5.title'] = 'Estúdio Equipado';
+    translations.pt['properties.card5.modalTitle'] = 'Estúdio Equipado';
+    translations.pt['properties.card5.location'] = 'Av. Scalabrini Ortiz 3200 - Palermo - CABA';
+    translations.pt['properties.card5.desc'] = `ALUGUEL – ESTUDIO EQUIPADO
 
-Detalles del departamento:
-🏙️ Balcón
-🧺 Lavarropas
-🚿 2 baños
-🌞 Ambientes luminosos
-🐾 Acepta mascotas
+📍 Av. Scalabrini Ortiz 3200 – Palermo – CABA
+💲 $650.000 por mes
 
-Condiciones:
-Alquiler 980.000 + 250.000 expensas
-Luz, gas y Wi-Fi a cargo del inquilino
-Contrato de 6 meses, ideal para estudiantes
-Zona estratégica cerca de todos los servicios, comercios y transporte`;
+👤 Capacidade: 1 pessoa (nao conta com cama de casal)
+
+🏡 O DEPARTAMENTO
+Estudio confortavel e totalmente equipado.
+
+✔️ Sala de estar/jantar com mesa para 4 pessoas
+✔️ Sofa confortavel
+✔️ 1 sommier
+✔️ Ar-condicionado frio/calor
+✔️ Ventilador de teto
+✔️ Cofre
+
+🍽 Cozinha equipada
+* Geladeira
+* Micro-ondas
+* Cafeteira
+* Espremedor
+* Loucas para 4 pessoas
+
+✔️ TV com Chromecast
+✔️ Wi-Fi
+
+💰 CONDICOES DO ALUGUEL
+📆 Contrato minimo: 6 meses
+📊 Ajuste: a cada 3 meses pelo IPC
+
+💲 Aluguel: $650.000 mensais
+🔐 Deposito de garantia: USD 500
+
+Servicos
+✔️ Inclui o proprietario:
+* Expensas ordinarias e extraordinarias
+
+✔️ A cargo do inquilino:
+* ABL
+* Luz
+* Gas
+* AYSA
+* Internet
+
+📍 LOCALIZACAO
+A poucos passos dos parques e lagos dos Bosques de Palermo, com excelente conexao pela Av. del Libertador e Av. Las Heras.
+Zona residencial, segura e muito procurada.`;
+
+    translations.es['properties.card1.title'] = 'Departamento Amoblado';
+    translations.es['properties.card1.modalTitle'] = 'Departamento Amoblado';
+    translations.es['properties.card1.location'] = 'Av. Corrientes 700 (11D) - Microcentro';
+    translations.es['properties.card1.desc'] = `🔥 VIVI EN EL CORAZON DE BUENOS AIRES 🔥
+
+📍 Av. Corrientes 700 (11D) – Microcentro
+
+Sobre la iconica Avenida Corrientes, la avenida mas vibrante de la ciudad.
+Teatros, cafes historicos, supermercados, universidades y todo el transporte a pocos pasos.
+
+Ubicacion estrategica total.
+Subte lineas B, C y D a minutos.
+
+💰 OPORTUNIDAD – SOLO USD 500 POR 1 ANO FIJO
+* Alquiler mensual: USD 500
+* Expensas: $130.000
+* Servicios: luz y WiFi a cargo del inquilino
+
+🏠 Departamento amoblado
+🛏 Comodo, funcional y listo para mudarse
+🧺 Incluye lavarropas
+✨ Ideal para estudiantes y profesionales extranjeros
+
+Vivi en una de las zonas mas buscadas de la ciudad, con movimiento, seguridad y conexion inmediata a todo.
+
+⚠️ Alta demanda por ubicacion y precio.`;
 
     translations.es['properties.card2.title'] = 'Departamento de 4 Ambientes';
     translations.es['properties.card2.modalTitle'] = 'Departamento de 4 Ambientes';
@@ -866,10 +1004,62 @@ Frente al Ministerio de Seguridad y la Embajada Británica
 Excelente acceso a transporte público
 🚗 Estacionamiento gratuito disponible en la cuadra
 
-Condiciones
-Alquiler mensual: USD 500
-Expensas: $140.000
-Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
+    Condiciones
+    Alquiler mensual: USD 500
+    Expensas: $140.000
+    Servicios a cargo del inquilino: luz, agua, ABL y WiFi`;
+
+    translations.es['properties.card5.title'] = 'Estudio Equipado';
+    translations.es['properties.card5.modalTitle'] = 'Estudio Equipado';
+    translations.es['properties.card5.location'] = 'Av. Scalabrini Ortiz 3200 - Palermo - CABA';
+    translations.es['properties.card5.desc'] = `ALQUILER – ESTUDIO EQUIPADO
+
+📍 Av. Scalabrini Ortiz 3200 – Palermo – CABA
+💲 $650.000 por mes
+
+👤 Capacidad: 1 persona (no cuenta con cama doble)
+
+🏡 EL DEPARTAMENTO
+Estudio confortable y totalmente equipado.
+
+✔️ Living-comedor con mesa para 4 personas
+✔️ Sillon comodo
+✔️ 1 sommier
+✔️ Aire acondicionado frio/calor
+✔️ Ventilador de techo
+✔️ Caja de seguridad
+
+🍽 Cocina equipada
+* Heladera
+* Microondas
+* Cafetera
+* Juguera
+* Vajilla para 4 personas
+
+✔️ TV con Chromecast
+✔️ WiFi
+
+💰 CONDICIONES DEL ALQUILER
+📆 Contrato minimo: 6 meses
+📊 Ajuste: cada 3 meses por IPC
+
+💲 Alquiler: $650.000 mensuales
+🔐 Deposito de garantia: USD 500
+
+Servicios
+✔️ Incluye el propietario:
+* Expensas ordinarias y extraordinarias
+
+✔️ A cargo del inquilino:
+* ABL
+* Luz
+* Gas
+* AYSA
+* Internet
+
+📍 UBICACION
+A pasos de los parques y lagos de Bosques de Palermo, con excelente conexion por Av. del Libertador y Av. Las Heras.
+Zona residencial, segura y muy buscada.`;
 
     // additional small keys
     translations.pt['step.negotiation'] = 'Nossa equipe ajuda em toda a negociação e documentação.';
