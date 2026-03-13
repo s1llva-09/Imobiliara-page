@@ -375,7 +375,7 @@ section[id] {
 
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     align-items: stretch;
 }
@@ -400,7 +400,7 @@ section[id] {
 
 .property-header {
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
 }
 
@@ -435,21 +435,21 @@ section[id] {
 }
 
 .property-body {
-    padding: 18px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     flex: 1;
 }
 
 .property-body h3 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     color: #121212;
     margin: 0;
 }
 
 .property-body .location {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #667085;
     margin: 0;
     line-height: 1.45;
@@ -468,8 +468,8 @@ section[id] {
 .property-features {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding-top: 12px;
+    gap: 12px;
+    padding-top: 10px;
     margin-top: auto;
     border-top: 1px solid #efefef;
 }
@@ -478,7 +478,7 @@ section[id] {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #344054;
 }
@@ -490,7 +490,7 @@ section[id] {
 .btn-outline {
     display: block;
     text-align: center;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1.5px solid #FF6B00;
     color: #FF6B00;
     text-decoration: none;
@@ -1968,7 +1968,7 @@ body {
 }
 
 .property-header {
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 16 / 9;
 }
 
 .property-header img {
@@ -2006,12 +2006,12 @@ body {
 }
 
 .property-body {
-    padding: 20px;
-    gap: 14px;
+    padding: 16px;
+    gap: 10px;
 }
 
 .property-body h3 {
-    font-size: 1.3rem;
+    font-size: 1.22rem;
     line-height: 1.2;
 }
 
