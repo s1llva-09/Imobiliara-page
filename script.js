@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'footer.phone': '(54) 9 11 5264-4915',
             'footer.whatsapp': '(54) 9 11 2785-8950 (WhatsApp)',
             'footer.email': 'limainmobiliariaofc@gmail.com',
-            'footer.copyright': '&copy; 2026 Lima Imobiliária. Todos os direitos reservados.'
+            'footer.copyright': '© <span data-year></span> Lima Imobiliária. Todos os direitos reservados.'
         },
         es: {
             'nav.home': 'Inicio',
@@ -682,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'footer.phone': '(54) 9 11 5264-4915',
             'footer.whatsapp': '(54) 9 11 2785-8950 (WhatsApp)',
             'footer.email': 'limainmobiliariaofc@gmail.com',
-            'footer.copyright': '&copy; 2026 Lima Inmobiliaria. Todos los derechos reservados.'
+            'footer.copyright': '© <span data-year></span> Lima Inmobiliaria. Todos los derechos reservados.'
         }
     };
     // Additional translation keys for services, form and footer links
@@ -790,10 +790,10 @@ Viva em uma das zonas mais procuradas da cidade, com movimento, seguranca e cone
 
 ⚠️ Alta demanda por localizacao e preco.`;
 
-    translations.pt['properties.card2.title'] = 'Apartamento de 4 Ambientes';
-    translations.pt['properties.card2.modalTitle'] = 'Apartamento de 4 Ambientes';
+    translations.pt['properties.card2.title'] = 'Apartamento de 5 Ambientes';
+    translations.pt['properties.card2.modalTitle'] = 'Apartamento de 5 Ambientes';
     translations.pt['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
-    translations.pt['properties.card2.desc'] = `✨ Apartamento de 4 ambientes em Palermo – Disponivel ✨
+    translations.pt['properties.card2.desc'] = `✨ Apartamento de 5 ambientes em Palermo – Disponivel ✨
 📍 Localizado em uma das melhores zonas de Palermo: perto de cafes, parques, centros comerciais, metro e toda a vida cultural do bairro.
 
 📌 Thames 2300 (A) – Palermo
@@ -810,15 +810,15 @@ Capacidade para 5–6 pessoas
 Aceita pets (pequenos)
 Nao aceita criancas`;
 
-    translations.pt['properties.card3.title'] = 'Apartamento de 2 Ambientes';
-    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 2 Ambientes';
+    translations.pt['properties.card3.title'] = 'Apartamento de 3 Ambientes';
+    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 3 Ambientes';
     translations.pt['properties.card3.location'] = 'Palestina 800 - Almagro';
     translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
 
 📅 Disponivel 10/03
 
 📍 Palestina 800 - Almagro
-🛏️ 2 ambientes super confortaveis
+🛏️ 3 ambientes super confortaveis
 📆 Contrato semestral (bem flexivel!)
 📐 Piso 7 com sacada grande, ideal para seus momentos de relaxamento
 
@@ -939,10 +939,10 @@ Vivi en una de las zonas mas buscadas de la ciudad, con movimiento, seguridad y 
 
 ⚠️ Alta demanda por ubicacion y precio.`;
 
-    translations.es['properties.card2.title'] = 'Departamento de 4 Ambientes';
-    translations.es['properties.card2.modalTitle'] = 'Departamento de 4 Ambientes';
+    translations.es['properties.card2.title'] = 'Departamento de 5 Ambientes';
+    translations.es['properties.card2.modalTitle'] = 'Departamento de 5 Ambientes';
     translations.es['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
-    translations.es['properties.card2.desc'] = `✨ Departamento de 4 ambientes en Palermo – Disponible ✨
+    translations.es['properties.card2.desc'] = `✨ Departamento de 5 ambientes en Palermo – Disponible ✨
 📍 Ubicado en una de las mejores zonas de Palermo: cerca de cafés, parques, centros comerciales, subte y toda la movida cultural del barrio.
 
 📌 Thames 2300 (A) – Palermo
@@ -959,15 +959,15 @@ Capacidad 5–6 personas
 Acepta mascotas (chicas)
 No acepta niños`;
 
-    translations.es['properties.card3.title'] = 'Departamento de 2 Ambientes';
-    translations.es['properties.card3.modalTitle'] = 'Departamento de 2 Ambientes';
+    translations.es['properties.card3.title'] = 'Departamento de 3 Ambientes';
+    translations.es['properties.card3.modalTitle'] = 'Departamento de 3 Ambientes';
     translations.es['properties.card3.location'] = 'Palestina 800 - Almagro';
     translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
 
 📅 Disponible 10/03
 
 📍 Palestina 800 - Almagro
-🛏️ 2 ambientes súper cómodos
+🛏️ 3 ambientes súper cómodos
 📆 Contrato semestral (¡re flexible!)
 📐 Piso 7 con balcón grande, ideal para tus momentos de relax
 
@@ -1082,6 +1082,13 @@ Zona residencial, segura y muy buscada.`;
     normalizeTranslationDict(translations.pt);
     normalizeTranslationDict(translations.es);
 
+    function updateYearSpans(root = document) {
+        const year = String(new Date().getFullYear());
+        root.querySelectorAll('[data-year]').forEach(el => {
+            el.textContent = year;
+        });
+    }
+
     function applyTranslations(lang) {
         const dict = translations[lang] || translations.es;
         document.documentElement.lang = (lang === 'pt') ? 'pt-BR' : 'es';
@@ -1090,11 +1097,12 @@ Zona residencial, segura y muy buscada.`;
             const key = el.getAttribute('data-i18n');
             if (!key) return;
             if (dict[key]) {
+                let value = dict[key];
                 // Render HTML safely for trusted translation strings that include tags
-                if (/<[^>]+>/.test(dict[key])) {
-                    el.innerHTML = dict[key];
+                if (/<[^>]+>/.test(value)) {
+                    el.innerHTML = value;
                 } else {
-                    el.textContent = dict[key];
+                    el.textContent = value;
                 }
             }
         });
@@ -1121,6 +1129,8 @@ Zona residencial, segura y muy buscada.`;
             if (key && dict[key]) el.setAttribute('data-desc', dict[key]);
         });
 
+        updateYearSpans();
+
         // Keep bed/bath label grammar correct for singular/plural in current language.
         const currentBeds = modalBedsValue ? parseCount(modalBedsValue.textContent) : 0;
         const currentBaths = modalBathsValue ? parseCount(modalBathsValue.textContent) : 0;
@@ -1142,6 +1152,7 @@ Zona residencial, segura y muy buscada.`;
     // Initialize language from localStorage or default to 'es'
     const initialLang = localStorage.getItem('site-lang') || 'es';
     applyTranslations(initialLang);
+    updateYearSpans();
 
     // Language cycle (click flag to toggle language) and dropdown behavior
     if (langCycle) {

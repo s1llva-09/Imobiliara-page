@@ -864,22 +864,40 @@ section[id] {
     align-items: center;
 }
 
+.why-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+}
+
 .main-img {
     width: 100%;
+    display: block;
     border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Sombra mais intensa para destacar a imagem */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16); /* Sombra mais suave para um visual mais limpo */
 }
 
 /* Card de 98% (Mantemos branco para destacar) */
 .stat-card {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: -14px;
+    right: -14px;
     background: #ffffff;
-    padding: 25px;
+    padding: 18px 20px;
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 140px;
+}
+
+@media (max-width: 600px) {
+    .stat-card {
+        top: 10px;
+        right: 10px;
+        width: 120px;
+        padding: 14px 16px;
+    }
 }
 
 .stat-card h3 {
