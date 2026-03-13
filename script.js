@@ -790,10 +790,10 @@ Viva em uma das zonas mais procuradas da cidade, com movimento, seguranca e cone
 
 ⚠️ Alta demanda por localizacao e preco.`;
 
-    translations.pt['properties.card2.title'] = 'Apartamento de 5 Ambientes';
-    translations.pt['properties.card2.modalTitle'] = 'Apartamento de 5 Ambientes';
+    translations.pt['properties.card2.title'] = 'Apartamento de 4 Ambientes';
+    translations.pt['properties.card2.modalTitle'] = 'Apartamento de 4 Ambientes';
     translations.pt['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
-    translations.pt['properties.card2.desc'] = `✨ Apartamento de 5 ambientes em Palermo – Disponivel ✨
+    translations.pt['properties.card2.desc'] = `✨ Apartamento de 4 ambientes em Palermo – Disponivel ✨
 📍 Localizado em uma das melhores zonas de Palermo: perto de cafes, parques, centros comerciais, metro e toda a vida cultural do bairro.
 
 📌 Thames 2300 (A) – Palermo
@@ -810,15 +810,15 @@ Capacidade para 5–6 pessoas
 Aceita pets (pequenos)
 Nao aceita criancas`;
 
-    translations.pt['properties.card3.title'] = 'Apartamento de 3 Ambientes';
-    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 3 Ambientes';
+    translations.pt['properties.card3.title'] = 'Apartamento de 2 Ambientes';
+    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 2 Ambientes';
     translations.pt['properties.card3.location'] = 'Palestina 800 - Almagro';
     translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
 
 📅 Disponivel 10/03
 
 📍 Palestina 800 - Almagro
-🛏️ 3 ambientes super confortaveis
+🛏️ 2 ambientes super confortaveis
 📆 Contrato semestral (bem flexivel!)
 📐 Piso 7 com sacada grande, ideal para seus momentos de relaxamento
 
@@ -939,10 +939,10 @@ Vivi en una de las zonas mas buscadas de la ciudad, con movimiento, seguridad y 
 
 ⚠️ Alta demanda por ubicacion y precio.`;
 
-    translations.es['properties.card2.title'] = 'Departamento de 5 Ambientes';
-    translations.es['properties.card2.modalTitle'] = 'Departamento de 5 Ambientes';
+    translations.es['properties.card2.title'] = 'Departamento de 4 Ambientes';
+    translations.es['properties.card2.modalTitle'] = 'Departamento de 4 Ambientes';
     translations.es['properties.card2.location'] = 'Thames 2300 (A) - Palermo';
-    translations.es['properties.card2.desc'] = `✨ Departamento de 5 ambientes en Palermo – Disponible ✨
+    translations.es['properties.card2.desc'] = `✨ Departamento de 4 ambientes en Palermo – Disponible ✨
 📍 Ubicado en una de las mejores zonas de Palermo: cerca de cafés, parques, centros comerciales, subte y toda la movida cultural del barrio.
 
 📌 Thames 2300 (A) – Palermo
@@ -959,15 +959,15 @@ Capacidad 5–6 personas
 Acepta mascotas (chicas)
 No acepta niños`;
 
-    translations.es['properties.card3.title'] = 'Departamento de 3 Ambientes';
-    translations.es['properties.card3.modalTitle'] = 'Departamento de 3 Ambientes';
+    translations.es['properties.card3.title'] = 'Departamento de 2 Ambientes';
+    translations.es['properties.card3.modalTitle'] = 'Departamento de 2 Ambientes';
     translations.es['properties.card3.location'] = 'Palestina 800 - Almagro';
     translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
 
 📅 Disponible 10/03
 
 📍 Palestina 800 - Almagro
-🛏️ 3 ambientes súper cómodos
+🛏️ 2 ambientes súper cómodos
 📆 Contrato semestral (¡re flexible!)
 📐 Piso 7 con balcón grande, ideal para tus momentos de relax
 
