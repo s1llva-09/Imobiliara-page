@@ -1356,6 +1356,35 @@ section[id] {
     margin-bottom: 20px;
 }
 
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.footer-contact-item i {
+    color: #FF6B00;
+    font-size: 0.95rem;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footer-col a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: #FF6B00;
+}
+
 .footer-col ul {
     list-style: none;
 }
@@ -1378,6 +1407,12 @@ section[id] {
 }
 
 /* Ãcone do Instagram Estilizado */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .social-links a {
     width: 40px;
     height: 40px;
