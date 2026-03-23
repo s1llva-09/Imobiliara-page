@@ -56,18 +56,67 @@ let mobileCardObserver = null;
 let mobileCardResizeTimer = null;
 const mobileViewportQuery = window.matchMedia('(max-width: 900px)');
 
-const looksMojibake = (value) => /Ã.|Â.|ðŸ|â.|�/.test(value);
+const looksMojibake = (value) => /Ã.|Â.|ð.|â.|ï.|�/.test(value);
+
+const decodeMojibakeOnce = (value) => {
+    const bytes = Uint8Array.from(Array.from(value, (char) => char.charCodeAt(0) & 0xff));
+    return new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+};
 
 const fixMojibakeText = (value) => {
     if (typeof value !== 'string' || !looksMojibake(value)) return value;
 
-    try {
-        const bytes = Uint8Array.from(Array.from(value, (char) => char.charCodeAt(0) & 0xff));
-        const decoded = new TextDecoder('utf-8', { fatal: false }).decode(bytes);
-        return looksMojibake(decoded) ? value : decoded;
-    } catch (error) {
-        return value;
+    let current = value;
+
+    for (let attempt = 0; attempt < 3 && looksMojibake(current); attempt += 1) {
+        try {
+            const decoded = decodeMojibakeOnce(current);
+            if (!decoded || decoded === current) break;
+            current = decoded;
+        } catch (error) {
+            break;
+        }
     }
+
+    return current;
+};
+
+const normalizeMojibakeInDom = (root = document) => {
+    const scope = root.body || root;
+
+    if (scope) {
+        const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+        let textNode = walker.nextNode();
+
+        while (textNode) {
+            const original = textNode.nodeValue;
+            const fixed = fixMojibakeText(original);
+            if (fixed !== original) textNode.nodeValue = fixed;
+            textNode = walker.nextNode();
+        }
+    }
+
+    const attributeNames = ['aria-label', 'alt', 'placeholder', 'title'];
+    const selector = '[aria-label],[alt],[placeholder],[title]';
+
+    root.querySelectorAll(selector).forEach((el) => {
+        attributeNames.forEach((attr) => {
+            if (!el.hasAttribute(attr)) return;
+            const original = el.getAttribute(attr);
+            const fixed = fixMojibakeText(original);
+            if (fixed !== original) el.setAttribute(attr, fixed);
+        });
+    });
+
+    if (typeof document.title === 'string') {
+        document.title = fixMojibakeText(document.title);
+    }
+
+    document.querySelectorAll('meta[content]').forEach((meta) => {
+        const original = meta.getAttribute('content');
+        const fixed = fixMojibakeText(original);
+        if (fixed !== original) meta.setAttribute('content', fixed);
+    });
 };
 
 const parseCount = (value) => {
@@ -1146,6 +1195,8 @@ Zona residencial, segura y muy buscada.`;
             if (codeEl) codeEl.textContent = code;
             if (langMenuBtn) langMenuBtn.setAttribute('aria-expanded', 'false');
         }
+
+        normalizeMojibakeInDom(document);
         localStorage.setItem('site-lang', lang);
     }
 

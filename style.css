@@ -375,8 +375,8 @@ section[id] {
 
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
     align-items: stretch;
 }
 
@@ -1528,7 +1528,6 @@ img, .main-img, #modalImg, .logo img, .footer-logo img {
 
 /* Ajustes para tablet: reduzir colunas pesadas */
 @media (max-width: 1024px) {
-    .properties-grid { grid-template-columns: repeat(3, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr; gap: 40px; }
     .properties-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1730,7 +1729,7 @@ html, body {
 @media (max-width: 900px) {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 }
 
