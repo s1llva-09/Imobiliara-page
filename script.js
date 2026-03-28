@@ -862,7 +862,7 @@ Nao aceita criancas`;
     translations.pt['properties.card3.title'] = 'Apartamento de 2 Ambientes';
     translations.pt['properties.card3.modalTitle'] = 'Apartamento de 2 Ambientes';
     translations.pt['properties.card3.location'] = 'Palestina 800 - Almagro';
-    translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
+translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
 
 📅 Disponivel 10/03
 
@@ -871,7 +871,7 @@ Nao aceita criancas`;
 📆 Contrato semestral (bem flexivel!)
 📐 Piso 7 com sacada grande, ideal para seus momentos de relaxamento
 
-💰 Aluguel: $800.000
+💰 Aluguel: $850.000
 🧾 Expensas: $50.000
 ⚡ Servicos: luz, gas e WiFi a parte
 🐶 Pet friendly 🐾
@@ -1011,7 +1011,7 @@ No acepta niños`;
     translations.es['properties.card3.title'] = 'Departamento de 2 Ambientes';
     translations.es['properties.card3.modalTitle'] = 'Departamento de 2 Ambientes';
     translations.es['properties.card3.location'] = 'Palestina 800 - Almagro';
-    translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
+translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
 
 📅 Disponible 10/03
 
@@ -1020,7 +1020,7 @@ No acepta niños`;
 📆 Contrato semestral (¡re flexible!)
 📐 Piso 7 con balcón grande, ideal para tus momentos de relax
 
-💰 Alquiler: $800.000
+💰 Alquiler: $850.000
 🧾 Expensas: $50.000
 ⚡ Servicios: luz, gas y WiFi aparte
 🐶 Pet friendly 🐾
