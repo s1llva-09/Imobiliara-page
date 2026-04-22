@@ -859,26 +859,7 @@ Capacidade para 5–6 pessoas
 Aceita pets (pequenos)
 Nao aceita criancas`;
 
-    translations.pt['properties.card3.title'] = 'Apartamento de 2 Ambientes';
-    translations.pt['properties.card3.modalTitle'] = 'Apartamento de 2 Ambientes';
-    translations.pt['properties.card3.location'] = 'Palestina 800 - Almagro';
-translations.pt['properties.card3.desc'] = `🏡✨ RESERVE JA! ✨🏡
-
-📅 Disponivel 10/03
-
-📍 Palestina 800 - Almagro
-🛏️ 2 ambientes super confortaveis
-📆 Contrato semestral (bem flexivel!)
-📐 Piso 7 com sacada grande, ideal para seus momentos de relaxamento
-
-💰 Aluguel: $850.000
-🧾 Expensas: $50.000
-⚡ Servicos: luz, gas e WiFi a parte
-🐶 Pet friendly 🐾
-
-💛 No coracao de Almagro, a poucos passos da Av. Corrientes, subte, universidades e cafes.
-Um bairro com vida cultural e tudo o que voce precisa para viver com conforto.`;
-
+    
     translations.pt['properties.card4.title'] = 'Estúdio em Recoleta';
     translations.pt['properties.card4.modalTitle'] = 'Estúdio com mezanino - Recoleta';
     translations.pt['properties.card4.location'] = 'Francisco de Vittoria 2300 - Recoleta';
@@ -1008,26 +989,7 @@ Capacidad 5–6 personas
 Acepta mascotas (chicas)
 No acepta niños`;
 
-    translations.es['properties.card3.title'] = 'Departamento de 2 Ambientes';
-    translations.es['properties.card3.modalTitle'] = 'Departamento de 2 Ambientes';
-    translations.es['properties.card3.location'] = 'Palestina 800 - Almagro';
-translations.es['properties.card3.desc'] = `🏡✨ ¡RESERVE YA! ✨🏡
-
-📅 Disponible 10/03
-
-📍 Palestina 800 - Almagro
-🛏️ 2 ambientes súper cómodos
-📆 Contrato semestral (¡re flexible!)
-📐 Piso 7 con balcón grande, ideal para tus momentos de relax
-
-💰 Alquiler: $850.000
-🧾 Expensas: $50.000
-⚡ Servicios: luz, gas y WiFi aparte
-🐶 Pet friendly 🐾
-
-💛 En el corazón de Almagro, a pasos de Av. Corrientes, subte, universidades y cafés.
-Un barrio con onda, vida cultural y todo lo que necesitás para vivir cómodo/a.`;
-
+    
     translations.es['properties.card4.title'] = 'Studio en Recoleta';
     translations.es['properties.card4.modalTitle'] = 'Studio con Entrepiso - Recoleta';
     translations.es['properties.card4.location'] = 'Francisco de Vittoria 2300 - Recoleta';
