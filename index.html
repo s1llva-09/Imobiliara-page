@@ -7,19 +7,19 @@
     <title>Lima Inmobiliaria - Gestión de Inmuebles</title>
     <meta name="description" content="Lima Inmobiliaria en Buenos Aires: alquiler y gestion de inmuebles con asesoramiento personalizado.">
     <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="https://limainmobiliariaofc.com/">
     <meta property="og:locale" content="es_AR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Lima Inmobiliaria - Gestión de Inmuebles">
     <meta property="og:description" content="Alquiler y gestion de inmuebles en Buenos Aires con atención personalizada.">
-    <meta property="og:url" content="/">
+    <meta property="og:url" content="https://limainmobiliariaofc.com/">
     <meta property="og:site_name" content="Lima Inmobiliaria">
-    <meta property="og:image" content="images/logo.png">
+    <meta property="og:image" content="https://limainmobiliariaofc.com/images/logo.png">
     <meta property="og:image:alt" content="Logo de Lima Inmobiliaria">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lima Inmobiliaria - Gestión de Inmuebles">
     <meta name="twitter:description" content="Alquiler y gestion de inmuebles en Buenos Aires con atención personalizada.">
-    <meta name="twitter:image" content="images/logo.png">
+    <meta name="twitter:image" content="https://limainmobiliariaofc.com/images/logo.png">
     <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -32,6 +32,9 @@
             if (ogUrl) ogUrl.setAttribute('content', current);
         })();
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -58,6 +61,7 @@
                 <ul id="langMenu" class="lang-menu" aria-label="Seleccionar idioma">
                     <li data-lang="es">AR Español</li>
                     <li data-lang="pt">BR Português</li>
+                    <li data-lang="en">US English</li>
                 </ul>
             </div>
             <nav id="mainNav">
@@ -65,6 +69,7 @@
                         <li><a id="nav-home" href="#inicio" data-i18n="nav.home">Inicio</a></li>
                         <li><a id="nav-properties" href="#imoveis" data-i18n="nav.properties">Inmuebles</a></li>
                         <li><a id="nav-services" href="#servicos" data-i18n="nav.services">Servicios</a></li>
+                        <li><a id="nav-portal" href="#portal" data-i18n="nav.portal">Portal</a></li>
                         <li><a id="nav-contact" href="#contato" data-i18n="nav.contact">Contacto</a></li>
                         <li><a id="nav-about" href="#sobre" data-i18n="nav.about">Sobre</a></li>
                 </ul>
@@ -76,9 +81,132 @@
         <div class="hero-content">
             <h1 id="hero-title" data-i18n="hero.title">Encuentre su <span>propiedad ideal</span></h1>
             <p id="hero-desc" data-i18n="hero.desc">Encuentre la propiedad perfecta para usted y su familia con nuestra amplia selección de inmuebles.</p>
-            <a href="#contato" id="hero-cta" class="btn-primary" data-i18n="hero.cta"> Ver Inmuebles Disponibles</a>
+            <div class="filter-panel" role="group" aria-label="Filtrar inmuebles">
+                <div class="filter-row"><span class="filter-label" data-i18n="filter.op">Operación</span><div class="filter-chips"><button type="button" class="filter-chip active" data-group="op" data-filter="all" aria-pressed="true" data-i18n="filter.all">Todos</button><button type="button" class="filter-chip" data-group="op" data-filter="temporario" aria-pressed="false" data-i18n="filter.temp">Alquiler temporario</button><button type="button" class="filter-chip" data-group="op" data-filter="tradicional" aria-pressed="false" data-i18n="filter.trad">Alquiler tradicional</button><button type="button" class="filter-chip" data-group="op" data-filter="venta" aria-pressed="false" data-i18n="filter.sale">Ventas</button></div></div>
+                <div class="filter-row"><span class="filter-label" data-i18n="filter.type">Tipo</span><div class="filter-chips"><button type="button" class="filter-chip active" data-group="type" data-filter="all" aria-pressed="true" data-i18n="filter.all">Todos</button><button type="button" class="filter-chip" data-group="type" data-filter="1" aria-pressed="false" data-i18n="filter.r1">1 amb.</button><button type="button" class="filter-chip" data-group="type" data-filter="2" aria-pressed="false" data-i18n="filter.r2">2 amb.</button><button type="button" class="filter-chip" data-group="type" data-filter="3" aria-pressed="false" data-i18n="filter.r3">3 amb.</button><button type="button" class="filter-chip" data-group="type" data-filter="4" aria-pressed="false" data-i18n="filter.r4">4 amb.</button><button type="button" class="filter-chip" data-group="type" data-filter="5" aria-pressed="false" data-i18n="filter.r5">5 amb.</button><button type="button" class="filter-chip" data-group="type" data-filter="oficina" aria-pressed="false" data-i18n="filter.office">Oficinas</button><button type="button" class="filter-chip" data-group="type" data-filter="local" aria-pressed="false" data-i18n="filter.shop">Local comercial</button></div></div>
+            </div>
         </div>
     </section>
+
+<section class="trust-strip" aria-label="Lima Inmobiliaria"><div class="container">
+        <div class="trust-item"><strong data-i18n="trust.1.t">Desde 2020</strong><span data-i18n="trust.1.d">Acompañando a inquilinos y propietarios</span></div>
+        <div class="trust-item"><strong data-i18n="trust.2.t">Toda Buenos Aires</strong><span data-i18n="trust.2.d">Inmuebles en distintos barrios de la ciudad</span></div>
+        <div class="trust-item"><strong data-i18n="trust.3.t">Atención 100% online</strong><span data-i18n="trust.3.d">Rápida, por WhatsApp</span></div>
+        <div class="trust-item"><strong data-i18n="trust.4.t">Español, portugués e inglés</strong><span data-i18n="trust.4.d">Te atendemos en tu idioma</span></div>
+    </div></section>
+
+<section id="imoveis" class="properties">
+    <div class="container">
+        <h2 id="properties-title" data-i18n="properties.title">Inmuebles <span>Destacados</span></h2>
+        <p class="subtitle" id="properties-sub" data-i18n="properties.subtitle">Vea nuestros inmuebles destacados, seleccionados para satisfacer sus necesidades y preferencias.</p>
+
+        
+        <p class="filter-count" id="filterCount" aria-live="polite"></p>
+
+        <div class="properties-grid">
+            <div class="property-card" data-type="2" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <img src="images/optimized/nv5100-01.jpg" alt="Departamento 2 Ambientes en Palermo" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.nv5100.title">Departamento 2 Ambientes en Palermo</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.nv5100.location">Niceto Vega 5100 - Palermo</span></p>
+                    <p class="property-price">USD 700 <small data-i18n="price.month">/ mes</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bed"></i> 1</span><span><i class="fa-solid fa-bath"></i> 1</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.nv5100.modalTitle" data-i18n-location="properties.nv5100.location" data-i18n-desc="properties.nv5100.desc" data-title="Alquiler Temporario – 2 Ambientes en Palermo" data-location="Niceto Vega 5100 - Palermo" data-desc="ALQUILER TEMPORARIO – 2 AMBIENTES EN PALERMO&#10;&#10;📍 Niceto Vega 5100, Palermo – Ciudad de Buenos Aires&#10;&#10;Departamento de 2 ambientes amoblado y equipado, ubicado en Palermo, una de las zonas más buscadas de Buenos Aires.&#10;&#10;Ofrece un espacio cómodo y funcional, ideal para una estadía temporaria de hasta 2 personas. Está completamente amoblado y equipado para brindar comodidad y practicidad desde el primer día.&#10;&#10;Características del departamento&#10;- 2 ambientes&#10;- Amoblado y equipado&#10;- Ideal para 2 personas&#10;- 2 sommier individuales&#10;- Aire acondicionado&#10;- Calefacción&#10;- Lavarropas&#10;&#10;Valor del alquiler&#10;U$S 700 mensuales&#10;&#10;Gastos&#10;A cargo del propietario: expensas, agua y ABL&#10;A cargo del inquilino: luz, gas e internet&#10;&#10;Ubicación&#10;Sobre Niceto Vega al 5100, en Palermo, próximo a Thames y rodeado de una amplia variedad de comercios, gastronomía, servicios y opciones de transporte.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="1" data-baths="1" data-img="images/optimized/nv5100-01.jpg" data-gallery="images/optimized/nv5100-01.jpg|images/optimized/nv5100-02.jpg|images/optimized/nv5100-03.jpg|images/optimized/nv5100-04.jpg|images/optimized/nv5100-05.jpg|images/optimized/nv5100-06.jpg|images/optimized/nv5100-07.jpg|images/optimized/nv5100-08.jpg|images/optimized/nv5100-09.jpg|images/optimized/nv5100-10.jpg">Ver detalles</a>
+                </div>
+            </div>
+            <div class="property-card" data-type="2" data-op="tradicional">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.trad">Alquiler tradicional</span>
+                    <span class="pet-tag" data-i18n="pet.ok">🐾 Acepta mascotas</span>
+                    <img src="images/optimized/pal800-01.jpg" alt="Departamento 2 Ambientes en Almagro" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.pal800.title">Departamento 2 Ambientes en Almagro</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.pal800.location">Palestina 800, 9° piso - Almagro</span></p>
+                    <p class="property-price"><span data-i18n="properties.pal800.price">$980.000</span> <small data-i18n="price.month">/ mes</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bed"></i> 1</span><span><i class="fa-solid fa-bath"></i> 1</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.pal800.modalTitle" data-i18n-location="properties.pal800.location" data-i18n-desc="properties.pal800.desc" data-title="2 Ambientes en Almagro – Piso 9 con Balcón" data-location="Palestina 800, 9° piso - Almagro" data-desc="2 AMBIENTES EN ALMAGRO&#10;&#10;📍 Palestina 800, 9° piso – Almagro, Ciudad de Buenos Aires&#10;&#10;Departamento de 2 ambientes ubicado en una excelente zona de Almagro, en un piso alto y con balcón, ofreciendo un espacio cómodo y funcional para quienes buscan vivir en Buenos Aires.&#10;&#10;La propiedad se encuentra en una ubicación estratégica, próxima a Avenida Corrientes, estaciones de subte, universidades, comercios, cafés y diversos servicios, permitiendo acceder fácilmente a distintos puntos de la ciudad.&#10;&#10;Características del departamento&#10;- 2 ambientes&#10;- Piso 9&#10;- Balcón&#10;- Contrato semestral&#10;- Se aceptan mascotas&#10;- Excelente ubicación&#10;&#10;Valor y gastos&#10;Alquiler mensual: $980.000&#10;Servicios a cargo del inquilino: luz y WiFi&#10;&#10;Ubicación&#10;Sobre Palestina al 800, en Almagro, en una zona residencial con excelente conectividad y una amplia oferta de comercios, gastronomía, universidades y transporte público.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="1" data-baths="1" data-img="images/optimized/pal800-01.jpg" data-gallery="images/optimized/pal800-01.jpg|images/optimized/pal800-02.jpg|images/optimized/pal800-03.jpg|images/optimized/pal800-04.jpg|images/optimized/pal800-05.jpg|images/optimized/pal800-06.jpg|images/optimized/pal800-07.jpg|images/optimized/pal800-08.jpg|images/optimized/pal800-09.jpg|images/optimized/pal800-10.jpg">Ver detalles</a>
+                </div>
+            </div>
+                    <div class="property-card" data-type="2" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <span class="pet-tag" data-i18n="pet.small">🐾 Mascotas pequeñas</span>
+                    <img src="images/optimized/vc400-01.jpg" alt="Departamento 2 Ambientes en Villa Crespo" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.vc400.title">Departamento 2 Ambientes en Villa Crespo</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.vc400.location">Thames 400 - Villa Crespo</span></p>
+                    <p class="property-price"><span data-i18n="properties.vc400.price">$750.000</span> <small data-i18n="price.month">/ mes</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bed"></i> 1</span><span><i class="fa-solid fa-bath"></i> 1</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.vc400.modalTitle" data-i18n-location="properties.vc400.location" data-i18n-desc="properties.vc400.desc" data-title="2 Ambientes en Villa Crespo – Alquiler Temporario" data-location="Thames 400 - Villa Crespo" data-desc="2 AMBIENTES EN VILLA CRESPO – ALQUILER TEMPORARIO&#10;&#10;📍 Thames 400, Villa Crespo – Ciudad de Buenos Aires&#10;&#10;Departamento de 2 ambientes amplios y funcionales, ubicado en una excelente zona de Villa Crespo, con muy buena conexión hacia Palermo y el centro de Buenos Aires.&#10;&#10;La propiedad ofrece espacios cómodos y luminosos, siendo una buena alternativa para una persona o pareja que busca instalarse y vivir cómodamente en la ciudad.&#10;&#10;Características del departamento&#10;- 2 ambientes amplios&#10;- 1 baño completo&#10;- Muy buena luminosidad&#10;- Apto para mascotas pequeñas&#10;- Posibilidad de alquilar con o sin cama&#10;- Excelente ubicación&#10;&#10;Valor y condiciones&#10;Alquiler mensual: $750.000&#10;El valor incluye topes de consumo de luz y gas.&#10;Contrato: 1 año&#10;Reajuste: semestral&#10;Acepta mascota&#10;Wi-Fi y luz: a cargo del inquilino.&#10;&#10;Ubicación&#10;Sobre Thames al 400, Villa Crespo, en una zona estratégica de Buenos Aires, rodeada de comercios, supermercados, restaurantes y servicios.&#10;&#10;Su ubicación permite acceder fácilmente a Palermo, Villa Crespo y el centro de la ciudad, convirtiéndolo en una opción práctica para quienes buscan comodidad y buena conectividad.&#10;&#10;Disponibilidad&#10;Disponible para visitar.&#10;&#10;Si estás buscando un departamento de 2 ambientes en Villa Crespo, contactanos para consultar disponibilidad, condiciones y coordinar una visita.&#10;&#10;LIMA INMOBILIARIA" data-beds="1" data-baths="1" data-img="images/optimized/vc400-01.jpg" data-gallery="images/optimized/vc400-01.jpg|images/optimized/vc400-02.jpg|images/optimized/vc400-03.jpg|images/optimized/vc400-04.jpg|images/optimized/vc400-05.jpg|images/optimized/vc400-06.jpg|images/optimized/vc400-07.jpg|images/optimized/vc400-08.jpg">Ver detalles</a>
+                </div>
+            </div>
+                    <div class="property-card" data-type="3" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <img src="images/optimized/lh2900-01.jpg" alt="Departamento 3 Ambientes en Palermo Chico" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.lh2900.title">Departamento 3 Ambientes en Palermo Chico</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.lh2900.location">Av. Las Heras 2900 - Palermo Chico</span></p>
+                    <p class="property-price"><span data-i18n="properties.lh2900.price">USD 1.750</span> <small data-i18n="price.monthAI">/ mes · all inclusive</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 1</span><span><i class="fa-solid fa-ruler-combined"></i> 70 m²</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.lh2900.modalTitle" data-i18n-location="properties.lh2900.location" data-i18n-desc="properties.lh2900.desc" data-title="3 Ambientes en Palermo Chico – Alquiler Temporario" data-location="Av. Las Heras 2900 - Palermo Chico" data-desc="3 AMBIENTES EN PALERMO CHICO – ALQUILER TEMPORARIO&#10;&#10;📍 Av. Las Heras al 2900 – Palermo Chico, Ciudad de Buenos Aires&#10;&#10;U$S 1.750 mensuales – ALL INCLUSIVE&#10;&#10;Impecable departamento de 3 ambientes, totalmente amoblado y equipado, ubicado en una de las zonas más exclusivas y buscadas de Buenos Aires.&#10;&#10;Con 70 m² cubiertos + 5 m² de balcón, la propiedad ofrece ambientes amplios, luminosos y funcionales, junto con una excelente vista abierta y panorámica.&#10;&#10;Ubicado al contrafrente, el departamento combina tranquilidad, privacidad y luminosidad, en un entorno residencial premium dentro del circuito de embajadas y próximo a importantes espacios verdes.&#10;&#10;Características del departamento&#10;- 3 ambientes&#10;- 70 m² + 5 m² de balcón&#10;- 2 dormitorios&#10;- 1 baño completo&#10;- Balcón con vista panorámica y abierta&#10;- Totalmente amoblado y equipado&#10;- Aire acondicionado frío/calor&#10;- Lavarropas propio&#10;- Smart TV&#10;- Contrato de 6 meses a 1 año&#10;&#10;Living comedor&#10;Amplio y luminoso living comedor con salida al balcón a través de un gran ventanal. Cuenta con sofá, sillón individual, Smart TV y comedor con capacidad para 6 personas.&#10;Dispone además de aire acondicionado frío/calor.&#10;&#10;Cocina&#10;Cocina integrada mediante barra desayunadora, completamente equipada con electrodomésticos y todo lo necesario para una estadía confortable.&#10;Cuenta también con lavarropas automático propio.&#10;&#10;Dormitorios&#10;El dormitorio principal dispone de cama king size, Smart TV, aire acondicionado frío/calor, ventilador de techo y amplio placard empotrado de piso a techo con puertas espejadas.&#10;El segundo dormitorio ofrece gran versatilidad y puede adaptarse según las necesidades del huésped, con posibilidad de incorporar una o dos camas adicionales o utilizarse como espacio de trabajo. También cuenta con excelentes espacios de guardado.&#10;&#10;Baño&#10;Baño completo revestido en cerámicos símil mármol, equipado con bañera y mampara de vidrio.&#10;&#10;Ubicación premium&#10;La propiedad se encuentra en Palermo Chico, en un entorno residencial de categoría y con excelente conectividad.&#10;- A 150 m de Av. del Libertador&#10;- A 300 m de Av. Coronel Díaz&#10;- A metros de Parque Las Heras&#10;- Próximo al Parque República de Chile&#10;- Cercano a restaurantes, cafés y comercios&#10;- Excelente conexión con diferentes puntos de la ciudad&#10;&#10;Condiciones&#10;Alquiler mensual: U$S 1.750 ALL INCLUSIVE&#10;Período de alquiler: 6 meses a 1 año.&#10;El formato ALL INCLUSIVE ofrece una solución práctica para quienes buscan instalarse temporalmente en Buenos Aires con mayor previsibilidad de gastos.&#10;&#10;Una propiedad ideal para quienes buscan categoría, amplitud, luminosidad, tranquilidad y una ubicación premium en Palermo Chico, completamente equipada y lista para disfrutar.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="2" data-baths="1" data-img="images/optimized/lh2900-01.jpg" data-gallery="images/optimized/lh2900-01.jpg|images/optimized/lh2900-02.jpg|images/optimized/lh2900-03.jpg|images/optimized/lh2900-04.jpg|images/optimized/lh2900-05.jpg|images/optimized/lh2900-06.jpg|images/optimized/lh2900-07.jpg|images/optimized/lh2900-08.jpg|images/optimized/lh2900-09.jpg|images/optimized/lh2900-10.jpg">Ver detalles</a>
+                </div>
+            </div>
+                    <div class="property-card" data-type="3" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <span class="pet-tag" data-i18n="pet.ok">🐾 Acepta mascotas</span>
+                    <img src="images/optimized/th9-01.jpg" alt="Departamento 3 Ambientes en Villa Crespo" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.th9.title">Departamento 3 Ambientes en Villa Crespo</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.th9.location">Thames 400, 9° piso - Villa Crespo</span></p>
+                    <p class="property-price"><span data-i18n="properties.th9.price">$900.000</span> <small data-i18n="price.month">/ mes</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 1</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.th9.modalTitle" data-i18n-location="properties.th9.location" data-i18n-desc="properties.th9.desc" data-title="3 Ambientes en Villa Crespo – Alquiler Temporario" data-location="Thames 400, 9° piso - Villa Crespo" data-desc="3 AMBIENTES EN VILLA CRESPO – ALQUILER TEMPORARIO&#10;&#10;📍 Thames 400, 9° piso – Villa Crespo, Ciudad de Buenos Aires&#10;&#10;Disponible&#10;&#10;Departamento de 3 ambientes ubicado en una de las zonas más buscadas de Villa Crespo. Por su distribución y ubicación, resulta una excelente opción para dos personas que buscan comodidad, buena conectividad y acceso a una amplia variedad de servicios.&#10;&#10;La propiedad se encuentra en un piso alto y cuenta con una ubicación estratégica, próxima a Avenida Corrientes y a la Línea B de subte, con fácil conexión hacia Palermo, el centro y otros puntos de la ciudad.&#10;&#10;Características del departamento&#10;- 3 ambientes&#10;- Ideal para 2 personas&#10;- Piso 9&#10;- Contrato semestral&#10;- Reajuste semestral&#10;- Apto mascotas&#10;- Excelente ubicación&#10;&#10;Valor y condiciones&#10;Alquiler mensual: $900.000&#10;Servicios a cargo del inquilino: WiFi, luz y gas&#10;&#10;Ubicación&#10;Villa Crespo se caracteriza por combinar la tranquilidad de un barrio residencial con una amplia oferta comercial, gastronómica y cultural.&#10;&#10;El departamento se encuentra a pocas cuadras de Av. Corrientes y la Línea B de subte, con numerosas líneas de colectivo y excelente conexión hacia Palermo y el centro de Buenos Aires.&#10;&#10;En los alrededores se encuentran cafés, restaurantes, bares, supermercados, comercios y locales de diseño, además del polo gastronómico y comercial de Villa Crespo.&#10;&#10;Disponibilidad&#10;Disponible para visitar.&#10;&#10;Una excelente alternativa para quienes buscan un departamento de 3 ambientes en Villa Crespo, con contrato semestral, buena conectividad y posibilidad de vivir con mascotas.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="2" data-baths="1" data-img="images/optimized/th9-01.jpg" data-gallery="images/optimized/th9-01.jpg|images/optimized/th9-02.jpg|images/optimized/th9-03.jpg|images/optimized/th9-04.jpg|images/optimized/th9-05.jpg|images/optimized/th9-06.jpg|images/optimized/th9-07.jpg">Ver detalles</a>
+                </div>
+            </div>
+                    <div class="property-card" data-type="1" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <img src="images/optimized/cb-01.jpg" alt="Monoambiente en Congreso / Balvanera" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.cb.title">Monoambiente en Congreso / Balvanera</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.cb.location">Callao y Perón - Congreso / Balvanera</span></p>
+                    <p class="property-price"><span data-i18n="properties.cb.price">$780.000</span> <small data-i18n="price.month">/ mes</small></p>
+                    <div class="property-features"><span><i class="fa-solid fa-bath"></i> 1</span><span><i class="fa-solid fa-ruler-combined"></i> 30 m²</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.cb.modalTitle" data-i18n-location="properties.cb.location" data-i18n-desc="properties.cb.desc" data-title="Monoambiente en Congreso / Balvanera – Alquiler Temporario" data-location="Callao y Perón - Congreso / Balvanera" data-desc="MONOAMBIENTE EN CONGRESO / BALVANERA – ALQUILER TEMPORARIO&#10;&#10;📍 Callao y Perón – Congreso / Balvanera, Ciudad de Buenos Aires&#10;&#10;Disponible – $780.000 mensuales&#10;&#10;1 ambiente de 30 m² ubicado en un 13° piso, con balcón y vista abierta, ideal para 1 o 2 personas que buscan una propiedad funcional, cómoda y bien conectada para una estadía temporaria en Buenos Aires.&#10;&#10;La unidad se encuentra amoblada y equipada, ofreciendo todo lo necesario para una estadía práctica.&#10;&#10;Características del departamento&#10;- Monoambiente&#10;- 30 m²&#10;- 13° piso&#10;- Capacidad para 2 personas&#10;- Cama doble&#10;- Balcón&#10;- Vista abierta&#10;- Aire acondicionado frío&#10;- Calefacción central&#10;- Seguridad 24 horas&#10;- Anafe eléctrico&#10;- Microondas&#10;- Heladera bajo mesada&#10;&#10;Valor y condiciones&#10;Alquiler mensual: $780.000&#10;Contrato: trimestral, con posibilidad de renovación.&#10;Servicios a cargo del inquilino: electricidad, agua e internet.&#10;&#10;Ubicación&#10;El departamento se encuentra en la zona de Callao y Perón, en el área de Congreso/Balvanera, con excelente acceso al transporte público y conexión con distintos puntos de la Ciudad de Buenos Aires.&#10;&#10;Su ubicación resulta especialmente conveniente para estudiantes, profesionales y personas que necesitan instalarse temporalmente en Buenos Aires, con comercios, servicios y transporte en los alrededores.&#10;&#10;Disponibilidad&#10;Disponible para alquiler temporario.&#10;&#10;Una alternativa práctica para quienes buscan un monoambiente con balcón en Congreso/Balvanera, en un piso alto, con seguridad 24 horas y contrato trimestral renovable.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="0" data-baths="1" data-img="images/optimized/cb-01.jpg" data-gallery="images/optimized/cb-01.jpg|images/optimized/cb-02.jpg|images/optimized/cb-03.jpg|images/optimized/cb-04.jpg|images/optimized/cb-05.jpg|images/optimized/cb-06.jpg|images/optimized/cb-07.jpg|images/optimized/cb-08.jpg|images/optimized/cb-09.jpg">Ver detalles</a>
+                </div>
+            </div>
+                    <div class="property-card" data-type="1" data-op="temporario">
+                <div class="property-header">
+                    <span class="badge" data-i18n="properties.badge.temp">Alquiler temporario</span>
+                    <img src="images/optimized/sc-00.jpg" alt="Monoambiente Divisible en San Cristóbal" loading="lazy" decoding="async">
+                </div>
+                <div class="property-body">
+                    <h3 data-i18n="properties.sc.title">Monoambiente Divisible en San Cristóbal</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.sc.location">Salta 500 - San Cristóbal</span></p>
+                    <p class="property-price"><span data-i18n="properties.sc.price">$700.000</span> <small data-i18n="price.month">/ mes</small></p>
+                    <p class="property-avail" data-i18n="properties.sc.avail">Disponible desde el 10 de nov. de 2026</p>
+                    <div class="property-features"><span><i class="fa-solid fa-bath"></i> 1</span><span><i class="fa-solid fa-ruler-combined"></i> 36 m²</span></div>
+                    <a href="#" class="btn-outline" data-i18n="properties.details" data-i18n-title="properties.sc.modalTitle" data-i18n-location="properties.sc.location" data-i18n-desc="properties.sc.desc" data-title="Monoambiente Divisible en San Cristóbal – Alquiler Temporario" data-location="Salta 500 - San Cristóbal" data-desc="MONOAMBIENTE DIVISIBLE EN SAN CRISTÓBAL – ALQUILER TEMPORARIO&#10;&#10;📍 Salta al 500 – San Cristóbal, Ciudad de Buenos Aires&#10;&#10;Disponible desde el 10 de noviembre de 2026&#10;&#10;$700.000 mensuales&#10;&#10;Amplio y funcional 1 ambiente divisible de 36 m², ubicado en San Cristóbal, en una zona estratégica de Buenos Aires y con excelente conexión hacia distintos puntos de la ciudad.&#10;&#10;La propiedad se encuentra amoblada y equipada, ofreciendo un espacio práctico y confortable para una estadía temporaria. Cuenta con balcón al contrafrente, proporcionando mayor tranquilidad y privacidad.&#10;&#10;Características del departamento&#10;- Monoambiente divisible&#10;- 36 m² totales&#10;- Balcón al contrafrente&#10;- Vista interna y entorno tranquilo&#10;- Amoblado y equipado&#10;- Cocina completa con horno&#10;- Sofá&#10;- Mesa de centro&#10;- TV LCD de 32&quot;&#10;- Excelente distribución&#10;&#10;Amenities del edificio&#10;El edificio ofrece servicios y espacios comunes pensados para mejorar la experiencia de los residentes:&#10;- Jacuzzi&#10;- Parrilla&#10;- Laundry&#10;&#10;Valor y gastos&#10;Alquiler mensual: $700.000&#10;Incluye:&#10;- Expensas, con tope&#10;- ABL, con tope&#10;A cargo del inquilino:&#10;- Electricidad&#10;- Gas&#10;- Internet&#10;- Excedente de expensas sobre el tope establecido&#10;&#10;Ubicación&#10;Ubicado sobre Salta al 500, San Cristóbal, en una zona con buena conectividad, comercios, servicios y acceso a diferentes medios de transporte.&#10;&#10;Su ubicación resulta especialmente conveniente para estudiantes, profesionales y personas que necesitan residir temporalmente en Buenos Aires, con fácil acceso a distintos puntos de la ciudad.&#10;&#10;Disponibilidad&#10;Disponible a partir del 10 de noviembre de 2026.&#10;&#10;Una excelente opción para quienes buscan un monoambiente divisible en alquiler temporario en San Cristóbal, amoblado y equipado, con balcón, amenities y un entorno tranquilo.&#10;&#10;Consultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA." data-beds="0" data-baths="1" data-img="images/optimized/sc-00.jpg" data-gallery="images/optimized/sc-00.jpg|images/optimized/sc-01.jpg|images/optimized/sc-02.jpg|images/optimized/sc-03.jpg|images/optimized/sc-04.jpg|images/optimized/sc-05.jpg|images/optimized/sc-06.jpg|images/optimized/sc-07.jpg|images/optimized/sc-08.jpg|images/optimized/sc-09.jpg|images/optimized/sc-10.jpg">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+        <div class="filter-empty" id="filterEmpty" hidden></div>
+
+        <div class="view-all">
+            <a href="#contato" class="btn-primary" data-i18n="properties.viewAll">Ver todos los inmuebles</a>
+        </div>
+    </div>
+</section>
 
 <section id="servicos" class="services">
     <div class="container">
@@ -91,107 +219,13 @@
             <div class="service-card"><div class="icon-box purple">&#x1F4C8;</div><h3 data-i18n="service.sale.title">Venda</h3><p data-i18n="service.sale.desc">Assessoria completa na compra e venda.</p></div>
             
             <div class="service-card"><div class="icon-box orange">&#x1F6E1;&#xFE0F;</div><h3 data-i18n="service.legal.title">Assessoria Jur&iacute;dica</h3><p data-i18n="service.legal.desc">Suporte legal especializado.</p></div>
-            <div class="service-card"><div class="icon-box pink">&#x1F465;</div><h3 data-i18n="service.consult.title">Consultoria</h3><p data-i18n="service.consult.desc">Orienta&ccedil;&atilde;o profissional para investimentos.</p></div>
             <div class="service-card"><div class="icon-box blue-alt">&#x1F4C4;</div><h3 data-i18n="service.docs.title">Documenta&ccedil;&atilde;o</h3><p data-i18n="service.docs.desc">Cuidamos de toda a burocracia.</p></div>
 
             <div class="service-card"><div class="icon-box green">&#x1F3E0;</div><h3 data-i18n="service.eval.title">Avalia&ccedil;&atilde;o</h3><p data-i18n="service.eval.desc">Laudos t&eacute;cnicos de valor de mercado.</p></div>
-            <div class="service-card"><div class="icon-box purple">&#x1F4B0;</div><h3 data-i18n="service.finance.title">Financiamento</h3><p data-i18n="service.finance.desc">Aux&iacute;lio na obten&ccedil;&atilde;o de cr&eacute;dito.</p></div>
-            <div class="service-card"><div class="icon-box orange">&#x1F3D7;&#xFE0F;</div><h3 data-i18n="service.renov.title">Reformas</h3><p data-i18n="service.renov.desc">Gest&atilde;o de melhorias para valoriza&ccedil;&atilde;o.</p></div>
         </div>
     </div>
 </section>
 
-<section id="imoveis" class="properties">
-    <div class="container">
-        <h2 id="properties-title" data-i18n="properties.title">Inmuebles <span>Destacados</span></h2>
-        <p class="subtitle" id="properties-sub" data-i18n="properties.subtitle">Vea nuestros inmuebles destacados, seleccionados para satisfacer sus necesidades y preferencias.</p>
-
-        <div class="properties-grid">
-            <div class="property-card">
-                <div class="property-header">
-                    <span class="badge" data-i18n="properties.badge.rent">Alquiler</span>
-                    <img src="images/optimized/img_2022.jpg" alt="Departamento en Microcentro" loading="lazy" decoding="async">
-                </div>
-                <div class="property-body">
-                    <h3 data-i18n="properties.card1.title">Departamento Amoblado</h3>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.card1.location">Av. Corrientes 700 (11D) - Microcentro</span></p>
-                    <div class="property-features">
-                        <span><i class="fa-solid fa-bed"></i> 1</span>
-                        <span><i class="fa-solid fa-bath"></i> 1</span>
-                    </div>
-                    <a href="#" class="btn-outline"
-                       data-title="Departamento Amoblado"
-                       data-location="Av. Corrientes 700 (11D) - Microcentro"
-                       data-desc="🔥 VIVÍ EN EL CORAZÓN DE BUENOS AIRES 🔥&#10;&#10;📍 Av. Corrientes 700 (11D) – Microcentro&#10;&#10;Sobre la icónica Avenida Corrientes, la avenida más vibrante de la ciudad.&#10;Teatros, cafés históricos, supermercados, universidades y todo el transporte a pocos pasos.&#10;&#10;Ubicación estratégica total.&#10;Subte líneas B, C y D a minutos.&#10;&#10;💰 OPORTUNIDAD – SOLO USD 500 POR 1 AÑO FIJO&#10;* Alquiler mensual: USD 500&#10;* Expensas: $130.000&#10;* Servicios: luz y WiFi a cargo del inquilino&#10;&#10;🏠 Departamento amoblado&#10;🛏 Cómodo, funcional y listo para mudarse&#10;🧺 Incluye lavarropas&#10;✨ Ideal para estudiantes y profesionales extranjeros&#10;&#10;Viví en una de las zonas más buscadas de la ciudad, con movimiento, seguridad y conexión inmediata a todo.&#10;&#10;⚠️ Alta demanda por ubicación y precio."
-                       data-i18n-title="properties.card1.modalTitle"
-                       data-i18n-location="properties.card1.location"
-                       data-i18n-desc="properties.card1.desc"
-                       data-beds="1" data-baths="1"
-                       data-img="images/optimized/img_2022.jpg"
-                       data-gallery="images/optimized/img_2022.jpg|images/optimized/img_2023.jpg|images/optimized/img_2025.jpg|images/optimized/img_2027.jpg"
-                       data-i18n="properties.details">Ver detalles</a>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-header">
-                    <span class="badge" data-i18n="properties.badge.rent">Alquiler</span>
-                    <img src="images/optimized/img_2207.jpg" alt="Apartamento Moderno" loading="lazy" decoding="async">
-                </div>
-                <div class="property-body">
-                    <h3 data-i18n="properties.card2.title">Departamento 4 Ambientes</h3>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.card2.location">Thames 2300 (A) - Palermo</span></p>
-                    <div class="property-features">
-                        <span><i class="fa-solid fa-bed"></i> 3</span>
-                        <span><i class="fa-solid fa-bath"></i> 4</span>
-                    </div>
-                    <a href="#" class="btn-outline"
-                       data-title="Departamento 4 Ambientes"
-                       data-location="Thames 2300 (A) - Palermo"
-                       data-desc="✨ Departamento de 4 ambientes en Palermo – Disponible ✨&#10;📍 Ubicado en una de las mejores zonas de Palermo: cerca de cafés, parques, centros comerciales, subte y toda la movida cultural del barrio.&#10;&#10;📌 Thames 2300 (A) – Palermo&#10;💵 1.600.000&#10;➕ Luz, gas y wifi se pagan aparte&#10;📆 Contrato semestral reajuste semestral&#10;&#10;🏡 Características:&#10;Amoblado&#10;1 suite&#10;Lavarropas&#10;4 baños&#10;Capacidad 5–6 personas&#10;Acepta mascotas (chicas)&#10;No acepta niños"
-                       data-i18n-title="properties.card2.modalTitle"
-                       data-i18n-location="properties.card2.location"
-                       data-i18n-desc="properties.card2.desc"
-                       data-beds="3" data-baths="4"
-                       data-img="images/optimized/img_2207.jpg"
-                       data-gallery="images/optimized/img_2207.jpg|images/optimized/img_2191.jpg|images/optimized/img_2217.jpg|images/optimized/img_2173.jpg"
-                       data-i18n="properties.details">Ver detalles</a>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-header">
-                    <span class="badge" data-i18n="properties.badge.rent">Alquiler</span>
-                    <img src="images/optimized/img_2317.jpg" alt="Studio en Recoleta" loading="lazy" decoding="async">
-                </div>
-                <div class="property-body">
-                    <h3 data-i18n="properties.card4.title">Studio en Recoleta</h3>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="properties.card4.location">Francisco de Vittoria 2300 - Recoleta</span></p>
-                    <div class="property-features">
-                        <span><i class="fa-solid fa-bed"></i> 1</span>
-                        <span><i class="fa-solid fa-bath"></i> 1</span>
-                    </div>
-                    <a href="#" class="btn-outline"
-                       data-title="Studio con Entrepiso - Recoleta"
-                       data-location="Francisco de Vittoria 2300 - Recoleta"
-                       data-desc="📍 Francisco de Vittoria 2300 - Recoleta&#10;📌 Zona Plaza Francia | La Isla - Entre Guido y Agote&#10;&#10;Studio con entrepiso · Amoblado y equipado&#10;Ubicado en la exclusiva zona Plaza Francia - La Isla, este distinguido departamento tipo studio con entrepiso combina confort, luminosidad y tranquilidad, en uno de los entornos más prestigiosos de Recoleta.&#10;La propiedad se encuentra en un área residencial de alto nivel, rodeada de espacios verdes, centros culturales, comercios selectos y una excelente conectividad urbana.&#10;&#10;Características del inmueble&#10;Studio con entrepiso&#10;Totalmente amoblado y equipado&#10;Distribución funcional y moderna&#10;Ambientes muy luminosos&#10;Máximo nivel de silencio y privacidad&#10;&#10;Ubicación destacada&#10;A metros de Plaza Francia&#10;Cercano al Museo Nacional de Bellas Artes&#10;Próximo a Av. Libertador y Av. Figueroa Alcorta&#10;Frente al Ministerio de Seguridad y la Embajada Británica&#10;Excelente acceso a transporte público&#10;🚗 Estacionamiento gratuito disponible en la cuadra&#10;&#10;Condiciones&#10;Alquiler mensual: USD 500&#10;Expensas: $140.000&#10;Servicios a cargo del inquilino: luz, agua, ABL y WiFi"
-                       data-i18n-title="properties.card4.modalTitle"
-                       data-i18n-location="properties.card4.location"
-                       data-i18n-desc="properties.card4.desc"
-                       data-beds="1" data-baths="1"
-                       data-img="images/optimized/img_2317.jpg"
-                       data-gallery="images/optimized/img_2317.jpg|images/optimized/img_2321.jpg|images/optimized/img_2322.jpg|images/optimized/img_2325.jpg"
-                       data-i18n="properties.details">Ver detalles</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="view-all">
-            <a href="#contato" class="btn-primary" data-i18n="properties.viewAll">Ver todos los inmuebles</a>
-        </div>
-    </div>
-</section>
 
 <div id="propertyModal" class="modal">
     <div class="modal-content">
@@ -237,6 +271,30 @@
     </button>
     <img id="lightboxImg" src="" alt="Imagem ampliada do imóvel">
 </div>
+
+<section id="portal" class="portal-section">
+    <div class="container">
+        <h2 data-i18n="portal.title">Portal <span>Lima</span></h2>
+        <p class="subtitle" data-i18n="portal.subtitle">Un sistema propio para que inquilinos y propietarios sigan todo en un solo lugar, desde el celular.</p>
+        <div class="portal-grid">
+            <article class="portal-card">
+                <div class="portal-icon">🔑</div>
+                <h3 data-i18n="portal.tenant.title">Portal del Inquilino</h3>
+                <p class="portal-desc" data-i18n="portal.tenant.desc">Acceso exclusivo a tu departamento y a tu contrato.</p>
+                <ul class="portal-list"><li data-i18n="portal.tenant.f1">Consultá tu contrato y tus datos</li><li data-i18n="portal.tenant.f2">Abrí reclamos y seguí su estado</li><li data-i18n="portal.tenant.f3">Confirmá o rechazá el día y la hora de cada reparación</li><li data-i18n="portal.tenant.f4">Informá tu fecha de pago y subí fotos del departamento</li></ul>
+                <a href="https://admlimainmobiliaria.lovable.app/auth" target="_blank" rel="noopener noreferrer" class="btn-primary portal-btn" data-portal="tenant" data-i18n="portal.tenant.cta">Ingresar como inquilino</a>
+            </article>
+            <article class="portal-card">
+                <div class="portal-icon">🏢</div>
+                <h3 data-i18n="portal.owner.title">Portal del Propietario</h3>
+                <p class="portal-desc" data-i18n="portal.owner.desc">Acceso exclusivo a tus inmuebles, con total transparencia.</p>
+                <ul class="portal-list"><li data-i18n="portal.owner.f1">Estado de cada inmueble de un vistazo</li><li data-i18n="portal.owner.f2">Monto exacto de cada liquidación e historial de pagos</li><li data-i18n="portal.owner.f3">Contrato vigente del inquilino actual</li><li data-i18n="portal.owner.f4">Reclamos del inmueble y solicitud de disponibilización</li></ul>
+                <a href="https://admlimainmobiliaria.lovable.app/auth" target="_blank" rel="noopener noreferrer" class="btn-primary portal-btn" data-portal="owner" data-i18n="portal.owner.cta">Ingresar como propietario</a>
+            </article>
+        </div>
+        <p class="portal-note" data-i18n="portal.note">Cada usuario accede únicamente a su propia información.</p>
+    </div>
+</section>
 
     <section id="como-funciona" class="how-it-works">
         <div class="container">
@@ -414,7 +472,7 @@
                         </div>
                         <div class="form-group">
                             <label data-i18n="form.phoneLabel">Teléfono</label>
-                            <input type="text" id="telefone" data-i18n-placeholder="form.phonePlaceholder" placeholder="(11) 99999-9999" required>
+                            <input type="text" id="telefone" data-i18n-placeholder="form.phonePlaceholder" placeholder="+54 9 11 1234-5678" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -439,7 +497,7 @@
                 <div class="footer-logo">
                     <img src="images/logo.png" alt="Lima Imobiliaria">
                 </div>
-                <p data-i18n="footer.about">Desde 2022 confiando en nosotros 🧡<br><br>Ella llegó desde Brasil 🇧🇷 buscando seguridad y acompañamiento... y hace más de 3 años que sigue alquilando con Lima Inmobiliaria 🙌<br><br>Para nosotros, no se trata solo de alquilar un departamento.<br>Se trata de construir relaciones a largo plazo, con transparencia y apoyo constante.<br><br>Gracias por seguir eligiéndonos.</p>
+                <p data-i18n="footer.about">Desde 2020 confiando en nosotros 🧡<br><br>Ella llegó desde Brasil 🇧🇷 buscando seguridad y acompañamiento... y hace más de 3 años que sigue alquilando con Lima Inmobiliaria 🙌<br><br>Para nosotros, no se trata solo de alquilar un departamento.<br>Se trata de construir relaciones a largo plazo, con transparencia y apoyo constante.<br><br>Gracias por seguir eligiéndonos.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/limaimobiliariaar/" target="_blank">
                         <i class="fab fa-instagram"></i>
@@ -497,6 +555,7 @@
     </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/5491127858950?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20los%20inmuebles%20disponibles." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z" fill="#fff"/><path d="M16.6 14.4c-.3-.2-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1c-1.6-.8-2.6-1.4-3.6-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.400s1 2.800 1.200 3c.1.2 2 3.100 4.900 4.300 1.800.8 2.500.9 3.400.7.5-.1 1.600-.7 1.800-1.300.2-.6.2-1.200.2-1.300-.1-.1-.3-.2-.6-.4z" fill="#25d366"/></svg></a>
     <script src="script.js"></script>
 </body>
 </html>
