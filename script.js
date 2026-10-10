@@ -478,7 +478,7 @@ const closePropertyModal = () => {
 };
 
 if (modal) {
-    document.querySelectorAll('.btn-outline').forEach(button => {
+    document.querySelectorAll('.btn-outline:not([data-page])').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             openPropertyModal(button);
@@ -1328,9 +1328,9 @@ Zona residencial, segura y muy buscada.`;
     Object.assign(translations.pt, {"properties.nv5100.title": "Apartamento 2 Ambientes em Palermo", "properties.nv5100.modalTitle": "Aluguel Temporário – 2 Ambientes em Palermo", "properties.nv5100.location": "Niceto Vega 5100 - Palermo", "properties.nv5100.desc": "ALUGUEL TEMPORÁRIO – 2 AMBIENTES EM PALERMO\n\n📍 Niceto Vega 5100, Palermo – Cidade de Buenos Aires\n\nApartamento de 2 ambientes mobiliado e equipado, localizado em Palermo, uma das regiões mais procuradas de Buenos Aires.\n\nOferece um espaço confortável e funcional, ideal para uma estadia temporária de até 2 pessoas. É totalmente mobiliado e equipado para oferecer conforto e praticidade desde o primeiro dia.\n\nCaracterísticas do apartamento\n- 2 ambientes\n- Mobiliado e equipado\n- Ideal para 2 pessoas\n- 2 camas de solteiro (sommier)\n- Ar-condicionado\n- Aquecimento\n- Máquina de lavar roupa\n\nValor do aluguel\nU$S 700 mensais\n\nDespesas\nPor conta do proprietário: expensas, água e ABL\nPor conta do inquilino: luz, gás e internet\n\nLocalização\nNa Niceto Vega 5100, em Palermo, perto da Thames e cercado de grande variedade de comércios, gastronomia, serviços e opções de transporte.\n\nConsulte disponibilidade e condições de aluguel com a LIMA INMOBILIARIA."});
     Object.assign(translations.en, {"properties.nv5100.title": "2-Room Apartment in Palermo", "properties.nv5100.modalTitle": "Temporary Rental – 2-Room Apartment in Palermo", "properties.nv5100.location": "Niceto Vega 5100 - Palermo", "properties.nv5100.desc": "TEMPORARY RENTAL – 2-ROOM APARTMENT IN PALERMO\n\n📍 Niceto Vega 5100, Palermo – Buenos Aires City\n\nFurnished and equipped 2-room apartment in Palermo, one of the most sought-after areas of Buenos Aires.\n\nIt offers a comfortable, functional space, ideal for a temporary stay for up to 2 people. It is fully furnished and equipped to provide comfort and convenience from day one.\n\nApartment features\n- 2 rooms\n- Furnished and equipped\n- Ideal for 2 people\n- 2 single sommier beds\n- Air conditioning\n- Heating\n- Washing machine\n\nRent\nUSD 700 per month\n\nExpenses\nPaid by the owner: expensas (building fees), water and ABL (property tax)\nPaid by the tenant: electricity, gas and internet\n\nLocation\nOn Niceto Vega 5100, in Palermo, close to Thames and surrounded by a wide variety of shops, restaurants, services and transport options.\n\nAsk about availability and rental conditions with LIMA INMOBILIARIA."});
 
-    Object.assign(translations.es, {"properties.pal800.title": "Departamento 2 Ambientes en Almagro", "properties.pal800.modalTitle": "2 Ambientes en Almagro – Piso 9 con Balcón", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 AMBIENTES EN ALMAGRO\n\n📍 Palestina 800, 9° piso – Almagro, Ciudad de Buenos Aires\n\nDepartamento de 2 ambientes ubicado en una excelente zona de Almagro, en un piso alto y con balcón, ofreciendo un espacio cómodo y funcional para quienes buscan vivir en Buenos Aires.\n\nLa propiedad se encuentra en una ubicación estratégica, próxima a Avenida Corrientes, estaciones de subte, universidades, comercios, cafés y diversos servicios, permitiendo acceder fácilmente a distintos puntos de la ciudad.\n\nCaracterísticas del departamento\n- 2 ambientes\n- Piso 9\n- Balcón\n- Contrato semestral\n- Se aceptan mascotas\n- Excelente ubicación\n\nValor y gastos\nAlquiler mensual: $980.000\nServicios a cargo del inquilino: luz y WiFi\n\nUbicación\nSobre Palestina al 800, en Almagro, en una zona residencial con excelente conectividad y una amplia oferta de comercios, gastronomía, universidades y transporte público.\n\nConsultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA.", "properties.pal800.price": "$980.000"});
-    Object.assign(translations.pt, {"properties.pal800.title": "Apartamento 2 Ambientes em Almagro", "properties.pal800.modalTitle": "2 Ambientes em Almagro – 9º andar com Sacada", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 AMBIENTES EM ALMAGRO\n\n📍 Palestina 800, 9º andar – Almagro, Cidade de Buenos Aires\n\nApartamento de 2 ambientes localizado em uma excelente região de Almagro, em andar alto e com sacada, oferecendo um espaço confortável e funcional para quem busca morar em Buenos Aires.\n\nO imóvel tem localização estratégica, perto da Avenida Corrientes, estações de metrô, universidades, comércios, cafés e diversos serviços, o que facilita o acesso a vários pontos da cidade.\n\nCaracterísticas do apartamento\n- 2 ambientes\n- 9º andar\n- Sacada\n- Contrato semestral\n- Aceita animais de estimação\n- Excelente localização\n\nValor e despesas\nAluguel mensal: ARS 980.000\nPor conta do inquilino: luz e WiFi\n\nLocalização\nNa Palestina 800, em Almagro, em uma zona residencial com excelente conectividade e ampla oferta de comércios, gastronomia, universidades e transporte público.\n\nConsulte disponibilidade e condições de aluguel com a LIMA INMOBILIARIA.", "properties.pal800.price": "ARS 980.000"});
-    Object.assign(translations.en, {"properties.pal800.title": "2-Room Apartment in Almagro", "properties.pal800.modalTitle": "2-Room Apartment in Almagro – 9th Floor with Balcony", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 ROOMS IN ALMAGRO\n\n📍 Palestina 800, 9th floor – Almagro, Buenos Aires City\n\n2-room apartment in an excellent area of Almagro, on a high floor with a balcony, offering a comfortable, functional space for those who want to live in Buenos Aires.\n\nThe property has a strategic location, close to Avenida Corrientes, subway stations, universities, shops, cafés and a wide range of services, making it easy to get around the city.\n\nApartment features\n- 2 rooms\n- 9th floor\n- Balcony\n- 6-month contract\n- Pets accepted\n- Excellent location\n\nRent and expenses\nMonthly rent: ARS 980,000\nTenant pays: electricity and WiFi\n\nLocation\nOn Palestina 800, in Almagro, in a residential area with excellent connectivity and a wide choice of shops, restaurants, universities and public transport.\n\nAsk about availability and rental conditions with LIMA INMOBILIARIA.", "properties.pal800.price": "ARS 980,000"});
+    Object.assign(translations.es, {"properties.pal800.title": "Departamento 2 Ambientes en Almagro", "properties.pal800.modalTitle": "2 Ambientes en Almagro – Piso 9 con Balcón", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 AMBIENTES EN ALMAGRO – ALQUILER TEMPORARIO\n\n📍 Palestina 800, 9° piso – Almagro, Ciudad de Buenos Aires\n\nDepartamento de 2 ambientes ubicado en una excelente zona de Almagro, en un piso alto y con balcón, ofreciendo un espacio cómodo y funcional para quienes buscan vivir en Buenos Aires.\n\nLa propiedad se encuentra en una ubicación estratégica, próxima a Avenida Corrientes, estaciones de subte, universidades, comercios, cafés y diversos servicios, permitiendo acceder fácilmente a distintos puntos de la ciudad.\n\nCaracterísticas del departamento\n- 2 ambientes\n- Piso 9\n- Balcón\n- Contrato semestral\n- Se aceptan mascotas\n- Excelente ubicación\n\nValor y gastos\nAlquiler mensual: $980.000\nServicios a cargo del inquilino: luz y WiFi\n\nUbicación\nSobre Palestina al 800, en Almagro, en una zona residencial con excelente conectividad y una amplia oferta de comercios, gastronomía, universidades y transporte público.\n\nConsultá disponibilidad y condiciones de alquiler con LIMA INMOBILIARIA.", "properties.pal800.price": "$980.000"});
+    Object.assign(translations.pt, {"properties.pal800.title": "Apartamento 2 Ambientes em Almagro", "properties.pal800.modalTitle": "2 Ambientes em Almagro – 9º andar com Sacada", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 AMBIENTES EM ALMAGRO – ALUGUEL TEMPORÁRIO\n\n📍 Palestina 800, 9º andar – Almagro, Cidade de Buenos Aires\n\nApartamento de 2 ambientes localizado em uma excelente região de Almagro, em andar alto e com sacada, oferecendo um espaço confortável e funcional para quem busca morar em Buenos Aires.\n\nO imóvel tem localização estratégica, perto da Avenida Corrientes, estações de metrô, universidades, comércios, cafés e diversos serviços, o que facilita o acesso a vários pontos da cidade.\n\nCaracterísticas do apartamento\n- 2 ambientes\n- 9º andar\n- Sacada\n- Contrato semestral\n- Aceita animais de estimação\n- Excelente localização\n\nValor e despesas\nAluguel mensal: ARS 980.000\nPor conta do inquilino: luz e WiFi\n\nLocalização\nNa Palestina 800, em Almagro, em uma zona residencial com excelente conectividade e ampla oferta de comércios, gastronomia, universidades e transporte público.\n\nConsulte disponibilidade e condições de aluguel com a LIMA INMOBILIARIA.", "properties.pal800.price": "ARS 980.000"});
+    Object.assign(translations.en, {"properties.pal800.title": "2-Room Apartment in Almagro", "properties.pal800.modalTitle": "2-Room Apartment in Almagro – 9th Floor with Balcony", "properties.pal800.location": "Palestina 800, 9° piso - Almagro", "properties.pal800.desc": "2 ROOMS IN ALMAGRO – TEMPORARY RENTAL\n\n📍 Palestina 800, 9th floor – Almagro, Buenos Aires City\n\n2-room apartment in an excellent area of Almagro, on a high floor with a balcony, offering a comfortable, functional space for those who want to live in Buenos Aires.\n\nThe property has a strategic location, close to Avenida Corrientes, subway stations, universities, shops, cafés and a wide range of services, making it easy to get around the city.\n\nApartment features\n- 2 rooms\n- 9th floor\n- Balcony\n- 6-month contract\n- Pets accepted\n- Excellent location\n\nRent and expenses\nMonthly rent: ARS 980,000\nTenant pays: electricity and WiFi\n\nLocation\nOn Palestina 800, in Almagro, in a residential area with excellent connectivity and a wide choice of shops, restaurants, universities and public transport.\n\nAsk about availability and rental conditions with LIMA INMOBILIARIA.", "properties.pal800.price": "ARS 980,000"});
 
     Object.assign(translations.es, {"properties.vc400.title": "Departamento 2 Ambientes en Villa Crespo", "properties.vc400.modalTitle": "2 Ambientes en Villa Crespo – Alquiler Temporario", "properties.vc400.location": "Thames 400 - Villa Crespo", "properties.vc400.desc": "2 AMBIENTES EN VILLA CRESPO – ALQUILER TEMPORARIO\n\n📍 Thames 400, Villa Crespo – Ciudad de Buenos Aires\n\nDepartamento de 2 ambientes amplios y funcionales, ubicado en una excelente zona de Villa Crespo, con muy buena conexión hacia Palermo y el centro de Buenos Aires.\n\nLa propiedad ofrece espacios cómodos y luminosos, siendo una buena alternativa para una persona o pareja que busca instalarse y vivir cómodamente en la ciudad.\n\nCaracterísticas del departamento\n- 2 ambientes amplios\n- 1 baño completo\n- Muy buena luminosidad\n- Apto para mascotas pequeñas\n- Posibilidad de alquilar con o sin cama\n- Excelente ubicación\n\nValor y condiciones\nAlquiler mensual: $750.000\nEl valor incluye topes de consumo de luz y gas.\nContrato: 1 año\nReajuste: semestral\nAcepta mascota\nWi-Fi y luz: a cargo del inquilino.\n\nUbicación\nSobre Thames al 400, Villa Crespo, en una zona estratégica de Buenos Aires, rodeada de comercios, supermercados, restaurantes y servicios.\n\nSu ubicación permite acceder fácilmente a Palermo, Villa Crespo y el centro de la ciudad, convirtiéndolo en una opción práctica para quienes buscan comodidad y buena conectividad.\n\nDisponibilidad\nDisponible para visitar.\n\nSi estás buscando un departamento de 2 ambientes en Villa Crespo, contactanos para consultar disponibilidad, condiciones y coordinar una visita.\n\nLIMA INMOBILIARIA", "properties.vc400.price": "$750.000"});
     Object.assign(translations.pt, {"properties.vc400.title": "Apartamento 2 Ambientes em Villa Crespo", "properties.vc400.modalTitle": "2 Ambientes em Villa Crespo – Aluguel Temporário", "properties.vc400.location": "Thames 400 - Villa Crespo", "properties.vc400.desc": "2 AMBIENTES EM VILLA CRESPO – ALUGUEL TEMPORÁRIO\n\n📍 Thames 400, Villa Crespo – Cidade de Buenos Aires\n\nApartamento de 2 ambientes amplos e funcionais, localizado em uma excelente região de Villa Crespo, com ótima conexão com Palermo e o centro de Buenos Aires.\n\nO imóvel oferece espaços confortáveis e iluminados, sendo uma boa alternativa para uma pessoa ou casal que busca se instalar e viver com conforto na cidade.\n\nCaracterísticas do apartamento\n- 2 ambientes amplos\n- 1 banheiro completo\n- Muito boa luminosidade\n- Aceita animais de pequeno porte\n- Possibilidade de alugar com ou sem cama\n- Excelente localização\n\nValor e condições\nAluguel mensal: ARS 750.000\nO valor inclui limites de consumo de luz e gás.\nContrato: 1 ano\nReajuste: semestral\nAceita animal de estimação\nWi-Fi e luz: por conta do inquilino.\n\nLocalização\nNa Thames 400, Villa Crespo, em uma zona estratégica de Buenos Aires, cercada de comércios, supermercados, restaurantes e serviços.\n\nA localização permite chegar facilmente a Palermo, Villa Crespo e ao centro da cidade, sendo uma opção prática para quem busca comodidade e boa conectividade.\n\nDisponibilidade\nDisponível para visitas.\n\nSe você procura um apartamento de 2 ambientes em Villa Crespo, fale conosco para consultar disponibilidade, condições e agendar uma visita.\n\nLIMA INMOBILIARIA", "properties.vc400.price": "ARS 750.000"});
@@ -1355,6 +1355,26 @@ Zona residencial, segura y muy buscada.`;
     Object.assign(translations.es, {"pet.ok": "🐾 Acepta mascotas", "pet.small": "🐾 Mascotas pequeñas"});
     Object.assign(translations.pt, {"pet.ok": "🐾 Aceita pets", "pet.small": "🐾 Pets pequenos"});
     Object.assign(translations.en, {"pet.ok": "🐾 Pets welcome", "pet.small": "🐾 Small pets welcome"});
+
+    Object.assign(translations.es, {"properties.cab.title": "Departamento 4 Ambientes en Caballito", "properties.cab.modalTitle": "Alquiler Temporario – 4 Ambientes en Caballito", "properties.cab.location": "Campichuelo 200 - Caballito", "properties.cab.desc": "ALQUILER TEMPORARIO – 4 AMBIENTES EN CABALLITO\n\n📍 Campichuelo 200 – Caballito, Ciudad de Buenos Aires\n\nUSD 1.200 mensuales\n\nAmplio y cómodo departamento de 4 ambientes ubicado en Caballito, en un barrio residencial, tranquilo y con excelente conectividad.\n\nLa propiedad ofrece ambientes amplios y funcionales, siendo una excelente alternativa para familias, estudiantes o profesionales que buscan comodidad y una buena ubicación dentro de la Ciudad de Buenos Aires.\n\nCaracterísticas del departamento\n- 4 ambientes\n- Living comedor luminoso\n- Cocina independiente equipada\n- Espacio de guardado\n- Comedor diario\n- Dormitorios amplios\n- 2 baños completos\n- Ambientes funcionales\n- Buena ventilación\n- Listo para habitar\n\nValor y gastos\nAlquiler mensual: USD 1.200\nExpensas: $176.000 mensuales\nServicios a cargo del inquilino: luz y gas\n\nUbicación\nEl departamento se encuentra sobre Campichuelo al 200, Caballito, en una zona residencial y tranquila, con fácil acceso a comercios, servicios y transporte público.\n\nSe encuentra próximo a Parque Chacabuco, ofreciendo una ubicación práctica para quienes buscan combinar tranquilidad residencial con buena conexión hacia distintos puntos de Buenos Aires.\n\nDisponibilidad\nDepartamento listo para habitar.\n\nUna excelente opción para quienes buscan un departamento de 4 ambientes en alquiler en Caballito, con amplios espacios, 2 baños y una ubicación residencial bien conectada.\n\nConsultá disponibilidad, condiciones y coordiná una visita con LIMA INMOBILIARIA.", "properties.cab.price": "USD 1.200"});
+    Object.assign(translations.pt, {"properties.cab.title": "Apartamento 4 Ambientes em Caballito", "properties.cab.modalTitle": "Aluguel Temporário – 4 Ambientes em Caballito", "properties.cab.location": "Campichuelo 200 - Caballito", "properties.cab.desc": "ALUGUEL TEMPORÁRIO – 4 AMBIENTES EM CABALLITO\n\n📍 Campichuelo 200 – Caballito, Cidade de Buenos Aires\n\nUSD 1.200 mensais\n\nApartamento amplo e confortável de 4 ambientes em Caballito, em um bairro residencial, tranquilo e com excelente conectividade.\n\nO imóvel oferece ambientes amplos e funcionais, sendo uma excelente alternativa para famílias, estudantes ou profissionais que buscam conforto e uma boa localização na Cidade de Buenos Aires.\n\nCaracterísticas do apartamento\n- 4 ambientes\n- Sala de estar e jantar iluminada\n- Cozinha independente equipada\n- Espaço de armazenamento\n- Copa (refeições do dia a dia)\n- Quartos amplos\n- 2 banheiros completos\n- Ambientes funcionais\n- Boa ventilação\n- Pronto para morar\n\nValor e despesas\nAluguel mensal: USD 1.200\nExpensas (condomínio): ARS 176.000 mensais\nPor conta do inquilino: luz e gás\n\nLocalização\nO apartamento fica na Campichuelo 200, Caballito, em uma zona residencial e tranquila, com fácil acesso a comércios, serviços e transporte público.\n\nFica perto do Parque Chacabuco, uma localização prática para quem busca combinar tranquilidade residencial com boa conexão com diferentes pontos de Buenos Aires.\n\nDisponibilidade\nApartamento pronto para morar.\n\nUma excelente opção para quem busca um apartamento de 4 ambientes para alugar em Caballito, com espaços amplos, 2 banheiros e uma localização residencial bem conectada.\n\nConsulte disponibilidade, condições e agende uma visita com a LIMA INMOBILIARIA.", "properties.cab.price": "USD 1.200"});
+    Object.assign(translations.en, {"properties.cab.title": "4-Room Apartment in Caballito", "properties.cab.modalTitle": "Temporary Rental – 4-Room Apartment in Caballito", "properties.cab.location": "Campichuelo 200 - Caballito", "properties.cab.desc": "TEMPORARY RENTAL – 4-ROOM APARTMENT IN CABALLITO\n\n📍 Campichuelo 200 – Caballito, Buenos Aires City\n\nUSD 1,200 per month\n\nSpacious, comfortable 4-room apartment in Caballito, in a quiet residential neighborhood with excellent connectivity.\n\nThe property offers spacious, functional rooms, making it an excellent option for families, students or professionals looking for comfort and a good location in Buenos Aires City.\n\nApartment features\n- 4 rooms\n- Bright living and dining room\n- Separate equipped kitchen\n- Storage space\n- Everyday dining area\n- Spacious bedrooms\n- 2 full bathrooms\n- Functional rooms\n- Good ventilation\n- Move-in ready\n\nRent and expenses\nMonthly rent: USD 1,200\nExpensas (building fees): ARS 176,000 per month\nTenant pays: electricity and gas\n\nLocation\nThe apartment is on Campichuelo 200, Caballito, in a quiet residential area with easy access to shops, services and public transport.\n\nIt is close to Parque Chacabuco, a practical location for those who want to combine residential calm with good connections to different parts of Buenos Aires.\n\nAvailability\nMove-in ready.\n\nAn excellent option for those looking for a 4-room apartment to rent in Caballito, with large spaces, 2 bathrooms and a well-connected residential location.\n\nAsk about availability and conditions and arrange a visit with LIMA INMOBILIARIA.", "properties.cab.price": "USD 1,200"});
+
+    Object.assign(translations.es, {"card.featured": "Destacado", "properties.badge.reserved": "Reservado"});
+    Object.assign(translations.pt, {"card.featured": "Destaque", "properties.badge.reserved": "Reservado"});
+    Object.assign(translations.en, {"card.featured": "Featured", "properties.badge.reserved": "Reserved"});
+
+    Object.assign(translations.es, {"properties.tuc3100.title": "Departamento 2 Ambientes Amoblado en Almagro", "properties.tuc3100.modalTitle": "Alquiler de 2 Ambientes Amoblado en Almagro", "properties.tuc3100.location": "Tucumán 3100 - Almagro", "properties.tuc3100.desc": "ALQUILER DE 2 AMBIENTES AMOBLADO EN ALMAGRO\n\n📍 Tucumán 3100 – Almagro, Ciudad de Buenos Aires\n\nAlquiler mensual: USD 700\n\nDepartamento de 2 ambientes, cómodo, funcional y completamente amoblado, ideal para quienes buscan instalarse en Buenos Aires con practicidad y comodidad.\n\nLa propiedad cuenta con dormitorio independiente con cama matrimonial, living comedor, cocina equipada y baño completo. Sus ambientes ofrecen una distribución funcional para disfrutar de una estadía confortable, tanto por motivos laborales como académicos o personales.\n\nCaracterísticas del departamento\n- 2 ambientes\n- Dormitorio independiente con cama matrimonial\n- Living comedor\n- Cocina equipada\n- Baño completo\n- Completamente amoblado\n\nValor y gastos\nAlquiler mensual: USD 700\nServicios a cargo del inquilino:\n- Electricidad\n- Gas\n- Wi-Fi\n\nCondiciones de alquiler\nSe ofrecen distintas alternativas de contratación, según disponibilidad y condiciones acordadas:\n- Contrato de 3 meses\n- Contrato de 6 meses\n- Contrato de 1 año\n\nUbicación\nUbicado sobre Tucumán al 3100, en Almagro, en una zona con acceso a comercios, supermercados, restaurantes, cafés y transporte público.\n\nSu ubicación permite una buena conexión con distintos sectores de la Ciudad de Buenos Aires, como Palermo, Recoleta y Microcentro.\n\nDisponibilidad y consultas\nUna excelente alternativa para extranjeros, estudiantes, profesionales y parejas que buscan un departamento amoblado de 2 ambientes en alquiler en Almagro, con dormitorio independiente y diferentes opciones de contratación.\n\nContactá a LIMA INMOBILIARIA para consultar disponibilidad, condiciones y coordinar una visita.", "properties.tuc3100.price": "USD 700"});
+    Object.assign(translations.pt, {"properties.tuc3100.title": "Apartamento 2 Ambientes Mobiliado em Almagro", "properties.tuc3100.modalTitle": "Aluguel de 2 Ambientes Mobiliado em Almagro", "properties.tuc3100.location": "Tucumán 3100 - Almagro", "properties.tuc3100.desc": "ALUGUEL DE 2 AMBIENTES MOBILIADO EM ALMAGRO\n\n📍 Tucumán 3100 – Almagro, Cidade de Buenos Aires\n\nAluguel mensal: USD 700\n\nApartamento de 2 ambientes, confortável, funcional e totalmente mobiliado, ideal para quem busca se instalar em Buenos Aires com praticidade e conforto.\n\nO imóvel tem quarto independente com cama de casal, sala de estar e jantar, cozinha equipada e banheiro completo. Os ambientes têm uma distribuição funcional para aproveitar uma estadia confortável, seja por motivos de trabalho, estudo ou pessoais.\n\nCaracterísticas do apartamento\n- 2 ambientes\n- Quarto independente com cama de casal\n- Sala de estar e jantar\n- Cozinha equipada\n- Banheiro completo\n- Totalmente mobiliado\n\nValor e despesas\nAluguel mensal: USD 700\nPor conta do inquilino:\n- Eletricidade\n- Gás\n- Wi-Fi\n\nCondições de aluguel\nSão oferecidas diferentes alternativas de contratação, conforme a disponibilidade e as condições combinadas:\n- Contrato de 3 meses\n- Contrato de 6 meses\n- Contrato de 1 ano\n\nLocalização\nNa Tucumán 3100, em Almagro, em uma zona com acesso a comércios, supermercados, restaurantes, cafés e transporte público.\n\nA localização permite uma boa conexão com diferentes regiões da Cidade de Buenos Aires, como Palermo, Recoleta e Microcentro.\n\nDisponibilidade e consultas\nUma excelente alternativa para estrangeiros, estudantes, profissionais e casais que buscam um apartamento mobiliado de 2 ambientes para alugar em Almagro, com quarto independente e diferentes opções de contratação.\n\nFale com a LIMA INMOBILIARIA para consultar disponibilidade, condições e agendar uma visita.", "properties.tuc3100.price": "USD 700"});
+    Object.assign(translations.en, {"properties.tuc3100.title": "Furnished 2-Room Apartment in Almagro", "properties.tuc3100.modalTitle": "Furnished 2-Room Apartment for Rent in Almagro", "properties.tuc3100.location": "Tucumán 3100 - Almagro", "properties.tuc3100.desc": "FURNISHED 2-ROOM APARTMENT FOR RENT IN ALMAGRO\n\n📍 Tucumán 3100 – Almagro, Buenos Aires City\n\nMonthly rent: USD 700\n\nComfortable, functional, fully furnished 2-room apartment, ideal for those who want to settle in Buenos Aires with convenience and comfort.\n\nThe property has a separate bedroom with a double bed, a living and dining room, an equipped kitchen and a full bathroom. The rooms offer a functional layout for a comfortable stay, whether for work, study or personal reasons.\n\nApartment features\n- 2 rooms\n- Separate bedroom with double bed\n- Living and dining room\n- Equipped kitchen\n- Full bathroom\n- Fully furnished\n\nRent and expenses\nMonthly rent: USD 700\nTenant pays:\n- Electricity\n- Gas\n- Wi-Fi\n\nRental conditions\nDifferent contract options are offered, depending on availability and agreed conditions:\n- 3-month contract\n- 6-month contract\n- 1-year contract\n\nLocation\nOn Tucumán 3100, in Almagro, in an area with access to shops, supermarkets, restaurants, cafés and public transport.\n\nThe location offers good connections to different parts of Buenos Aires City, such as Palermo, Recoleta and Microcentro.\n\nAvailability and inquiries\nAn excellent option for foreigners, students, professionals and couples looking for a furnished 2-room apartment to rent in Almagro, with a separate bedroom and different contract options.\n\nContact LIMA INMOBILIARIA to ask about availability and conditions and to arrange a visit.", "properties.tuc3100.price": "USD 700"});
+
+    Object.assign(translations.es, {"properties.fso2300.title": "Departamento 2 Ambientes Amoblado en Palermo", "properties.fso2300.modalTitle": "Alquiler de 2 Ambientes Amoblado en Palermo", "properties.fso2300.location": "Fray J. S. de Oro 2300 - Palermo", "properties.fso2300.desc": "ALQUILER DE 2 AMBIENTES AMOBLADO EN PALERMO\n\n📍 Fray J. S. de Oro al 2300 – Palermo, Ciudad de Buenos Aires\n\nAlquiler mensual: U$S 700 + luz y gas\n\nCómodo departamento de 2 ambientes, completamente amoblado y equipado, ubicado en Palermo, uno de los barrios más buscados de Buenos Aires.\n\nLa propiedad ofrece una distribución funcional y ambientes confortables, ideal para quienes buscan instalarse en la ciudad con practicidad, tanto por motivos académicos como laborales o personales.\n\nEl departamento cuenta con un dormitorio independiente con cama matrimonial y mesas de luz. El ambiente principal integra el espacio de estar con una cocina equipada, creando un entorno práctico para la vida cotidiana. Además, dispone de buena entrada de luz natural.\n\nCaracterísticas del departamento\n- 2 ambientes\n- Capacidad para hasta 3 personas\n- Amoblado y equipado\n- Dormitorio independiente\n- Cama matrimonial\n- Mesas de luz\n- Cocina equipada\n- Buena iluminación natural\n\nValor y gastos\nAlquiler mensual: U$S 700\nServicios a cargo del inquilino:\n- Electricidad\n- Gas\n\nCondiciones de alquiler\nSe ofrecen distintas alternativas de contratación, según disponibilidad y condiciones acordadas:\n- Contrato de 3 meses\n- Contrato de 6 meses\n- Contrato de 1 año fijo\n\nUbicación\nUbicado sobre Fray J. S. de Oro al 2300, en Palermo, en una zona reconocida por su amplia oferta gastronómica, comercial y de servicios, con acceso a medios de transporte y conexión con diferentes puntos de la ciudad.\n\nDisponibilidad y consultas\nUna excelente alternativa para estudiantes, profesionales, parejas o personas que buscan un departamento amoblado de 2 ambientes en alquiler en Palermo, con capacidad para hasta 3 personas y diferentes opciones de contratación.\n\nContactá a LIMA INMOBILIARIA para consultar disponibilidad, condiciones y coordinar una visita.", "properties.fso2300.price": "USD 700"});
+    Object.assign(translations.pt, {"properties.fso2300.title": "Apartamento 2 Ambientes Mobiliado em Palermo", "properties.fso2300.modalTitle": "Aluguel de 2 Ambientes Mobiliado em Palermo", "properties.fso2300.location": "Fray J. S. de Oro 2300 - Palermo", "properties.fso2300.desc": "ALUGUEL DE 2 AMBIENTES MOBILIADO EM PALERMO\n\n📍 Fray J. S. de Oro 2300 – Palermo, Cidade de Buenos Aires\n\nAluguel mensal: U$S 700 + luz e gás\n\nApartamento confortável de 2 ambientes, totalmente mobiliado e equipado, em Palermo, um dos bairros mais procurados de Buenos Aires.\n\nO imóvel oferece uma distribuição funcional e ambientes confortáveis, ideal para quem busca se instalar na cidade com praticidade, seja por motivos acadêmicos, profissionais ou pessoais.\n\nO apartamento tem um quarto independente com cama de casal e criados-mudos. O ambiente principal integra a sala de estar com uma cozinha equipada, criando um espaço prático para o dia a dia. Além disso, tem boa entrada de luz natural.\n\nCaracterísticas do apartamento\n- 2 ambientes\n- Capacidade para até 3 pessoas\n- Mobiliado e equipado\n- Quarto independente\n- Cama de casal\n- Criados-mudos\n- Cozinha equipada\n- Boa iluminação natural\n\nValor e despesas\nAluguel mensal: U$S 700\nPor conta do inquilino:\n- Eletricidade\n- Gás\n\nCondições de aluguel\nSão oferecidas diferentes alternativas de contratação, conforme a disponibilidade e as condições combinadas:\n- Contrato de 3 meses\n- Contrato de 6 meses\n- Contrato de 1 ano fixo\n\nLocalização\nNa Fray J. S. de Oro 2300, em Palermo, em uma zona reconhecida pela ampla oferta gastronômica, comercial e de serviços, com acesso a transporte e conexão com diferentes pontos da cidade.\n\nDisponibilidade e consultas\nUma excelente alternativa para estudantes, profissionais, casais ou pessoas que buscam um apartamento mobiliado de 2 ambientes para alugar em Palermo, com capacidade para até 3 pessoas e diferentes opções de contratação.\n\nFale com a LIMA INMOBILIARIA para consultar disponibilidade, condições e agendar uma visita.", "properties.fso2300.price": "USD 700"});
+    Object.assign(translations.en, {"properties.fso2300.title": "Furnished 2-Room Apartment in Palermo", "properties.fso2300.modalTitle": "Furnished 2-Room Apartment for Rent in Palermo", "properties.fso2300.location": "Fray J. S. de Oro 2300 - Palermo", "properties.fso2300.desc": "FURNISHED 2-ROOM APARTMENT FOR RENT IN PALERMO\n\n📍 Fray J. S. de Oro 2300 – Palermo, Buenos Aires City\n\nMonthly rent: USD 700 + electricity and gas\n\nComfortable 2-room apartment, fully furnished and equipped, in Palermo, one of the most sought-after neighborhoods in Buenos Aires.\n\nThe property offers a functional layout and comfortable rooms, ideal for those who want to settle in the city with convenience, whether for academic, work or personal reasons.\n\nThe apartment has a separate bedroom with a double bed and bedside tables. The main room combines the living area with an equipped kitchen, creating a practical space for everyday life. It also gets plenty of natural light.\n\nApartment features\n- 2 rooms\n- Sleeps up to 3 people\n- Furnished and equipped\n- Separate bedroom\n- Double bed\n- Bedside tables\n- Equipped kitchen\n- Good natural light\n\nRent and expenses\nMonthly rent: USD 700\nTenant pays:\n- Electricity\n- Gas\n\nRental conditions\nDifferent contract options are offered, depending on availability and agreed conditions:\n- 3-month contract\n- 6-month contract\n- Fixed 1-year contract\n\nLocation\nOn Fray J. S. de Oro 2300, in Palermo, in an area known for its wide range of restaurants, shops and services, with access to transport and connections to different parts of the city.\n\nAvailability and inquiries\nAn excellent option for students, professionals, couples or anyone looking for a furnished 2-room apartment to rent in Palermo, for up to 3 people and with different contract options.\n\nContact LIMA INMOBILIARIA to ask about availability and conditions and to arrange a visit.", "properties.fso2300.price": "USD 700"});
+
+    Object.assign(translations.es, {"properties.bul2700.title": "Departamento 3 Ambientes con Amenities en Palermo Chico", "properties.bul2700.modalTitle": "Alquiler Temporario – 3 Ambientes en Palermo Chico", "properties.bul2700.location": "Bulnes 2700 - Palermo Chico", "properties.bul2700.desc": "ALQUILER TEMPORARIO – 3 AMBIENTES EN PALERMO CHICO\n\n📍 Bulnes al 2700 – Palermo Chico, Ciudad de Buenos Aires\n\nAlquiler mensual: U$S 1.300\n\nAmplio y luminoso departamento de 3 ambientes, ubicado en el quinto piso de un edificio con amenities premium, en una de las zonas residenciales más exclusivas de Buenos Aires.\n\nLa propiedad cuenta con dos dormitorios y capacidad para hasta 4 personas. Se encuentra amoblada y ofrece una alternativa confortable para quienes buscan una estadía prolongada, con espacios de recreación, seguridad y servicios dentro del edificio.\n\nCaracterísticas del departamento\n- 3 ambientes\n- 2 dormitorios\n- Capacidad para 4 personas\n- Ubicado en el piso 5\n- Amoblado y luminoso\n- No se aceptan mascotas\n\nAmenities y servicios del edificio\n- Pileta\n- Gimnasio\n- Cancha de tenis\n- Laundry\n- Seguridad presencial las 24 horas\n\nValor y gastos\nAlquiler mensual: U$S 1.300\nDepósito de garantía: U$S 1.500\nExpensas: $483.219 mensuales\nServicios a cargo del inquilino:\n- Electricidad\n- Gas\n- ABL\n- Wi-Fi\n\nCondiciones de alquiler\nContrato mínimo: 6 meses.\n\nUbicación\nUbicado sobre Bulnes al 2700, en Palermo Chico, en un entorno residencial que combina tranquilidad, servicios y buena conexión con diferentes sectores de la Ciudad de Buenos Aires.\n\nDisponibilidad y consultas\nUna excelente opción para familias, parejas o profesionales que buscan un departamento amoblado de 3 ambientes en alquiler temporario en Palermo Chico, con capacidad para 4 personas y acceso a amenities de primer nivel.\n\nContactá a LIMA INMOBILIARIA para consultar disponibilidad, condiciones de alquiler y coordinar una visita.", "properties.bul2700.price": "USD 1.300"});
+    Object.assign(translations.pt, {"properties.bul2700.title": "Apartamento 3 Ambientes com Amenities em Palermo Chico", "properties.bul2700.modalTitle": "Aluguel Temporário – 3 Ambientes em Palermo Chico", "properties.bul2700.location": "Bulnes 2700 - Palermo Chico", "properties.bul2700.desc": "ALUGUEL TEMPORÁRIO – 3 AMBIENTES EM PALERMO CHICO\n\n📍 Bulnes 2700 – Palermo Chico, Cidade de Buenos Aires\n\nAluguel mensal: U$S 1.300\n\nApartamento amplo e iluminado de 3 ambientes, no quinto andar de um edifício com amenities premium, em uma das zonas residenciais mais exclusivas de Buenos Aires.\n\nO imóvel tem dois quartos e capacidade para até 4 pessoas. É mobiliado e oferece uma alternativa confortável para quem busca uma estadia prolongada, com áreas de lazer, segurança e serviços dentro do edifício.\n\nCaracterísticas do apartamento\n- 3 ambientes\n- 2 quartos\n- Capacidade para 4 pessoas\n- Localizado no 5º andar\n- Mobiliado e iluminado\n- Não aceita animais de estimação\n\nAmenities e serviços do edifício\n- Piscina\n- Academia\n- Quadra de tênis\n- Lavanderia\n- Segurança presencial 24 horas\n\nValor e despesas\nAluguel mensal: U$S 1.300\nDepósito de garantia: U$S 1.500\nExpensas (condomínio): ARS 483.219 mensais\nPor conta do inquilino:\n- Eletricidade\n- Gás\n- ABL (IPTU)\n- Wi-Fi\n\nCondições de aluguel\nContrato mínimo: 6 meses.\n\nLocalização\nNa Bulnes 2700, em Palermo Chico, em um ambiente residencial que combina tranquilidade, serviços e boa conexão com diferentes regiões da Cidade de Buenos Aires.\n\nDisponibilidade e consultas\nUma excelente opção para famílias, casais ou profissionais que buscam um apartamento mobiliado de 3 ambientes para aluguel temporário em Palermo Chico, com capacidade para 4 pessoas e acesso a amenities de primeiro nível.\n\nFale com a LIMA INMOBILIARIA para consultar disponibilidade, condições de aluguel e agendar uma visita.", "properties.bul2700.price": "USD 1.300"});
+    Object.assign(translations.en, {"properties.bul2700.title": "3-Room Apartment with Amenities in Palermo Chico", "properties.bul2700.modalTitle": "Temporary Rental – 3-Room Apartment in Palermo Chico", "properties.bul2700.location": "Bulnes 2700 - Palermo Chico", "properties.bul2700.desc": "TEMPORARY RENTAL – 3-ROOM APARTMENT IN PALERMO CHICO\n\n📍 Bulnes 2700 – Palermo Chico, Buenos Aires City\n\nMonthly rent: USD 1,300\n\nSpacious, bright 3-room apartment on the fifth floor of a building with premium amenities, in one of the most exclusive residential areas of Buenos Aires.\n\nThe property has two bedrooms and sleeps up to 4 people. It is furnished and offers a comfortable option for those looking for a longer stay, with leisure areas, security and services inside the building.\n\nApartment features\n- 3 rooms\n- 2 bedrooms\n- Sleeps 4 people\n- 5th floor\n- Furnished and bright\n- No pets allowed\n\nBuilding amenities and services\n- Pool\n- Gym\n- Tennis court\n- Laundry\n- On-site security 24 hours\n\nRent and expenses\nMonthly rent: USD 1,300\nSecurity deposit: USD 1,500\nExpensas (building fees): ARS 483,219 per month\nTenant pays:\n- Electricity\n- Gas\n- ABL (property tax)\n- Wi-Fi\n\nRental conditions\nMinimum contract: 6 months.\n\nLocation\nOn Bulnes 2700, in Palermo Chico, in a residential setting that combines quiet, services and good connections to different parts of Buenos Aires City.\n\nAvailability and inquiries\nAn excellent option for families, couples or professionals looking for a furnished 3-room apartment for temporary rental in Palermo Chico, for 4 people and with access to top-level amenities.\n\nContact LIMA INMOBILIARIA to ask about availability and rental conditions and to arrange a visit.", "properties.bul2700.price": "USD 1,300"});
 
     function applyTranslations(lang) {
         const dict = translations[lang] || translations.es;
@@ -1500,45 +1520,383 @@ Zona residencial, segura y muy buscada.`;
 
 
 
-/* ===== Filtros: operación + tipo ===== */
+/* ===== Búsqueda avanzada ===== */
 document.addEventListener('DOMContentLoaded', () => {
-    const panel = document.querySelector('.filter-panel');
-    if (!panel) return;
-    const cards = [...document.querySelectorAll('.properties-grid .property-card')];
-    const count = document.getElementById('filterCount');
-    const empty = document.getElementById('filterEmpty');
-    const L = {
-        es: { show: 'Mostrando', one: 'inmueble', many: 'inmuebles', none: 'No hay inmuebles con estos filtros por ahora.', cta: 'Consultanos por WhatsApp' },
-        pt: { show: 'Mostrando', one: 'imóvel', many: 'imóveis', none: 'Não há imóveis com estes filtros no momento.', cta: 'Consulte-nos pelo WhatsApp' }
+    const root = document.getElementById('advSearch');
+    const grid = document.querySelector('.properties-grid');
+    if (!root || !grid) return;
+
+    // Para alertas por email automáticas, pegá acá el endpoint de tu servicio (Formspree, Make, Zapier, Supabase, etc.).
+    // Recibe un POST JSON { email, alerts, url, filters }. Si queda vacío, se pide confirmar por WhatsApp.
+    const ALERTS_ENDPOINT = '';
+    const WA = '5491127858950';
+    const SAVED_KEY = 'lima-saved-searches';
+
+    const D = {
+        title:['Buscá tu propiedad','Busque seu imóvel','Find your property'],
+        aria:['Búsqueda avanzada de propiedades','Busca avançada de imóveis','Advanced property search'],
+        op:['Operación','Operação','Deal type'], allF:['Todas','Todas','All'], allM:['Todos','Todos','All'],
+        op_tradicional:['Alquiler tradicional','Aluguel tradicional','Traditional rental'], op_temporario:['Temporario','Temporário','Temporary'], op_venta:['Venta','Venda','Sale'],
+        prop:['Tipo de propiedad','Tipo de imóvel','Property type'],
+        p_departamento:['Departamento','Apartamento','Apartment'], p_casa:['Casa','Casa','House'], p_oficina:['Oficina','Escritório','Office'], p_local:['Local','Loja','Commercial space'],
+        hood:['Barrio','Bairro','Neighborhood'], allHoods:['Todos los barrios','Todos os bairros','All neighborhoods'], hoodN:['barrios','bairros','neighborhoods'],
+        hoodSearch:['Buscar barrio…','Buscar bairro…','Search neighborhood…'], noRes:['Sin resultados','Sem resultados','No results'],
+        price:['Precio','Preço','Price'], min:['Mín.','Mín.','Min'], max:['Máx.','Máx.','Max'], pmin:['Precio mínimo','Preço mínimo','Minimum price'], pmax:['Precio máximo','Preço máximo','Maximum price'],
+        beds:['Dormitorios','Quartos','Bedrooms'], baths:['Baños','Banheiros','Bathrooms'], any:['Cualquiera','Qualquer','Any'], studio:['Monoambiente','Studio','Studio'],
+        more:['Más filtros','Mais filtros','More filters'], less:['Menos filtros','Menos filtros','Fewer filters'],
+        m2:['Superficie (m²)','Área (m²)','Area (m²)'], amen:['Amenities','Comodidades','Amenities'],
+        a_piscina:['Piscina','Piscina','Pool'], a_gym:['Gimnasio','Academia','Gym'], a_seguridad:['Seguridad 24 h','Segurança 24 h','24-hour security'], a_pet:['Pet-friendly','Aceita pets','Pet-friendly'],
+        age:['Antigüedad','Idade do imóvel','Property age'], age_new:['A estrenar','Novo','Brand new'], age_5:['Hasta 5 años','Até 5 anos','Up to 5 years'], age_10:['5 a 10 años','5 a 10 anos','5 to 10 years'], age_20:['10 a 20 años','10 a 20 anos','10 to 20 years'], age_20p:['Más de 20 años','Mais de 20 anos','Over 20 years'],
+        orient:['Orientación solar','Orientação solar','Sun orientation'], o_norte:['Norte','Norte','North'], o_sur:['Sur','Sul','South'], o_este:['Este','Leste','East'], o_oeste:['Oeste','Oeste','West'],
+        noData:['Todavía ningún inmueble informa este dato','Nenhum imóvel informa este dado ainda','No listing reports this yet'],
+        search:['Buscar','Buscar','Search'], clear:['Limpiar filtros','Limpar filtros','Clear filters'], save:['Guardar búsqueda','Salvar busca','Save search'], share:['Compartir','Compartilhar','Share'],
+        saved:['Búsquedas guardadas','Buscas salvas','Saved searches'], savedEmpty:['Todavía no guardaste búsquedas.','Você ainda não salvou buscas.',"You haven't saved any searches yet."],
+        apply:['Aplicar','Aplicar','Apply'], del:['Eliminar','Excluir','Delete'], copied:['Enlace copiado','Link copiado','Link copied'], close:['Cerrar','Fechar','Close'],
+        show:['Mostrando','Mostrando','Showing'], one:['inmueble','imóvel','property'], many:['inmuebles','imóveis','properties'],
+        none:['No hay inmuebles con estos filtros por ahora.','Não há imóveis com estes filtros no momento.','No properties match these filters right now.'],
+        soon:['Estamos actualizando nuestros inmuebles disponibles. Consultanos por WhatsApp y te contamos qué hay.','Estamos atualizando nossos imóveis disponíveis. Consulte-nos pelo WhatsApp e contamos o que há.','We are updating our available properties. Message us on WhatsApp and we will tell you what is available.'],
+        cta:['Consultanos por WhatsApp','Consulte-nos pelo WhatsApp','Message us on WhatsApp'],
+        curNote:['Con el precio filtrado en {c}, solo se muestran inmuebles publicados en {c}.','Com o preço filtrado em {c}, aparecem só imóveis anunciados em {c}.','With the price filtered in {c}, only listings priced in {c} are shown.'],
+        m2Note:['Los inmuebles que no informan m² quedan fuera.','Imóveis que não informam m² ficam de fora.','Listings that do not report m² are excluded.'],
+        ssTitle:['Guardar esta búsqueda','Salvar esta busca','Save this search'], ssEmail:['Tu email','Seu e-mail','Your email'],
+        ssAlerts:['Avisarme por email cuando haya nuevos inmuebles que coincidan','Avisar por e-mail quando houver novos imóveis compatíveis','Email me when new matching properties appear'],
+        ssConsent:['Acepto que Lima Inmobiliaria use mi email para enviarme estas alertas.','Aceito que a Lima Inmobiliaria use meu e-mail para enviar esses alertas.','I agree that Lima Inmobiliaria may use my email to send these alerts.'],
+        cancel:['Cancelar','Cancelar','Cancel'], saveBtn:['Guardar','Salvar','Save'], ok:['Listo','Pronto','Done'],
+        errEmail:['Ingresá un email válido.','Informe um e-mail válido.','Enter a valid email.'], errConsent:['Necesitamos tu autorización para enviarte alertas.','Precisamos da sua autorização para enviar alertas.','We need your permission to send alerts.'],
+        done:['Búsqueda guardada en este dispositivo.','Busca salva neste dispositivo.','Search saved on this device.'],
+        waMsg:['Para activar las alertas por email, confirmalo por WhatsApp:','Para ativar os alertas por e-mail, confirme pelo WhatsApp:','To activate email alerts, confirm via WhatsApp:'],
+        ssWa:['Confirmar por WhatsApp','Confirmar pelo WhatsApp','Confirm via WhatsApp'], allListings:['Todos los inmuebles','Todos os imóveis','All properties'], amb:['amb.','amb.','rooms']
     };
-    L.es.soon = 'Estamos actualizando nuestros inmuebles disponibles. Consultanos por WhatsApp y te contamos qué hay.';
-    L.pt.soon = 'Estamos atualizando nossos imóveis disponíveis. Consulte-nos pelo WhatsApp e contamos o que há.';
-    L.en = { soon: 'We are updating our available properties. Message us on WhatsApp and we will tell you what is available.', show: 'Showing', one: 'property', many: 'properties', none: 'No properties match these filters right now.', cta: 'Message us on WhatsApp' };
-    const state = { op: 'all', type: 'all' };
-    const matches = (c) => (state.op === 'all' || c.dataset.op === state.op) && (state.type === 'all' || c.dataset.type === state.type);
+    const LI = () => ({ es: 0, pt: 1, en: 2 })[getCurrentSiteLang()] ?? 0;
+    const t = (k) => (D[k] || [k])[LI()] ?? k;
+    const LOC = () => ['es-AR', 'pt-BR', 'en-US'][LI()];
+    const fmt = (n) => new Intl.NumberFormat(LOC()).format(n);
+    const $ = (s, r = root) => r.querySelector(s);
+    const $$ = (s, r = root) => [...r.querySelectorAll(s)];
+    const ov = document.getElementById('ssOverlay');
+
+    // ---- datos de los inmuebles (leídos del HTML)
+    const num = (v) => (v === undefined || v === '' ? null : Number(v));
+    const cards = [...grid.querySelectorAll('.property-card')].map((el) => {
+        const d = el.dataset, b = (el.querySelector('.btn-card') || {}).dataset || {};
+        const set = (s) => new Set((s || '').split(' ').filter(Boolean));
+        return { el, op: d.op, amb: d.type, prop: d.prop || 'departamento', hood: d.hood || '', hoodLabel: d.hoodLabel || '', price: num(d.price), cur: d.cur || '',
+            beds: num(b.beds), baths: num(b.baths), m2: num(d.m2), amen: set(d.amen), age: num(d.age), orient: set(d.orient) };
+    });
+    const hoodMap = new Map();
+    cards.forEach((c) => { if (c.hood) { const h = hoodMap.get(c.hood) || { label: c.hoodLabel || c.hood, n: 0 }; h.n++; hoodMap.set(c.hood, h); } });
+
+    // ---- estado
+    const blank = () => ({ op: '', prop: '', amb: '', hoods: [], cur: 'ars', pmin: '', pmax: '', beds: '', baths: '', m2min: '', m2max: '', amen: [], age: '', orient: [] });
+    let S = blank();
+    const digits = (v) => String(v || '').replace(/\D/g, '');
+    const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    const match = (c) => {
+        if (S.op && c.op !== S.op) return false;
+        if (S.prop && c.prop !== S.prop) return false;
+        if (S.amb && c.amb !== S.amb) return false;
+        if (S.hoods.length && !S.hoods.includes(c.hood)) return false;
+        if (S.pmin !== '' || S.pmax !== '') {
+            if (c.price === null || c.cur !== S.cur) return false;
+            if (S.pmin !== '' && c.price < +S.pmin) return false;
+            if (S.pmax !== '' && c.price > +S.pmax) return false;
+        }
+        if (S.beds !== '') { if (c.beds === null) return false; if (S.beds === '4' ? c.beds < 4 : c.beds !== +S.beds) return false; }
+        if (S.baths !== '') { if (c.baths === null) return false; if (S.baths === '3' ? c.baths < 3 : c.baths !== +S.baths) return false; }
+        if (S.m2min !== '' || S.m2max !== '') {
+            if (c.m2 === null) return false;
+            if (S.m2min !== '' && c.m2 < +S.m2min) return false;
+            if (S.m2max !== '' && c.m2 > +S.m2max) return false;
+        }
+        if (S.amen.length && !S.amen.every((a) => c.amen.has(a))) return false;
+        if (S.age !== '') {
+            if (c.age === null) return false;
+            const a = c.age;
+            const ok = { new: a === 0, 5: a <= 5, 10: a > 5 && a <= 10, 20: a > 10 && a <= 20, '20p': a > 20 }[S.age];
+            if (!ok) return false;
+        }
+        if (S.orient.length && !S.orient.some((o) => c.orient.has(o))) return false;
+        return true;
+    };
+    const isActive = () => JSON.stringify(S) !== JSON.stringify(blank());
+
+    // ---- resultados
+    const countEl = document.getElementById('filterCount'), emptyEl = document.getElementById('filterEmpty'), hintEl = document.getElementById('filterHint');
     const apply = () => {
         let n = 0;
-        cards.forEach((c) => { const ok = matches(c); c.hidden = !ok; if (ok) n++; });
-        const t = L[getCurrentSiteLang()] || L.es;
-        count.textContent = n ? `${t.show} ${n} ${n === 1 ? t.one : t.many}` : '';
-        const noFilter = state.op === 'all' && state.type === 'all';
-        empty.hidden = n !== 0;
-        empty.innerHTML = `<p>${noFilter ? t.soon : t.none}</p><a href="https://wa.me/5491127858950" target="_blank" rel="noopener noreferrer">${t.cta}</a>`;
+        cards.forEach((c) => { const ok = match(c); c.el.hidden = !ok; if (ok) n++; });
+        countEl.textContent = n ? `${t('show')} ${n} ${n === 1 ? t('one') : t('many')}` : '';
+        emptyEl.hidden = n !== 0;
+        emptyEl.innerHTML = `<p>${isActive() ? t('none') : t('soon')}</p><a href="https://wa.me/${WA}" target="_blank" rel="noopener noreferrer">${t('cta')}</a>`;
+        const notes = [];
+        if (S.pmin !== '' || S.pmax !== '') notes.push(t('curNote').replace(/\{c\}/g, S.cur.toUpperCase()));
+        if (S.m2min !== '' || S.m2max !== '') notes.push(t('m2Note'));
+        hintEl.textContent = notes.join(' ');
+        syncChips();
     };
-    panel.addEventListener('click', (e) => {
-        const b = e.target.closest('.filter-chip');
-        if (!b) return;
-        state[b.dataset.group] = b.dataset.filter;
-        panel.querySelectorAll(`.filter-chip[data-group="${b.dataset.group}"]`).forEach((x) => {
-            x.classList.toggle('active', x === b);
-            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+
+    // ---- chips del hero (atajos)
+    const chipPanel = document.querySelector('.filter-panel');
+    const syncChips = () => {
+        if (!chipPanel) return;
+        const opKey = S.op || 'all', tyKey = (S.prop === 'oficina' || S.prop === 'local') ? S.prop : (S.amb || 'all');
+        chipPanel.querySelectorAll('.filter-chip').forEach((x) => {
+            const on = x.dataset.filter === (x.dataset.group === 'op' ? opKey : tyKey);
+            x.classList.toggle('active', on); x.setAttribute('aria-pressed', on ? 'true' : 'false');
         });
-        apply();
-        const g = document.getElementById('imoveis');
-        if (g) g.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    if (chipPanel) chipPanel.addEventListener('click', (e) => {
+        const b = e.target.closest('.filter-chip'); if (!b) return;
+        const v = b.dataset.filter;
+        if (b.dataset.group === 'op') S.op = v === 'all' ? '' : v;
+        else if (v === 'all') { S.amb = ''; if (S.prop === 'oficina' || S.prop === 'local') S.prop = ''; }
+        else if (v === 'oficina' || v === 'local') { S.prop = v; S.amb = ''; }
+        else { S.amb = v; if (S.prop === 'oficina' || S.prop === 'local') S.prop = ''; }
+        writeFields(); apply(); updateUrl(); toResults();
     });
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('#langMenu li, #langCycle')) setTimeout(apply, 80);
+
+    // ---- campos <-> estado
+    const fOp = $('#fOp'), fProp = $('#fProp'), fPmin = $('#fPmin'), fPmax = $('#fPmax'), fBeds = $('#fBeds'), fBaths = $('#fBaths'), fM2min = $('#fM2min'), fM2max = $('#fM2max'), fAge = $('#fAge');
+    const fmtInput = (el) => { const d = digits(el.value); el.value = d ? fmt(+d) : ''; };
+    [fPmin, fPmax, fM2min, fM2max].forEach((el) => el.addEventListener('blur', () => fmtInput(el)));
+    const readFields = () => {
+        S = { ...S, op: fOp.value, prop: fProp.value, hoods: $$('#msList input:checked').map((i) => i.value),
+            cur: ($('input[name=cur]:checked') || {}).value || 'ars', pmin: digits(fPmin.value), pmax: digits(fPmax.value),
+            beds: fBeds.value, baths: fBaths.value, m2min: digits(fM2min.value), m2max: digits(fM2max.value), age: fAge.value,
+            amen: $$('input[name=amen]:checked').map((i) => i.value), orient: $$('input[name=orient]:checked').map((i) => i.value) };
+        if (S.prop === 'oficina' || S.prop === 'local') S.amb = '';
+    };
+    const writeFields = () => {
+        fOp.value = S.op; fProp.value = S.prop; fBeds.value = S.beds; fBaths.value = S.baths; fAge.value = S.age;
+        fPmin.value = S.pmin !== '' ? fmt(+S.pmin) : ''; fPmax.value = S.pmax !== '' ? fmt(+S.pmax) : '';
+        fM2min.value = S.m2min !== '' ? fmt(+S.m2min) : ''; fM2max.value = S.m2max !== '' ? fmt(+S.m2max) : '';
+        $$('input[name=cur]').forEach((r) => { r.checked = r.value === S.cur; });
+        $$('#msList input').forEach((i) => { i.checked = S.hoods.includes(i.value); });
+        $$('input[name=amen]').forEach((i) => { i.checked = S.amen.includes(i.value); });
+        $$('input[name=orient]').forEach((i) => { i.checked = S.orient.includes(i.value); });
+        hoodLabel();
+    };
+
+    // ---- barrios (multi-selección con búsqueda)
+    const msBtn = $('#msBtn'), msPanel = $('#msPanel'), msList = $('#msList'), msSearch = $('#msSearch');
+    [...hoodMap.entries()].sort((a, b) => a[1].label.localeCompare(b[1].label)).forEach(([slug, h]) => {
+        const li = document.createElement('li'); li.dataset.name = norm(h.label);
+        li.innerHTML = '<label class="chk"><input type="checkbox"><span class="nm"></span><span class="ct"></span></label>';
+        li.querySelector('input').value = slug; li.querySelector('.nm').textContent = h.label; li.querySelector('.ct').textContent = `(${h.n})`;
+        msList.appendChild(li);
     });
-    apply();
+    const hoodLabel = () => {
+        const sel = $$('#msList input:checked');
+        $('#msLabel').textContent = !sel.length ? t('allHoods') : sel.length === 1 ? (hoodMap.get(sel[0].value) || {}).label : `${sel.length} ${t('hoodN')}`;
+    };
+    const msToggle = (open) => { msPanel.hidden = !open; msBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) { msSearch.value = ''; filterHoods(); msSearch.focus(); } };
+    const filterHoods = () => {
+        const q = norm(msSearch.value.trim()); let shown = 0;
+        $$('#msList li').forEach((li) => { const ok = !q || li.dataset.name.includes(q); li.hidden = !ok; if (ok) shown++; });
+        $('#msEmpty').hidden = shown !== 0;
+    };
+    msBtn.addEventListener('click', () => msToggle(msPanel.hidden));
+    msSearch.addEventListener('input', filterHoods);
+    msList.addEventListener('change', hoodLabel);
+    document.addEventListener('click', (e) => { if (!msPanel.hidden && !e.target.closest('#msHood')) msToggle(false); });
+    $('#msHood').addEventListener('keydown', (e) => { if (e.key === 'Escape' && !msPanel.hidden) { msToggle(false); msBtn.focus(); } });
+
+    // ---- "Más filtros" (acordeón)
+    const moreBtn = $('#moreBtn'), morePanel = $('#morePanel');
+    const moreOpen = (open) => { morePanel.hidden = !open; moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); moreBtn.classList.toggle('open', open); moreBtn.querySelector('span').textContent = t(open ? 'less' : 'more'); };
+    moreBtn.addEventListener('click', () => moreOpen(morePanel.hidden));
+
+    // ---- campos sin datos: se deshabilitan
+    const present = { amen: new Set(), orient: new Set(), age: cards.some((c) => c.age !== null) };
+    cards.forEach((c) => { c.amen.forEach((a) => present.amen.add(a)); c.orient.forEach((o) => present.orient.add(o)); });
+    const markAvail = () => {
+        const dis = (el, off) => { el.disabled = off; const w = el.closest('label') || el.parentElement; w.classList.toggle('is-off', off); w.title = off ? t('noData') : ''; };
+        $$('input[name=amen]').forEach((i) => dis(i, !present.amen.has(i.value)));
+        $$('input[name=orient]').forEach((i) => dis(i, !present.orient.has(i.value)));
+        dis(fAge, !present.age);
+    };
+
+    // ---- URL amigable
+    const OPQ = { tradicional: 'alquiler', temporario: 'temporario', venta: 'venta' }, OPR = { alquiler: 'tradicional', temporario: 'temporario', venta: 'venta' };
+    const AMQ = { pet: 'pet-friendly', seguridad: 'seguridad', gym: 'gym', piscina: 'piscina' }, AMR = { 'pet-friendly': 'pet', seguridad: 'seguridad', gym: 'gym', piscina: 'piscina' };
+    const toParams = () => {
+        const p = new URLSearchParams();
+        if (S.op) p.set('operacion', OPQ[S.op]); if (S.prop) p.set('tipo', S.prop); if (S.amb) p.set('ambientes', S.amb);
+        if (S.hoods.length) p.set('barrio', S.hoods.join(','));
+        if (S.pmin !== '' || S.pmax !== '') p.set('moneda', S.cur);
+        if (S.pmin !== '') p.set('precio-min', S.pmin); if (S.pmax !== '') p.set('precio-max', S.pmax);
+        if (S.beds !== '') p.set('dormitorios', S.beds); if (S.baths !== '') p.set('banos', S.baths);
+        if (S.m2min !== '') p.set('m2-min', S.m2min); if (S.m2max !== '') p.set('m2-max', S.m2max);
+        if (S.amen.length) p.set('amenities', S.amen.map((a) => AMQ[a]).join(','));
+        if (S.age !== '') p.set('antiguedad', S.age); if (S.orient.length) p.set('orientacion', S.orient.join(','));
+        return p;
+    };
+    const fromParams = (p) => {
+        const n = blank(), g = (k) => p.get(k) || '', list = (k) => g(k).split(',').map((x) => x.trim()).filter(Boolean);
+        if (OPR[g('operacion')]) n.op = OPR[g('operacion')];
+        if (['departamento', 'casa', 'oficina', 'local'].includes(g('tipo'))) n.prop = g('tipo');
+        if (/^[1-5]$/.test(g('ambientes'))) n.amb = g('ambientes');
+        n.hoods = list('barrio').filter((h) => hoodMap.has(h));
+        if (g('moneda') === 'usd') n.cur = 'usd';
+        if (/^\d+$/.test(g('precio-min'))) n.pmin = g('precio-min'); if (/^\d+$/.test(g('precio-max'))) n.pmax = g('precio-max');
+        if (/^[0-4]$/.test(g('dormitorios'))) n.beds = g('dormitorios'); if (/^[1-3]$/.test(g('banos'))) n.baths = g('banos');
+        if (/^\d+$/.test(g('m2-min'))) n.m2min = g('m2-min'); if (/^\d+$/.test(g('m2-max'))) n.m2max = g('m2-max');
+        n.amen = list('amenities').map((a) => AMR[a]).filter(Boolean);
+        if (['new', '5', '10', '20', '20p'].includes(g('antiguedad'))) n.age = g('antiguedad');
+        n.orient = list('orientacion').filter((o) => ['norte', 'sur', 'este', 'oeste'].includes(o));
+        return n;
+    };
+    const updateUrl = () => { try { const q = toParams().toString(); history.replaceState(null, '', location.pathname + (q ? `?${q}` : '') + location.hash); } catch (e) { /* sin history */ } };
+    const shareUrl = () => {
+        const base = location.hostname.endsWith('limainmobiliariaofc.com') ? `${location.origin}/propiedades` : location.origin + location.pathname;
+        const q = toParams().toString(); return base + (q ? `?${q}` : '');
+    };
+    const toResults = () => { const r = countEl.getBoundingClientRect(); if (r.top > innerHeight * 0.65 || r.top < 0) countEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+
+    // ---- botones
+    const commit = () => { readFields(); apply(); updateUrl(); toResults(); };
+    $('#bSearch').addEventListener('click', commit);
+    root.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox' && e.target.type !== 'radio' && e.target.id !== 'msSearch') { e.preventDefault(); commit(); } });
+    $('#bClear').addEventListener('click', () => { S = blank(); writeFields(); apply(); updateUrl(); });
+    const live = $('#advLive');
+    $('#bShare').addEventListener('click', async () => {
+        readFields(); const u = shareUrl();
+        try { await navigator.clipboard.writeText(u); }
+        catch (e) { const ta = document.createElement('textarea'); ta.value = u; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (er) { /* manual */ } ta.remove(); }
+        live.textContent = `${t('copied')}: ${u}`; clearTimeout(live._t); live._t = setTimeout(() => { live.textContent = ''; }, 3500);
+    });
+
+    // ---- resumen legible
+    const summary = (s = S) => {
+        const p = [];
+        if (s.op) p.push(t(`op_${s.op}`)); if (s.prop) p.push(t(`p_${s.prop}`)); if (s.amb) p.push(`${s.amb} ${t('amb')}`);
+        if (s.hoods.length) p.push(s.hoods.map((h) => (hoodMap.get(h) || {}).label || h).join(', '));
+        if (s.pmin !== '' || s.pmax !== '') p.push(`${s.cur.toUpperCase()} ${s.pmin !== '' ? fmt(+s.pmin) : '…'}–${s.pmax !== '' ? fmt(+s.pmax) : '…'}`);
+        if (s.beds !== '') p.push(`${t('beds')}: ${s.beds === '0' ? t('studio') : s.beds === '4' ? '4+' : s.beds}`);
+        if (s.baths !== '') p.push(`${t('baths')}: ${s.baths === '3' ? '3+' : s.baths}`);
+        if (s.m2min !== '' || s.m2max !== '') p.push(`m² ${s.m2min || '…'}–${s.m2max || '…'}`);
+        if (s.amen.length) p.push(s.amen.map((a) => t(`a_${a}`)).join(', '));
+        if (s.age !== '') p.push(t(`age_${s.age}`)); if (s.orient.length) p.push(s.orient.map((o) => t(`o_${o}`)).join(', '));
+        return p.join(' · ') || t('allListings');
+    };
+
+    // ---- búsquedas guardadas
+    const loadSaved = () => { try { return JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); } catch (e) { return []; } };
+    const storeSaved = (a) => { try { localStorage.setItem(SAVED_KEY, JSON.stringify(a)); } catch (e) { /* sin storage */ } };
+    const savedBtn = $('#savedBtn'), savedList = $('#savedList');
+    const renderSaved = () => {
+        const a = loadSaved(); $('#savedN').textContent = a.length; savedList.innerHTML = '';
+        if (!a.length) { const li = document.createElement('li'); li.className = 'saved-empty'; li.textContent = t('savedEmpty'); savedList.appendChild(li); return; }
+        a.forEach((s) => {
+            const li = document.createElement('li'); const name = document.createElement('span'); name.className = 'sv-name';
+            name.textContent = summary(fromParams(new URLSearchParams(s.qs)));
+            const ap = document.createElement('button'); ap.type = 'button'; ap.className = 'link-btn'; ap.textContent = t('apply');
+            ap.addEventListener('click', () => { S = fromParams(new URLSearchParams(s.qs)); writeFields(); apply(); updateUrl(); toResults(); });
+            const rm = document.createElement('button'); rm.type = 'button'; rm.className = 'link-btn danger'; rm.textContent = t('del');
+            rm.addEventListener('click', () => { storeSaved(loadSaved().filter((x) => x.id !== s.id)); renderSaved(); });
+            li.append(name, ap, rm); savedList.appendChild(li);
+        });
+    };
+    savedBtn.addEventListener('click', () => { const open = savedList.hidden; savedList.hidden = !open; savedBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+
+    // ---- diálogo "Guardar búsqueda"
+    const ssForm = document.getElementById('ssForm'), ssDone = document.getElementById('ssDone'), ssErr = document.getElementById('ssError');
+    const ssEmail = document.getElementById('ssEmail'), ssAlerts = document.getElementById('ssAlerts'), ssConsent = document.getElementById('ssConsent');
+    let lastFocus = null;
+    const ssOpen = () => {
+        readFields(); lastFocus = document.activeElement; document.getElementById('ssSummary').textContent = summary();
+        ssForm.hidden = false; ssDone.hidden = true; ssErr.hidden = true; ssConsent.checked = false; ssOv(true); ssEmail.focus();
+    };
+    const ssOv = (open) => { ov.hidden = !open; document.body.classList.toggle('modal-open', open); if (!open && lastFocus) lastFocus.focus(); };
+    $('#bSave').addEventListener('click', ssOpen);
+    ['ssClose', 'ssCancel', 'ssOk'].forEach((id) => document.getElementById(id).addEventListener('click', () => ssOv(false)));
+    ov.addEventListener('click', (e) => { if (e.target === ov) ssOv(false); });
+    ov.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { ssOv(false); return; }
+        if (e.key !== 'Tab') return;
+        const f = [...ov.querySelectorAll('button,input,a[href]')].filter((x) => !x.disabled && x.offsetParent !== null);
+        if (!f.length) return; const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); } else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    document.getElementById('ssSubmit').addEventListener('click', async () => {
+        const email = ssEmail.value.trim(), ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+        const err = (k) => { ssErr.textContent = t(k); ssErr.hidden = false; };
+        if (!ok) { err('errEmail'); ssEmail.focus(); return; }
+        if (ssAlerts.checked && !ssConsent.checked) { err('errConsent'); ssConsent.focus(); return; }
+        ssErr.hidden = true;
+        const qs = toParams().toString(), entry = { id: Date.now().toString(36), qs, email, alerts: ssAlerts.checked, t: new Date().toISOString() };
+        storeSaved([entry, ...loadSaved()].slice(0, 20)); renderSaved();
+        let sent = false;
+        if (ALERTS_ENDPOINT) { try { const r = await fetch(ALERTS_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, alerts: entry.alerts, url: shareUrl(), filters: S }) }); sent = r.ok; } catch (e) { sent = false; } }
+        document.getElementById('ssDoneMsg').textContent = t('done');
+        const needWa = entry.alerts && !sent; document.getElementById('ssWaMsg').hidden = !needWa; document.getElementById('ssWa').hidden = !needWa;
+        document.getElementById('ssWaMsg').textContent = t('waMsg');
+        const msg = `Hola, quiero activar alertas por email de nuevos inmuebles.\nEmail: ${email}\nBúsqueda: ${shareUrl()}`;
+        document.getElementById('ssWa').href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+        ssForm.hidden = true; ssDone.hidden = false;
+    });
+
+    // ---- idioma
+    const applyLang = () => {
+        const i = LI();
+        $$('[data-sf]', document).forEach((el) => { el.textContent = (D[el.dataset.sf] || [])[i] ?? el.textContent; });
+        $$('[data-sf-ph]', document).forEach((el) => { el.placeholder = (D[el.dataset.sfPh] || [])[i] ?? el.placeholder; });
+        $$('[data-sf-aria]', document).forEach((el) => { el.setAttribute('aria-label', (D[el.dataset.sfAria] || [])[i] ?? el.getAttribute('aria-label')); });
+        moreBtn.querySelector('span').textContent = t(morePanel.hidden ? 'more' : 'less');
+        hoodLabel(); markAvail(); renderSaved();
+        document.getElementById('ssSummary').textContent = ov.hidden ? '' : summary();
+        document.getElementById('ssWaMsg').textContent = t('waMsg');
+    };
+    document.addEventListener('click', (e) => { if (e.target.closest('#langMenu li, #langCycle')) setTimeout(() => { applyLang(); apply(); }, 90); });
+
+    // ---- arranque
+    applyLang();
+    const initial = new URLSearchParams(location.search);
+    if ([...initial.keys()].length) {
+        S = fromParams(initial); writeFields();
+        if (S.m2min || S.m2max || S.amen.length || S.age || S.orient.length) moreOpen(true);
+        apply(); setTimeout(toResults, 400);
+    } else { apply(); }
+});
+
+/* ===== Favoritos (coração) ===== */
+document.addEventListener('DOMContentLoaded', () => {
+    const KEY = 'lima-favs';
+    let favs = [];
+    try { favs = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { favs = []; }
+    const L = { es: ['Guardar en favoritos', 'Quitar de favoritos'], pt: ['Salvar nos favoritos', 'Remover dos favoritos'], en: ['Save to favorites', 'Remove from favorites'] };
+    const btns = [...document.querySelectorAll('.fav-btn')];
+    const paint = () => {
+        const t = L[getCurrentSiteLang()] || L.es;
+        btns.forEach((b) => {
+            const on = favs.includes(b.closest('.property-card').dataset.id);
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            b.setAttribute('aria-label', t[on ? 1 : 0]);
+            b.title = t[on ? 1 : 0];
+        });
+    };
+    btns.forEach((b) => b.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const id = b.closest('.property-card').dataset.id;
+        favs = favs.includes(id) ? favs.filter((x) => x !== id) : [...favs, id];
+        try { localStorage.setItem(KEY, JSON.stringify(favs)); } catch (err) { /* sem storage */ }
+        paint();
+    }));
+    document.addEventListener('click', (e) => { if (e.target.closest('#langMenu li, #langCycle')) setTimeout(paint, 80); });
+    paint();
+});
+
+/* ===== Card clicável ===== */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.property-card').forEach((card) => {
+        const a = card.querySelector('a.btn-card[data-page]');
+        if (!a) return;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.fav-btn, a, button, [class*="dot"]')) return;
+            a.click();
+        });
+    });
 });
