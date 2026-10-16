@@ -2442,3 +2442,52 @@ h1 span,h2 span{font-weight:inherit}
 }
 @media (min-width:701px){ .hero .hero-content{max-width:700px!important} }
 @media (max-width:600px){ .hero .filter-label{flex:none!important} }
+
+/* ===== Seção "Por qué elegir": foto menor, lado a lado ===== */
+#sobre.why-choose-us{padding-top:clamp(40px,5vw,60px)!important;padding-bottom:clamp(40px,5vw,60px)!important}
+#sobre .why-grid{display:grid!important;grid-template-columns:260px minmax(0,1fr)!important;gap:clamp(28px,4vw,48px)!important;align-items:center!important;max-width:980px!important}
+#sobre .why-image-container{width:260px!important;height:auto!important;position:relative}
+#sobre .why-image-container .main-img{width:260px!important;height:330px!important;object-fit:cover;object-position:center 20%;border-radius:12px!important;display:block}
+#sobre .stat-card{padding:10px 14px!important;min-width:0!important;width:auto!important;height:auto!important;border-radius:10px!important}
+#sobre .stat-card h3{font-size:1.4rem!important;margin:0!important;line-height:1.1}
+#sobre .stat-card p{font-size:.7rem!important;margin:2px 0 0!important;line-height:1.2}
+#sobre .why-content h2{font-size:clamp(1.4rem,2.4vw,1.9rem)!important;line-height:1.2!important;margin-bottom:10px!important}
+#sobre .why-content .description{font-size:.92rem!important;line-height:1.55!important;margin-bottom:16px!important}
+#sobre .features-list{gap:10px 20px!important;margin-bottom:16px!important}
+#sobre .feature-item p{font-size:.84rem!important;line-height:1.4!important}
+@media (max-width:760px){
+ #sobre .why-grid{grid-template-columns:1fr!important;justify-items:center;text-align:left}
+ #sobre .why-image-container,#sobre .why-image-container .main-img{width:200px!important}
+ #sobre .why-image-container .main-img{height:240px!important}
+}
+
+/* ===== Foto da proprietária: mesma largura, altura menor ===== */
+#sobre .why-image-container .main-img{height:280px!important;object-fit:cover!important;object-position:center 18%!important}
+@media (max-width:760px){
+ #sobre .why-image-container .main-img{height:210px!important}
+}
+
+/* ===== Cartão da fundadora (substitui o 98%) ===== */
+#sobre .stat-card{display:none!important}
+#sobre .founder-card{position:absolute;left:0;right:0;bottom:0;margin:0;padding:34px 14px 14px;border-radius:0 0 12px 12px;color:#fff;text-align:left;background:linear-gradient(to top,rgba(14,10,8,.92) 0%,rgba(14,10,8,.78) 55%,rgba(14,10,8,0) 100%)}
+#sobre .founder-card p{margin:0}
+#sobre .founder-quote{font-size:.74rem;line-height:1.38;font-style:italic;color:rgba(255,255,255,.95);margin-bottom:8px!important}
+#sobre .founder-name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:.92rem;line-height:1.2;color:#fff}
+#sobre .founder-role{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#f1c9a6;margin-top:2px!important}
+@media (max-width:760px){
+ #sobre .why-image-container{width:100%!important;max-width:340px;display:flex;flex-direction:column;align-items:center}
+ #sobre .why-image-container .main-img{width:200px!important}
+ #sobre .founder-card{position:static;padding:14px 4px 0;background:none;color:#2b2622;text-align:center;border-radius:0}
+ #sobre .founder-quote{font-size:.86rem;color:#4a3a2c}
+ #sobre .founder-name{color:#1b1410;font-size:1rem}
+ #sobre .founder-role{color:#c8601c}
+}
+#sobre .why-image-container .main-img{object-position:center 50%!important}
+#sobre .founder-card{padding-top:26px!important}
+#sobre .founder-quote{font-size:.7rem!important;line-height:1.35!important;margin-bottom:6px!important}
+@media (max-width:760px){
+ #sobre .why-image-container .main-img{object-position:center 35%!important}
+ #sobre .founder-card{padding-top:14px!important}
+ #sobre .founder-quote{font-size:.86rem!important}
+}
+@media (max-width:760px){ #sobre .founder-card{margin-bottom:16px!important} }
