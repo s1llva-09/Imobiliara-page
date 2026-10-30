@@ -2163,6 +2163,7 @@ body {
 .filter-chip:focus-visible{outline:3px solid rgba(255,107,0,.4);outline-offset:2px}
 .filter-count{text-align:center;color:#7a6a5a;font-size:.9rem;margin:0 0 22px}
 .property-card[hidden]{display:none!important}
+.properties-grid .property-card[hidden]{display:none!important}
 .filter-empty{text-align:center;padding:30px 10px;color:#4a3a2c}
 .filter-empty a{color:#ff6b00;font-weight:700}
 .property-header{position:relative}

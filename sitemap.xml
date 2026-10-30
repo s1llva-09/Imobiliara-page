@@ -7,18 +7,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/2-ambientes-villa-crespo-thames-400/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/3-ambientes-palermo-chico-las-heras-2900/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://limainmobiliariaofc.com/propiedad/3-ambientes-villa-crespo-thames-400-piso-9/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -44,12 +32,6 @@
   </url>
   <url>
     <loc>https://limainmobiliariaofc.com/propiedad/2-ambientes-palermo-fray-j-s-de-oro-2300/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/3-ambientes-palermo-chico-bulnes-2700/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -91,19 +73,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-centro-paraguay-maipu/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/2-ambientes-las-canitas-olleros-migueletes/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-centro-peron-montevideo/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-centro-retiro-paraguay-alem/</loc>
+    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-recoleta-balvanera-paraguay-ayacucho/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-recoleta-balvanera-paraguay-ayacucho/</loc>
+    <loc>https://limainmobiliariaofc.com/propiedad/3-ambientes-almagro-torres-del-abasto-gallo/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
