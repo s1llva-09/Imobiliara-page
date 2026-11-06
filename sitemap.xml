@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://limainmobiliariaofc.com/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,12 +14,6 @@
   </url>
   <url>
     <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-congreso-balvanera-callao-y-peron/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-divisible-san-cristobal-salta-500/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -115,26 +109,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/2-ambientes-las-canitas-chenaut-1700/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/4-ambientes-belgrano-teodoro-garcia-2800/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-balvanera-san-luis-2400/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://limainmobiliariaofc.com/propiedad/4-ambientes-caballito-campichuelo-200/</loc>
     <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/monoambiente-belgrano-arribenos-2300/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/departamento-3-ambientes-liniers-madero-100/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/departamento-2-ambientes-av-cordoba-800/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limainmobiliariaofc.com/propiedad/departamento-3-ambientes-villa-ortuzar-14-de-julio-1300/</loc>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
